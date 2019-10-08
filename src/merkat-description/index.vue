@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="navBar">
-    HOLAv
+  <div class="navBar colorBackground">
+
   </div>
 </template>
 
@@ -12,6 +12,9 @@ export default {
 <style lang="css" scoped>
 .navBar {
   width: 100%;
-  background-color: red;
+  height: 90px;
+  z-index: 2;
+  box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+  margin-bottom: 30px;
 }
 </style>
