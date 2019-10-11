@@ -1,6 +1,6 @@
 <template lang="html">
 <div id="app" class="">
-  <div class="subImagen">sadasd</div>
+  <!-- <div class="subImagen"/> -->
   <div class="contenedores">
     <MerkatDescription/>
     <b-row class="mx-1">
@@ -45,7 +45,8 @@ export default {
   components: {
     MerkatDescription,
     OrderBook,
-    PriceChart
+    PriceChart,
+
   },
   data() {
     return {
@@ -56,7 +57,7 @@ export default {
     }
   },
   created() {
-    this.clientWidth = this.$el.clientWidth
+    //this.clientWidth = this.$el.clientWidth
   },
   methods: {
     toggleOrderBook() {
@@ -97,16 +98,49 @@ export default {
 // custom.scss
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
-@import url('https://fonts.googleapis.com/css?family=Noto+Sans+JP&display=swap');
-
+@import url('https://fonts.googleapis.com/css?family=Exo+2|Hind&display=swap');
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   font-family: 'Noto Sans JP', sans-serif !important;
+  color: #bdb8b8 !important;
 }
 
-h1, h2 {
+/* width */
+::-webkit-scrollbar {
+  width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+  background: #8c878745;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+  background: #8c8787;
+
+}
+
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
+  background: #231704d9;
+}
+
+table, th, td, tr {
+  border-bottom-color: #000000c7 !important;
+  border-top-color: #000000c7 !important
+}
+
+th {
+  border-bottom-color: transparent !important;
+  border-top-color: transparent !important
+}
+
+.table, h1, h2, h3, h4, h5, .highcharts-container, .highcharts-title {
+  color: #bdb8b8 !important;
   font-weight: normal;
+  fill: #bdb8b8 !important;
 }
 
 ul {
@@ -120,7 +154,7 @@ li {
 }
 
 .custom-select {
-  background: white !important;
+  background: #bdb8b8 !important;
 }
 ///////////////////
 //START CSS
@@ -130,7 +164,7 @@ li {
 }
 
 .colorBackground {
-  background-color: #ffffffc7;
+  background-color: #20262b;
 }
 
 .subContenedor {
@@ -139,7 +173,8 @@ li {
   // margin-left: 30px;
   padding: 20px;
   box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
-  border-radius: 25px;
+  // border-radius: 15px;
+  background-color: #20262b;
 
 }
 </style>
@@ -159,6 +194,8 @@ li {
   position: absolute;
   z-index: 1;
   width: 100%;
+  background-color: #262d32;
+  height: 100vh;
 }
 
 .subImagen {
