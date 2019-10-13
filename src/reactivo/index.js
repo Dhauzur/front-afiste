@@ -6,14 +6,29 @@ Vue.use(Vuex)
 
 let reactivo = new Vuex.Store({
   state: {
-
-  },
-
-  actions: {
-
+    divs: {
+      OrderBook: {
+        on: true,
+        size: null
+      },
+      PriceChart: {
+        on: true,
+        size: null
+      },
+      PriceHistory: {
+        on: true,
+        size: null
+      },
+    }
   },
 
   mutations: {
+    changeDivs(state, val) {
+      state.divs = val
+    }
+  },
+
+  actions: {
 
   }
 })

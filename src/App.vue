@@ -4,33 +4,34 @@
   <div class="contenedores">
     <MerkatDescription/>
     <b-row class="mx-1">
-      <transition name="fade">
-        <b-col v-if="OrderBookDiv" lg="3" class="subContenedor colorBackground ">
+        <b-col lg="2" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
           <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
-          <OrderBook/>
+          <OrderBook />
+        </b-col>
+        <b-col ref="PriceChart" v-if="divs.PriceChart.on">
+          <PriceChart />
+        </b-col>
+        <b-col lg="2" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor colorBackground ">
+          <div class="tituloSubContenedor" @click="togglePriceHistory()"> Historial de precios</div>
+          <h5 >PriceHistory</h5><!-- <PriceHistory/> -->
+        </b-col>
+      <!-- <transition name="fade">
+        <b-col cols="auto" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
+          <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
+          <OrderBook />
         </b-col>
       </transition>
       <transition name="fade">
-        <div v-if="!OrderBookDiv" @click="toggleOrderBook()">
-          dsfsdfsdfdsf
-        </div>
-      </transition>
-      <transition name="fade">
-        <b-col v-if="PriceHistory">
-          <PriceChart :clientWidth="clientWidth"/>
+        <b-col cols="auto" ref="PriceChart" v-if="divs.PriceChart.on">
+          <PriceChart />
         </b-col>
       </transition>
       <transition name="fade">
-        <b-col v-if="OrderHistoryDiv" lg="3" class="subContenedor colorBackground ">
-          <div class="tituloSubContenedor" @click="toggleOrderHistory()"> Libro de ordenes</div>
-          <OrderBook/>
+        <b-col cols="auto" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor colorBackground ">
+          <div class="tituloSubContenedor" @click="togglePriceHistory()"> Historial de precios</div>
+          <h5 >PriceHistory</h5><!-- <PriceHistory/>
         </b-col>
-      </transition>
-      <transition name="fade">
-        <div v-if="!OrderHistoryDiv" @click="toggleOrderHistory()">
-          dsfsdf22sdfdsf
-        </div>
-      </transition>
+      </transition> -->
     </b-row>
   </div>
 </div>
@@ -40,6 +41,7 @@
 import MerkatDescription from './merkat-description'
 import OrderBook from './order-book'
 import PriceChart from './price-chart'
+import Reac from './reactivo'
 
 export default {
   components: {
@@ -50,35 +52,98 @@ export default {
   },
   data() {
     return {
-      OrderBookDiv: true,
-      OrderHistoryDiv: true,
-      PriceHistory: true,
-      clientWidth: null
+
     }
   },
-  created() {
-    //this.clientWidth = this.$el.clientWidth
+  computed: {
+    divs() {
+      return Reac.state.divs
+    }
+  },
+  mounted() {
+      Reac.commit('changeDivs', {
+        OrderBook: {
+          on: true,
+          size: this.$refs.OrderBook.clientWidth
+        },
+        PriceChart: {
+          on: true,
+          size: this.$refs.PriceChart.clientWidth
+        },
+        PriceHistory:  {
+          on: true,
+          size: this.$refs.PriceHistory.clientWidth
+        }
+      })
   },
   methods: {
     toggleOrderBook() {
-      // this.reloadDivs()
-      this.OrderHistoryDiv = false
-      this.PriceHistory = false
+      Reac.commit('changeDivs', {
+        OrderBook: {
+          on: false,
+          size: this.divs.OrderBook.size
+        },
+        PriceChart: {
+          on: false,
+          size: this.divs.PriceChart.size
+        },
+        PriceHistory:  {
+          on: false,
+          size: this.divs.PriceHistory.size
+        }
+      })
       setTimeout(() => {
-        this.OrderHistoryDiv = true
-        this.PriceHistory = true
-        this.OrderBookDiv = !this.OrderBookDiv
-      }, 100)
+        Reac.commit('changeDivs', {
+          OrderBook: {
+            on: false,
+            size: this.divs.OrderBook.size
+          },
+          PriceChart: {
+            on: true,
+            size: (this.divs.PriceChart.size + this.divs.OrderBook.size)
+          },
+          PriceHistory:  {
+            on: true,
+            size: this.divs.PriceHistory.size
+          }
+        })
+      }, 1)
+
     },
-    toggleOrderHistory() {
-      // this.reloadDivs()
-      this.OrderBookDiv = false
-      this.PriceHistory = false
+    togglePriceHistory() {
+
+      Reac.commit('changeDivs', {
+        OrderBook: {
+          on: false,
+          size: this.divs.OrderBook.size
+        },
+        PriceChart: {
+          on: false,
+          size: this.divs.PriceChart.size
+        },
+        PriceHistory:  {
+          on: false,
+          size: this.divs.PriceHistory.size
+        }
+      })
+
       setTimeout(() => {
-        this.OrderBookDiv = true
-        this.PriceHistory = true
-        this.OrderHistoryDiv = !this.OrderHistoryDiv
-      }, 100)
+        Reac.commit('changeDivs', {
+          OrderBook: {
+            on: true,
+            size: this.divs.OrderBook.size
+          },
+          PriceChart: {
+            on: true,
+            size: this.divs.PriceChart.size + this.divs.PriceHistory.size
+          },
+          PriceHistory:  {
+            on: false,
+            size: this.divs.PriceHistory.size
+          }
+        })
+      }, 1)
+
     },
     // reloadDivs() {
     //   this.OrderBookDiv = false
@@ -171,7 +236,7 @@ li {
   z-index: 2;
   // margin: 20px;
   // margin-left: 30px;
-  padding: 20px;
+  // padding: 20px;
   box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
   // border-radius: 15px;
   background-color: #20262b;
@@ -182,11 +247,11 @@ li {
 <style lang="css" scoped>
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity .1s;
+  transition: opacity 1s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transition: opacity .1s;
+  transition: opacity 1s;
 
 }
 
