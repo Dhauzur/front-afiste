@@ -1,7 +1,7 @@
 <template lang="html">
-  <b-col class="subContenedor colorBackground ">
+  <b-col md="12" class="subContenedor colorBackground ">
     <div class="tituloSubContenedor">Mercados favoritos</div>
-    <table class="table  table-striped table-hover">
+    <table class="table  table-striped table-hover table-responsive">
       <thead>
         <th></th>
       </thead>

@@ -5,10 +5,10 @@
     <MerkatDescription/>
     <transition name="fade">
     <b-row class="mx-1" v-if="reloadDivs">
-      <b-col lg="5" class="subContenedor colorBackground ">
+      <b-col md="5" class="subContenedor colorBackground ">
         <MerkatChart/>
       </b-col>
-      <b-col ref="PriceChart" v-if="divs.PriceChart.on">
+      <b-col md="3" ref="PriceChart" v-if="divs.PriceChart.on">
         <b-col class="mb-2">
           <PriceChart />
         </b-col>
@@ -16,31 +16,14 @@
           <FavoriteMerkats/>
         </b-col>
       </b-col>
-      <b-col lg="2" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
+      <b-col md="2" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
         <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
         <OrderBook />
       </b-col>
-      <b-col lg="2" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor colorBackground ">
+      <b-col md="2" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor colorBackground ">
         <div class="tituloSubContenedor" @click="togglePriceHistory()"> Historial de precios</div>
         <Transaciones/>
       </b-col>
-      <!-- <transition name="fade">
-        <b-col cols="auto" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
-          <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
-          <OrderBook />
-        </b-col>
-      </transition>
-      <transition name="fade">
-        <b-col cols="auto" ref="PriceChart" v-if="divs.PriceChart.on">
-          <PriceChart />
-        </b-col>
-      </transition>
-      <transition name="fade">
-        <b-col cols="auto" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor colorBackground ">
-          <div class="tituloSubContenedor" @click="togglePriceHistory()"> Historial de precios</div>
-          <h5 >PriceHistory</h5><!-- <PriceHistory/>
-        </b-col>
-      </transition> -->
     </b-row>
   </transition>
   </div>
