@@ -1,64 +1,65 @@
 <template lang="html">
   <div class="">
     <br>
-    <b-row>
+    <b-row class="p-1">
       <b-col>Accion</b-col>
-      <b-col><b-button>Comprar</b-button></b-col>
-      <b-col><b-button>Vender</b-button></b-col>
+      <b-col><b-button size="sm">Comprar</b-button></b-col>
+      <b-col><b-button size="sm">Vender</b-button></b-col>
     </b-row>
 
-    <b-row>
+    <b-row class="p-1">
       <b-col>Tipo</b-col>
-      <b-col cols="8"><template><b-form-select v-model="selected" :options="options" size="sm" class="mt-3"></b-form-select></template></b-col>
+      <b-col cols="8"><template><b-form-select v-model="selected" :options="options" size="sm"></b-form-select></template></b-col>
     </b-row>
 
-    <b-row>
+    <b-row class="p-1">
       <b-col cols="4">Fondo</b-col>
       <b-col cols= "6">
         <template>
-            <b-form-input v-model="Fondo" placeholder="0.0"></b-form-input>
+            <b-form-input v-model="Fondo" placeholder="0.0" size="sm"></b-form-input>
         </template>
       </b-col>
       <b-col cols="2">USD</b-col>
     </b-row>
 
-    <b-row>
+    <b-row class="p-1">
       <b-col>Cantidad</b-col>
       <b-col cols= "6">
         <template>
-            <b-form-input v-model="cantidad"></b-form-input>
+            <b-form-input v-model="cantidad" size="sm"></b-form-input>
         </template>
       </b-col>
       <b-col cols="2">BTC</b-col>
     </b-row>
 
-    <b-row>
+    <b-row class="p-1">
       <b-col>Precio</b-col>
       <b-col cols= "6">
         <template>
-            <b-form-input v-model="precio"></b-form-input>
+            <b-form-input v-model="precio" size="sm"></b-form-input>
         </template>
       </b-col>
       <b-col cols="2">USD</b-col>
     </b-row>
-    <b-row>
+
+    <b-row class="p-1">
       <b-col>Total</b-col>
       <b-col cols= "6">
         <template>
-            <b-form-input v-model="total"></b-form-input>
+            <b-form-input v-model="total" size="sm"></b-form-input>
         </template>
       </b-col>
       <b-col cols="2">USD</b-col>
     </b-row>
     <b-form-radio v-model="selected" name="some-radios" value="A">Crear una orden de cierre condicional</b-form-radio>
 
-    <b-row>
+    <b-row class="p-1">
       <b-col><b-button>Reiniciar</b-button></b-col>
       <b-col><b-button>Comprar</b-button></b-col>
     </b-row>
 
     <div>
-      <b-row>
+      <b-row class="p-1">
         <b-col> Lista de observacion</b-col>
       </b-row>
 
@@ -80,15 +81,7 @@
         </b-row>
       </B-container>
 
-
-
-
-
-
     </div>
-
-
-
 
   </div>
 
@@ -106,4 +99,5 @@ export default {
 </script>
 
 <style lang="css" scoped>
+
 </style>
