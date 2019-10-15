@@ -22,8 +22,8 @@
       </transition>
       <transition name="fade">
         <b-col v-if="OrderHistoryDiv" lg="3" class="subContenedor colorBackground ">
-          <div class="tituloSubContenedor" @click="toggleOrderHistory()"> Libro de ordenes</div>
-          <OrderBook/>
+          <div class="tituloSubContenedor" @click="toggleOrderHistory()">transacciones</div>
+          <Transaciones/>
         </b-col>
       </transition>
       <transition name="fade">
@@ -40,13 +40,14 @@
 import MerkatDescription from './merkat-description'
 import OrderBook from './order-book'
 import PriceChart from './price-chart'
+import Transaciones from './transaciones'
 
 export default {
   components: {
     MerkatDescription,
     OrderBook,
     PriceChart,
-
+    Transaciones
   },
   data() {
     return {
