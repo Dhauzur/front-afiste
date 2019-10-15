@@ -3,18 +3,28 @@
   <!-- <div class="subImagen"/> -->
   <div class="contenedores">
     <MerkatDescription/>
-    <b-row class="mx-1">
-        <b-col lg="2" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
-          <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
-          <OrderBook />
-        </b-col>
-        <b-col ref="PriceChart" v-if="divs.PriceChart.on">
+    <transition name="fade">
+    <b-row class="mx-1" v-if="reloadDivs">
+      <b-col lg="5" class="subContenedor colorBackground ">
+        <MerkatChart/>
+      </b-col>
+      <b-col ref="PriceChart" v-if="divs.PriceChart.on">
+        <b-col class="mb-2">
           <PriceChart />
         </b-col>
-        <b-col lg="2" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor colorBackground ">
-          <div class="tituloSubContenedor" @click="togglePriceHistory()"> Historial de precios</div>
-          <h5 >PriceHistory</h5><!-- <PriceHistory/> -->
+        <b-col class="">
+          <FavoriteMerkats/>
         </b-col>
+      </b-col>
+      <b-col lg="2" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
+        <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
+        <OrderBook />
+      </b-col>
+      <b-col lg="2" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor colorBackground ">
+        <div class="tituloSubContenedor" @click="togglePriceHistory()"> Historial de precios</div>
+        <h5 >PriceHistory</h5><!-- <PriceHistory/> -->
+        {{ divs.PriceHistory }}
+      </b-col>
       <!-- <transition name="fade">
         <b-col cols="auto" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
           <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
@@ -33,6 +43,7 @@
         </b-col>
       </transition> -->
     </b-row>
+  </transition>
   </div>
 </div>
 </template>
@@ -41,6 +52,8 @@
 import MerkatDescription from './merkat-description'
 import OrderBook from './order-book'
 import PriceChart from './price-chart'
+import MerkatChart from './merkat-chart'
+import FavoriteMerkats from './favorite-merkats'
 import Reac from './reactivo'
 
 export default {
@@ -48,11 +61,12 @@ export default {
     MerkatDescription,
     OrderBook,
     PriceChart,
-
+    MerkatChart,
+    FavoriteMerkats
   },
   data() {
     return {
-
+      reloadDivs: true
     }
   },
   computed: {
@@ -92,6 +106,7 @@ export default {
           size: this.divs.PriceHistory.size
         }
       })
+      this.reloadDivs = false
       setTimeout(() => {
         Reac.commit('changeDivs', {
           OrderBook: {
@@ -107,6 +122,7 @@ export default {
             size: this.divs.PriceHistory.size
           }
         })
+        this.reloadDivs = true
       }, 1)
 
     },
@@ -126,6 +142,7 @@ export default {
           size: this.divs.PriceHistory.size
         }
       })
+      this.reloadDivs = false
 
       setTimeout(() => {
         Reac.commit('changeDivs', {
@@ -142,6 +159,7 @@ export default {
             size: this.divs.PriceHistory.size
           }
         })
+        this.reloadDivs = true
       }, 1)
 
     },
@@ -169,6 +187,37 @@ export default {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   font-family: 'Noto Sans JP', sans-serif !important;
   color: #bdb8b8 !important;
+  font-size: 0.7rem;
+}
+
+.color-verde {
+  color:#70a800 !important;
+}
+.color-rojo {
+  color:#f7107a !important;
+}
+.highcharts-title {
+  font-size: 0.7rem !important;
+}
+
+h1 {
+  font-size: 58px;
+}
+
+h2 {
+  font-size: 42px;
+}
+h3 {
+  font-size: 30px;
+}
+h4 {
+  font-size: 22px;
+}
+h5 {
+  font-size: 11px;
+}
+h6 {
+  font-size: 4px;
 }
 
 /* width */
@@ -190,6 +239,11 @@ export default {
 /* Handle on hover */
 ::-webkit-scrollbar-thumb:hover {
   background: #231704d9;
+}
+
+.table-hover tbody tr:hover {
+    color: #212529;
+    background-color: rgba(0, 0, 0, 0.075);
 }
 
 table, th, td, tr {
@@ -225,7 +279,7 @@ li {
 //START CSS
 .tituloSubContenedor {
   text-align: center;
-  font-size: 1.2rem;
+  font-size: 0.9rem;
 }
 
 .colorBackground {
@@ -261,6 +315,7 @@ li {
   width: 100%;
   background-color: #262d32;
   height: 100vh;
+  overflow-y: auto;
 }
 
 .subImagen {

@@ -1,11 +1,9 @@
 <template lang="html">
   <div class="subContenedor colorBackground ">
-    <div @click="redraw()" class="tituloSubContenedor">Libro de ordenes {{ divs }}</div>
-    <highcharts ref="highcharts" style="background-color: transparent !important; " :options="chartOptions"></highcharts>
-
+    <div class="tituloSubContenedor">Libro de ordenes</div>
+    <highcharts ref="highcharts" style="background-color: transparent !important; " :options="chartOptions"/>
   </div>
 </template>
-
 <script>
 import {Chart} from 'highcharts-vue'
 import Reac from '../reactivo'
@@ -15,9 +13,6 @@ export default {
   components: {
     highcharts: Chart
   },
-  mounted() {
-    this.redraw()
-  },
   computed: {
     divs() {
       return Reac.state.divs
@@ -25,30 +20,27 @@ export default {
   },
   watch: {
     divs() {
-      this.redraw();
+      // this.redraw();
     }
   },
-  methods: {
-    redraw(){
-      var chart = this.$refs.highcharts.chart;
-      // console.log("redraw");
-      // console.log(chart.clipBox.width);
-      // console.log(this.$refs.priceHistory);
-      console.log(Reac.state.divs.PriceChart.size);
-      chart.update({
-        chart: {
-          width: null
-        }
-      })
-    }
-  },
+  // methods: {
+  //   redraw(){
+  //     var chart = this.$refs.highcharts.chart;
+  //     chart.update({
+  //       chart: {
+  //         width: null
+  //       }
+  //     })
+  //   }
+  // },
   data() {
     return {
       chartOptions: {
         chart: {
           type: 'area',
           zoomType: 'xy',
-          backgroundColor: 'transparent'
+          backgroundColor: 'transparent',
+          inverted: true
         },
         title: {
             text: 'ETH-BTC Market Depth'
