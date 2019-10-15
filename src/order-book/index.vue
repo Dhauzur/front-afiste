@@ -10,7 +10,7 @@
         </thead>
         <tbody >
           <tr v-for="(o, index) in orders" v-if="index <= (orders.length/2)">
-            <td style="color:#f7107a;">{{ o[0].toFixed(2) }}</td>
+            <td class="color-verde">{{ o[0].toFixed(2) }}</td>
             <td>{{ o[1].toFixed(2) }}</td>
           </tr>
         </tbody>
@@ -26,7 +26,7 @@
         </thead>
         <tbody >
           <tr v-for="(o, index) in orders" v-if="index > (orders.length/2)">
-            <td style="color:#70a800">{{ o[0].toFixed(2) }}</td>
+            <td class="color-rojo">{{ o[0].toFixed(2) }}</td>
             <td>{{ o[1].toFixed(2) }}</td>
           </tr>
         </tbody>
