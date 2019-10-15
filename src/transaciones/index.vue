@@ -2,19 +2,19 @@
   <div class="">
     <br>
     <b-row class="p-1">
-      <b-col>Accion</b-col>
-      <b-col><b-button size="sm">Comprar</b-button></b-col>
-      <b-col><b-button size="sm">Vender</b-button></b-col>
+      <b-col cols="3">Accion</b-col>
+      <b-col cols="4"><b-button size="sm">Comprar</b-button></b-col>
+      <b-col cols="4"><b-button size="sm">Vender</b-button></b-col>
     </b-row>
 
     <b-row class="p-1">
-      <b-col>Tipo</b-col>
-      <b-col cols="8"><template><b-form-select v-model="selected" :options="options" size="sm"></b-form-select></template></b-col>
+      <b-col cols="3">Tipo</b-col>
+      <b-col cols="9"><template><b-form-select v-model="selected" :options="options" size="sm"></b-form-select></template></b-col>
     </b-row>
 
     <b-row class="p-1">
-      <b-col cols="4">Fondo</b-col>
-      <b-col cols= "6">
+      <b-col cols="3">Fondo</b-col>
+      <b-col cols= "7">
         <template>
             <b-form-input v-model="Fondo" placeholder="0.0" size="sm"></b-form-input>
         </template>
@@ -23,8 +23,8 @@
     </b-row>
 
     <b-row class="p-1">
-      <b-col>Cantidad</b-col>
-      <b-col cols= "6">
+      <b-col cols="3" >Cantidad</b-col>
+      <b-col cols= "7">
         <template>
             <b-form-input v-model="cantidad" size="sm"></b-form-input>
         </template>
@@ -33,8 +33,8 @@
     </b-row>
 
     <b-row class="p-1">
-      <b-col>Precio</b-col>
-      <b-col cols= "6">
+      <b-col cols="3">Precio</b-col>
+      <b-col cols= "7">
         <template>
             <b-form-input v-model="precio" size="sm"></b-form-input>
         </template>
@@ -43,19 +43,22 @@
     </b-row>
 
     <b-row class="p-1">
-      <b-col>Total</b-col>
-      <b-col cols= "6">
+      <b-col cols="3">Total</b-col>
+      <b-col cols= "7">
         <template>
             <b-form-input v-model="total" size="sm"></b-form-input>
         </template>
       </b-col>
       <b-col cols="2">USD</b-col>
     </b-row>
-    <b-form-radio v-model="selected" name="some-radios" value="A">Crear una orden de cierre condicional</b-form-radio>
 
     <b-row class="p-1">
-      <b-col><b-button>Reiniciar</b-button></b-col>
-      <b-col><b-button>Comprar</b-button></b-col>
+      <b-form-radio v-model="selected" name="some-radios" value="A">Crear una orden de cierre condicional</b-form-radio>
+    </b-row>
+
+    <b-row class="p-1">
+      <b-col><b-button size="sm">Reiniciar</b-button></b-col>
+      <b-col><b-button size="sm">Comprar</b-button></b-col>
     </b-row>
 
     <div>
