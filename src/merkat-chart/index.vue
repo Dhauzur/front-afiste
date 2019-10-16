@@ -1,6 +1,6 @@
 <template lang="html">
-  <div class="subContenedor colorBackground ">sdfsdf
-    <div class="tituloSubContenedor">Libro de ordenes</div>
+  <div class="subContenedor colorBackground ">
+    <div class="tituloSubContenedor">Precio historico</div>
     <highcharts id="2" ref="highcharts2" style="background-color: transparent !important; " :options="chartOptions"/>
   </div>
 </template>
@@ -28,11 +28,7 @@ export default {
 
         },
         title: {
-            text: 'Average Monthly Weather Data for Tokyo',
-            align: 'left'
-        },
-        subtitle: {
-            text: 'Source: WorldClimate.com',
+            text: '',
             align: 'left'
         },
         xAxis: [{
