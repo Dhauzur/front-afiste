@@ -7,6 +7,7 @@
     <b-row class="mx-1" v-if="reloadDivs">
       <b-col md="5" class="subContenedor colorBackground ">
         <MerkatChart/>
+        <MerkatChart2/>
       </b-col>
       <b-col md="3" ref="PriceChart" v-if="divs.PriceChart.on">
         <b-col class="mb-2">
@@ -35,6 +36,7 @@ import MerkatDescription from './merkat-description'
 import OrderBook from './order-book'
 import PriceChart from './price-chart'
 import MerkatChart from './merkat-chart'
+import MerkatChart2 from './merkat-chart2'
 import FavoriteMerkats from './favorite-merkats'
 import Reac from './reactivo'
 import Transaciones from './transaciones'
@@ -44,6 +46,7 @@ export default {
     OrderBook,
     PriceChart,
     MerkatChart,
+    MerkatChart2,
     FavoriteMerkats,
     Transaciones
   },

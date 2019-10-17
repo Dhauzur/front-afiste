@@ -40,7 +40,7 @@ export default {
           type: 'area',
           zoomType: 'xy',
           backgroundColor: 'transparent',
-          inverted: true
+          inverted: false
         },
         title: {
             text: 'ETH-BTC Market Depth'

@@ -1,27 +1,10 @@
 <template lang="html">
-  <div class="subContenedor colorBackground ">
-    <div class="tituloSubContenedor">Precio historico</div>
-    <div class="herramientaSuperiores">
-      <span class="textSuperior ">ETC</span>
-      <span class="textSuperior ">BTC 0.000023</span>
-      <span class="textSuperior ">ETH 0.023434</span>
-      <span class="textSuperior ">USD 4.423</span>
-      <span class="textSuperior ">EUR 4.0657</span>
-      <span class="textSuperior ">ETC</span>
-      <span class="textSuperior ">EUR 4.0657</span>
-    </div>
-    <div class="">
-      <highcharts id="2" ref="highcharts2" class="graphCustom" :options="chartOptions"/>
-      <div class="herramientasLaterales">
-        <v-icon class="v-icon" name="trending-down"></v-icon>
-        <v-icon class="v-icon" name="plus"></v-icon>
-        <v-icon class="v-icon" name="sliders"></v-icon>
-        <v-icon class="v-icon" name="minimize-2"></v-icon>
-        <v-icon class="v-icon" name="minus-square"></v-icon>
-        <v-icon class="v-icon" name="git-merge"></v-icon>
-      </div>
-    </div>
-
+  <div class="">
+    <highcharts style="	min-width: 310px;
+    	max-width: 1040px;
+      height: 100px !important;
+    	max-height: 100px !important;
+    	margin: 0 auto; "  class="graphCustom" :options="chartOptions"/>
   </div>
 </template>
 <script>
@@ -140,7 +123,7 @@ export default {
         },
         series: [{
             name: '',
-            type: 'area',
+            type: 'column',
             yAxis: 1,
             data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
             tooltip: {
@@ -171,7 +154,8 @@ export default {
         responsive: {
             rules: [{
                 condition: {
-                    maxWidth: 500
+                    maxWidth: 500,
+                    maxHeight: 100
                 },
                 chartOptions: {
                     legend: {
@@ -211,33 +195,6 @@ export default {
 
 <style lang="css" scoped>
 
-.iconSuperior {
-  margin-top: 5px;
-
-}
-.textSuperior {
-  font-size: 12px;
-  padding-right: 10px;
-  border-right: 1px solid #bdb8b8;
-}
-
-.v-icon, .custom-icon {
-    width: 24px;
-    margin-bottom: 15px;
-
-}
-
-.herramientaSuperiores {
-  height: 20px;
-  margin-bottom: 20px;
-}
-
-.herramientasLaterales {
-  width: 10% !important;
-  float: right;
-  padding: 15px;
-
-}
 
 .graphCustom {
   width: 90% !important;
@@ -245,10 +202,4 @@ export default {
   background-color: transparent ;
 }
 
-#container {
-	min-width: 310px;
-	max-width: 1040px;
-	height: 400px;
-	margin: 0 auto;
-}
 </style>

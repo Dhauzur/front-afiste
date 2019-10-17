@@ -28,9 +28,6 @@ let reactivo = new Vuex.Store({
     }
   },
 
-  actions: {
-
-  }
 })
 
 export default reactivo

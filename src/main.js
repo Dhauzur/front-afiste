@@ -5,11 +5,13 @@ import VueRouter from 'vue-router'
 import VueCookies from 'vue-cookies'
 import routes from './routes'
 import App from './App.vue'
+import feather from 'vue-icon'
 
 // app.js
 import './sass/custom.scss'
 
 
+Vue.use(feather, 'v-icon')
 
 Vue.use(BootstrapVue)
 Vue.use(VueRouter)
