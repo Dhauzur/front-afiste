@@ -2,6 +2,7 @@
   <div class="">
     <highcharts style="	min-width: 310px;
     	max-width: 1040px;
+      height: 100px !important;
     	max-height: 100px !important;
     	margin: 0 auto; "  class="graphCustom" :options="chartOptions"/>
   </div>
