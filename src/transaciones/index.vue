@@ -1,5 +1,5 @@
 <template lang="html">
-  <div>
+  <div >
 
     <b-row class="p-1 mt-4">
       <b-col >
@@ -66,6 +66,6 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 
 </style>

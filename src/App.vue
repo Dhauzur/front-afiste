@@ -1,19 +1,26 @@
 <template lang="html">
 <div id="app" class="">
-  <!-- <div class="subImagen"/> -->
   <div class="contenedores">
     <MerkatDescription/>
     <transition name="fade">
-    <b-row class="mx-1" v-if="reloadDivs">
+    <b-row class="mx-1" v-if="reloadDivs" >
+      <b-col md="2" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor  ">
+        <div class="subImagen">
+          <div class="transaciones">
+            <div class="tituloSubContenedor" @click="togglePriceHistory()"> TRADDING</div>
+            <Transaciones/>
+          </div>
+        </div>
+      </b-col>
       <b-col md="5" class="subContenedor colorBackground ">
         <MerkatChart/>
         <MerkatChart2/>
       </b-col>
-      <b-col md="3" ref="PriceChart" v-if="divs.PriceChart.on">
-        <b-col class="mb-2">
+      <b-col md="3" class="subContenedor" ref="PriceChart" v-if="divs.PriceChart.on">
+        <b-col class="mb-2 subContenedor">
           <PriceChart />
         </b-col>
-        <b-col class="">
+        <b-col class="subContenedor">
           <FavoriteMerkats/>
         </b-col>
       </b-col>
@@ -21,10 +28,7 @@
         <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
         <OrderBook />
       </b-col>
-      <b-col md="2" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor colorBackground ">
-        <div class="tituloSubContenedor" @click="togglePriceHistory()"> Historial de precios</div>
-        <Transaciones/>
-      </b-col>
+
     </b-row>
   </transition>
   </div>
@@ -75,6 +79,7 @@ export default {
           size: this.$refs.PriceHistory.clientWidth
         }
       })
+
   },
   methods: {
     toggleOrderBook() {
@@ -169,10 +174,33 @@ export default {
 @import 'node_modules/bootstrap-vue/src/index.scss';
 @import url('https://fonts.googleapis.com/css?family=Exo+2|Hind&display=swap');
 
+
+.btn {
+  border-radius: 20px;
+}
+.custom-select, .custom-select:focus {
+    background: #e0dbdb36 !important;
+    border: none !important;
+    outline: none ;
+    box-shadow:none;
+    color: white ;
+}
+
+.form-control, .form-control:focus {
+  padding-left: 20px;
+  background-color: transparent ;
+  border: none ;
+  outline: none ;
+  box-shadow:none;
+  // border-bottom: 1px solid white;
+  background-color: #e0dbdb36;
+  border-radius: 20px;
+  color: white ;
+}
+
 #app {
-  font-family: 'Avenir', Helvetica, Arial, sans-serif;
-  font-family: 'Noto Sans JP', sans-serif !important;
-  color: #bdb8b8 !important;
+  // font-family: 'Noto Sans JP', sans-serif !important;
+  color: #e0dbdb !important;
   font-size: 0.7rem;
 }
 
@@ -198,12 +226,18 @@ h3 {
 }
 h4 {
   font-size: 22px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
+
 }
 h5 {
   font-size: 11px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
+
 }
 h6 {
   font-size: 4px;
+  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
+
 }
 
 /* width */
@@ -227,19 +261,27 @@ h6 {
   background: #231704d9;
 }
 
-.table-hover tbody tr:hover {
-    color: #212529;
-    background-color: rgba(0, 0, 0, 0.075);
+.table-hover tbody tr:hover, .table-striped tbody tr:nth-of-type(odd) {
+    color: #e0dbdb;
+    background-color: transparent !important;
 }
 
 table, th, td, tr {
-  border-bottom-color: #000000c7 !important;
-  border-top-color: #000000c7 !important
+  border-bottom-color:  transparent !important;
+  text-align: center;
+  border-top-color: transparent !important;
 }
 
+tr {
+
+  width: 100% !important;
+  display: inline-table !important;
+
+}
 th {
   border-bottom-color: transparent !important;
   border-top-color: transparent !important
+
 }
 
 .table, h1, h2, h3, h4, h5, .highcharts-container, .highcharts-title {
@@ -258,9 +300,6 @@ li {
   margin: 0 10px;
 }
 
-.custom-select {
-  background: #bdb8b8 !important;
-}
 ///////////////////
 //START CSS
 .tituloSubContenedor {
@@ -269,22 +308,51 @@ li {
 }
 
 .colorBackground {
-  background-color: #20262b;
+  // background-color: #20262b;
 }
 
 .subContenedor {
   z-index: 2;
+  padding: 5px !important
   // margin: 20px;
   // margin-left: 30px;
   // padding: 20px;
-  box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
+  // box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
   // border-radius: 15px;
-  background-color: #20262b;
+  // background-color: #20262b;
 
 }
 </style>
 
 <style lang="css" scoped>
+
+.transaciones {
+  /* -webkit-backdrop-filter: blur(10px); */
+  backdrop-filter: blur(20px);
+  background-color: #61616166;
+  top: -30px;
+  left: 10px;
+  padding: 30px;
+  height: 100%;
+  color: white !important;
+  box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
+
+}
+
+.subImagen {
+  background-image: url("./assets/noche.png");
+  /* background-repeat:no-repeat; */
+  /* background-position:center; */
+  /* background-attachment: fixed; */
+  /* background-size: cover; */
+  width: 100%;
+  height: 100%;
+  opacity: 1;
+  position: absolute;
+  left: -10px;
+  top: -30px;
+  z-index: 3;
+}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 1s;
@@ -299,25 +367,10 @@ li {
   position: absolute;
   z-index: 1;
   width: 100%;
-  background-color: #262d32;
+  background-image: linear-gradient(45deg, #262a38, #090e17);??
   height: 100vh;
   overflow-y: auto;
 }
 
-.subImagen {
-  background-image: url("./assets/fondo.png");
-  background-repeat:no-repeat;
-  background-position:center;
-  background-attachment: fixed;
-  background-size: cover;
-  width: 100%;
-  height: 84%;
-  opacity: 0.3;
-  filter:  blur(30px);
-  position: absolute;
-  left: 0;
-  top: 0;
-  z-index: 1;
-}
 
 </style>
