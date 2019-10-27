@@ -1,5 +1,5 @@
 <template lang="html">
-  <b-col md="12" class="subContenedor colorBackground ">
+  <b-col md="12">
     <div class="tituloSubContenedor">Mercados favoritos</div>
     <table class="table  table-striped table-hover table-responsive">
       <thead>
