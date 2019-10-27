@@ -4,29 +4,29 @@
     <MerkatDescription/>
     <transition name="fade">
     <b-row class="mx-1" v-if="reloadDivs" >
-      <b-col md="2" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor  ">
-        <div class="subImagen">
-          <div class="transaciones">
-            <div class="tituloSubContenedor" @click="togglePriceHistory()"> TRADDING</div>
-            <Transaciones/>
-          </div>
-        </div>
-      </b-col>
       <b-col md="5" class="subContenedor colorBackground ">
         <MerkatChart/>
         <MerkatChart2/>
       </b-col>
-      <b-col md="3" class="subContenedor" ref="PriceChart" v-if="divs.PriceChart.on">
-        <b-col class="mb-2 subContenedor">
+      <b-col md="2" class="subContenedor" ref="PriceChart" v-if="divs.PriceChart.on">
+        <b-col class="mb-2 ">
           <PriceChart />
         </b-col>
-        <b-col class="subContenedor">
+        <b-col style="  border: 1px solid #374050;" class="px-0 pt-2" >
           <FavoriteMerkats/>
         </b-col>
       </b-col>
       <b-col md="2" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
         <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
         <OrderBook />
+      </b-col>
+      <b-col md="3" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor " style="padding: 0px !important;">
+        <div class="subImagen">
+          <div class="transaciones">
+            <div class="tituloSubContenedor" @click="togglePriceHistory()"> TRADDING</div>
+            <Transaciones/>
+          </div>
+        </div>
       </b-col>
 
     </b-row>
@@ -201,7 +201,7 @@ export default {
 #app {
   // font-family: 'Noto Sans JP', sans-serif !important;
   color: #e0dbdb !important;
-  font-size: 0.7rem;
+  font-size: 0.6rem;
 }
 
 .color-verde {
@@ -242,9 +242,11 @@ h6 {
 
 /* width */
 ::-webkit-scrollbar {
-  width: 4px;
+  width:4px;
 }
-
+::-webkit-scrollbar {
+  height: 2px;
+}
 /* Track */
 ::-webkit-scrollbar-track {
   background: #8c878745;
@@ -313,7 +315,9 @@ li {
 
 .subContenedor {
   z-index: 2;
-  padding: 5px !important
+  padding: 5px !important;
+  border: 1px solid #374050;
+
   // margin: 20px;
   // margin-left: 30px;
   // padding: 20px;
@@ -329,7 +333,7 @@ li {
 .transaciones {
   /* -webkit-backdrop-filter: blur(10px); */
   backdrop-filter: blur(20px);
-  background-color: #61616166;
+  background-color: #6161612b;
   top: -30px;
   left: 10px;
   padding: 30px;
@@ -348,9 +352,6 @@ li {
   width: 100%;
   height: 100%;
   opacity: 1;
-  position: absolute;
-  left: -10px;
-  top: -30px;
   z-index: 3;
 }
 
@@ -367,7 +368,7 @@ li {
   position: absolute;
   z-index: 1;
   width: 100%;
-  background-image: linear-gradient(45deg, #262a38, #090e17);??
+  background-image: linear-gradient(45deg, #262a38, #090e17);
   height: 100vh;
   overflow-y: auto;
 }

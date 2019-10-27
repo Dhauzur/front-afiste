@@ -1,5 +1,5 @@
 <template lang="html">
-  <div class="subContenedor colorBackground ">
+  <div  >
     <div class="tituloSubContenedor">Precio historico</div>
     <div class="herramientaSuperiores">
       <span class="textSuperior ">ETC</span>
