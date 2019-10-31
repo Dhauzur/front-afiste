@@ -1,10 +1,6 @@
 <template lang="html">
   <div>
     <div class="tableOrder">
-        <!-- <transition-group name="flip-list" tag="ul">
-          <li v-for="item in items" v-bind:key="item">
-            {{ item }}
-          </li> -->
       <table class="table table-striped table-hover mb-0">
         <thead>
           <tr>
@@ -60,16 +56,15 @@ import Axios from 'axios'
 export default {
   data() {
     return {
-      orders: null,
-      items: [1,2,3,4,5,6,7,8,9]
+      orders: null
     }
   },
   created() {
     var preformat = require('../config-data.js')
     this.orders = preformat.default.orders
-    setInterval(() => {
+    if(setInterval(() => {
       this.orders = this.orders.sort(() => Math.random() - 0.5);
-    }, 3000)
+    }, 9000) > 200) location.reload()
   },
   methods: {
     shuffle() {

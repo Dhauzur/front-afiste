@@ -7,18 +7,10 @@ Vue.use(Vuex)
 let reactivo = new Vuex.Store({
   state: {
     divs: {
-      OrderBook: {
-        on: true,
-        size: null
-      },
-      PriceChart: {
-        on: true,
-        size: null
-      },
-      PriceHistory: {
-        on: true,
-        size: null
-      },
+      OrderBook: true,
+      DeepPrice: true,
+      PriceHistory: true,
+      Tradding: true
     }
   },
 

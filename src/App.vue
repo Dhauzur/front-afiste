@@ -4,30 +4,38 @@
     <MerkatDescription/>
     <transition name="fade">
     <b-row class="mx-1" v-if="reloadDivs" >
-      <b-col md="5" class="subContenedor colorBackground ">
+      <div v-bind:style="width.PriceHistory"class="subContenedor colorBackground">
         <MerkatChart/>
         <MerkatChart2/>
-      </b-col>
-      <b-col md="2" class="subContenedor" ref="PriceChart" v-if="divs.PriceChart.on">
-        <b-col class="mb-2 ">
-          <PriceChart />
-        </b-col>
-        <b-col style="  border: 1px solid #374050;" class="px-0 pt-2" >
-          <FavoriteMerkats/>
-        </b-col>
-      </b-col>
-      <b-col md="2" ref="OrderBook" v-if="divs.OrderBook.on" class="subContenedor colorBackground ">
-        <div class="tituloSubContenedor" @click="toggleOrderBook()"> Libro de ordenes</div>
+      </div>
+      <div  v-if="divs.DeepPrice" v-bind:style="width.DeepPrice"  class="subContenedor colorBackground">
+        <div class="iconCollapse" @click="toggleDivs('DeepPrice')">
+          <v-icon name="grid"/>
+        </div>
+        <DeepPrice />
+        <FavoriteMerkats class="subContenedor"/>
+      </div>
+      <div v-if="divs.OrderBook" v-bind:style="width.OrderBook"  class="subContenedor colorBackground">
+        <div class="iconCollapse" @click="toggleDivs('OrderBook')">
+          <v-icon name="grid"/>
+        </div>
         <OrderBook />
-      </b-col>
-      <b-col md="3" ref="PriceHistory" v-if="divs.PriceHistory.on" class="subContenedor " style="padding: 0px !important;">
+      </div>
+      <div  v-if="divs.Tradding" v-bind:style="width.Tradding" style="padding: '0px';" class="subContenedor colorBackground">
         <div class="subImagen">
           <div class="transaciones">
-            <div class="tituloSubContenedor" @click="togglePriceHistory()"> TRADDING</div>
-            <Transaciones/>
+            <div class="iconCollapse" @click="toggleDivs('Tradding')">
+              <v-icon name="grid"/>
+            </div>
+            <div class="tituloSubContenedor" > TRADDING</div>
+            <span >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
+            <!-- <Transaciones/> -->
           </div>
         </div>
-      </b-col>
+      </div>
+      <span style="font-size: 15px">{{ divs }}</span>
+      <br>
+      <span style="font-size: 15px">{{ width }}</span>
 
     </b-row>
   </transition>
@@ -38,7 +46,7 @@
 <script>
 import MerkatDescription from './merkat-description'
 import OrderBook from './order-book'
-import PriceChart from './price-chart'
+import DeepPrice from './deep-price'
 import MerkatChart from './merkat-chart'
 import MerkatChart2 from './merkat-chart2'
 import FavoriteMerkats from './favorite-merkats'
@@ -48,7 +56,7 @@ export default {
   components: {
     MerkatDescription,
     OrderBook,
-    PriceChart,
+    DeepPrice,
     MerkatChart,
     MerkatChart2,
     FavoriteMerkats,
@@ -56,7 +64,21 @@ export default {
   },
   data() {
     return {
-      reloadDivs: true
+      reloadDivs: true,
+      width: {
+        Tradding: {
+          width: '21%'
+        },
+        OrderBook:{
+          width: '17%'
+        },
+        PriceHistory:{
+          width: '45%'
+        },
+        DeepPrice: {
+          width: '17%'
+        },
+      }
     }
   },
   computed: {
@@ -64,105 +86,50 @@ export default {
       return Reac.state.divs
     }
   },
-  mounted() {
-      Reac.commit('changeDivs', {
-        OrderBook: {
-          on: true,
-          size: this.$refs.OrderBook.clientWidth
-        },
-        PriceChart: {
-          on: true,
-          size: this.$refs.PriceChart.clientWidth
-        },
-        PriceHistory:  {
-          on: true,
-          size: this.$refs.PriceHistory.clientWidth
-        }
-      })
-
-  },
   methods: {
-    toggleOrderBook() {
+    preCalculate(divChange) {
+      console.log(divChange);
+      var cantDivs = 0
+      if(this.divs.Tradding && divChange != 'Tradding') cantDivs++
+      if(this.divs.OrderBook && divChange != 'OrderBook') cantDivs++
+      if(this.divs.DeepPrice && divChange != 'DeepPrice') cantDivs++
+      var prom = (55/cantDivs).toFixed(0)
+      if((prom*3) > 55) prom = prom - 2
+      console.log(prom);
+      return prom
+    },
+
+    calculateWidth(divChange,prom) {
+      if(this.divs.Tradding && divChange != 'Tradding') this.width.Tradding.width = '' + prom + '%'
+      if(this.divs.OrderBook && divChange != 'OrderBook') this.width.OrderBook.width = '' + prom + '%'
+      if(this.divs.DeepPrice && divChange != 'DeepPrice') this.width.DeepPrice.width  = '' + prom + '%'
+
+      if(this.divs.Tradding && divChange == 'Tradding') this.width.Tradding.width = '0%'
+      if(this.divs.OrderBook && divChange == 'OrderBook') this.width.OrderBook.width = '0%'
+      if(this.divs.DeepPrice && divChange == 'DeepPrice') this.width.DeepPrice.width  = '0%'
+    },
+
+    toggleDivs(divChange) {
+      var preDivs = this.divs
+      var prom = this.preCalculate(divChange)
       Reac.commit('changeDivs', {
-        OrderBook: {
-          on: false,
-          size: this.divs.OrderBook.size
-        },
-        PriceChart: {
-          on: false,
-          size: this.divs.PriceChart.size
-        },
-        PriceHistory:  {
-          on: false,
-          size: this.divs.PriceHistory.size
-        }
+        OrderBook: false,
+        DeepPrice: false,
+        PriceHistory: false,
+        Tradding: false
       })
-      this.reloadDivs = false
       setTimeout(() => {
         Reac.commit('changeDivs', {
-          OrderBook: {
-            on: false,
-            size: this.divs.OrderBook.size
-          },
-          PriceChart: {
-            on: true,
-            size: (this.divs.PriceChart.size + this.divs.OrderBook.size)
-          },
-          PriceHistory:  {
-            on: true,
-            size: this.divs.PriceHistory.size
-          }
+          OrderBook: divChange == 'OrderBook' ? !preDivs.OrderBook : preDivs.OrderBook,
+          DeepPrice: divChange == 'DeepPrice' ? !preDivs.DeepPrice : preDivs.DeepPrice,
+          PriceHistory: divChange == 'PriceHistory' ? !preDivs.PriceHistory : preDivs.PriceHistory,
+          Tradding: divChange == 'Tradding' ? !preDivs.Tradding : preDivs.Tradding,
         })
+        this.calculateWidth(divChange,prom)
         this.reloadDivs = true
-      }, 1)
-
-    },
-    togglePriceHistory() {
-
-      Reac.commit('changeDivs', {
-        OrderBook: {
-          on: false,
-          size: this.divs.OrderBook.size
-        },
-        PriceChart: {
-          on: false,
-          size: this.divs.PriceChart.size
-        },
-        PriceHistory:  {
-          on: false,
-          size: this.divs.PriceHistory.size
-        }
-      })
+      }, 600)
       this.reloadDivs = false
-
-      setTimeout(() => {
-        Reac.commit('changeDivs', {
-          OrderBook: {
-            on: true,
-            size: this.divs.OrderBook.size
-          },
-          PriceChart: {
-            on: true,
-            size: this.divs.PriceChart.size + this.divs.PriceHistory.size
-          },
-          PriceHistory:  {
-            on: false,
-            size: this.divs.PriceHistory.size
-          }
-        })
-        this.reloadDivs = true
-      }, 1)
-
     },
-    // reloadDivs() {
-    //   this.OrderBookDiv = false
-    //
-    //   setTimeout(() => {
-    //     this.OrderBookDiv = true
-    //     this.OrderHistoryDiv = true
-    //     this.PriceHistory = true
-    //   }, 200)
-    // }
   }
 }
 </script>
@@ -173,167 +140,16 @@ export default {
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
 @import url('https://fonts.googleapis.com/css?family=Exo+2|Hind&display=swap');
+@import './global.scss';
 
-
-.btn {
-  border-radius: 20px;
-}
-.custom-select, .custom-select:focus {
-    background: #e0dbdb36 !important;
-    border: none !important;
-    outline: none ;
-    box-shadow:none;
-    color: white ;
-}
-
-.form-control, .form-control:focus {
-  padding-left: 20px;
-  background-color: transparent ;
-  border: none ;
-  outline: none ;
-  box-shadow:none;
-  // border-bottom: 1px solid white;
-  background-color: #e0dbdb36;
-  border-radius: 20px;
-  color: white ;
-}
-
-#app {
-  // font-family: 'Noto Sans JP', sans-serif !important;
-  color: #e0dbdb !important;
-  font-size: 0.6rem;
-}
-
-.color-verde {
-  color:#70a800 !important;
-}
-.color-rojo {
-  color:#f7107a !important;
-}
-.highcharts-title {
-  font-size: 0.7rem !important;
-}
-
-h1 {
-  font-size: 58px;
-}
-
-h2 {
-  font-size: 42px;
-}
-h3 {
-  font-size: 30px;
-}
-h4 {
-  font-size: 22px;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
-
-}
-h5 {
-  font-size: 11px;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
-
-}
-h6 {
-  font-size: 4px;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
-
-}
-
-/* width */
-::-webkit-scrollbar {
-  width:4px;
-}
-::-webkit-scrollbar {
-  height: 2px;
-}
-/* Track */
-::-webkit-scrollbar-track {
-  background: #8c878745;
-}
-
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #8c8787;
-
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #231704d9;
-}
-
-.table-hover tbody tr:hover, .table-striped tbody tr:nth-of-type(odd) {
-    color: #e0dbdb;
-    background-color: transparent !important;
-}
-
-table, th, td, tr {
-  border-bottom-color:  transparent !important;
-  text-align: center;
-  border-top-color: transparent !important;
-}
-
-tr {
-
-  width: 100% !important;
-  display: inline-table !important;
-
-}
-th {
-  border-bottom-color: transparent !important;
-  border-top-color: transparent !important
-
-}
-
-.table, h1, h2, h3, h4, h5, .highcharts-container, .highcharts-title {
-  color: #bdb8b8 !important;
-  font-weight: normal;
-  fill: #bdb8b8 !important;
-}
-
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-
-///////////////////
-//START CSS
-.tituloSubContenedor {
-  text-align: center;
-  font-size: 0.9rem;
-}
-
-.colorBackground {
-  // background-color: #20262b;
-}
-
-.subContenedor {
-  z-index: 2;
-  padding: 5px !important;
-  border: 1px solid #374050;
-
-  // margin: 20px;
-  // margin-left: 30px;
-  // padding: 20px;
-  // box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
-  // border-radius: 15px;
-  // background-color: #20262b;
-
-}
 </style>
 
 <style lang="css" scoped>
 
 .transaciones {
   /* -webkit-backdrop-filter: blur(10px); */
-  backdrop-filter: blur(20px);
-  background-color: #6161612b;
+  backdrop-filter: blur(30px);
+  background-color: #1715157a;
   top: -30px;
   left: 10px;
   padding: 30px;
@@ -356,11 +172,11 @@ li {
 }
 
 .fade-enter-active, .fade-leave-active {
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 }
 .fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
   opacity: 0;
-  transition: opacity 1s;
+  transition: opacity 0.5s;
 
 }
 
