@@ -6,8 +6,9 @@
 image: node:10.15.3
 
 pipelines:
-  default:
-    - step:
+  branches:
+    development:
+      - step:
         caches:
           - node
         script: # Modify the commands below to build your repository.
