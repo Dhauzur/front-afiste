@@ -6,11 +6,18 @@
 image: node:10.15.3
 
 pipelines:
+  default:
+    - step:
+        script:
+          - echo "This script runs on all branches that don't have any specific pipeline assigned in 'branches'."
   branches:
+    master:
+      - step:
+          script:
+            - echo "This script runs only on commit to the master branch."
     development:
       - step:
-        caches:
-          - node
-        script: # Modify the commands below to build your repository.
-          - npm install
-          - npm run build
+          script:
+            - echo "This script runs only on commit to branches with names that match the feature/* pattern."
+            - npm install
+            - npm run build
