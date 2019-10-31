@@ -1,17 +1,8 @@
 <template lang="html">
   <div  >
-    <div class="tituloSubContenedor">Precio historico</div>
-    <div class="herramientaSuperiores">
-      <span class="textSuperior ">ETC</span>
-      <span class="textSuperior ">BTC 0.000023</span>
-      <span class="textSuperior ">ETH 0.023434</span>
-      <span class="textSuperior ">USD 4.423</span>
-      <span class="textSuperior ">EUR 4.0657</span>
-      <span class="textSuperior ">ETC</span>
-      <span class="textSuperior ">EUR 4.0657</span>
-    </div>
+
     <div class="">
-      <highcharts id="2" ref="highcharts2" class="graphCustom" :options="chartOptions"/>
+      <highcharts id="2" ref="highcharts2" class="graphCustom mt-4" :options="chartOptions"/>
       <div class="herramientasLaterales">
         <v-icon class="v-icon" name="trending-down"></v-icon>
         <v-icon class="v-icon" name="plus"></v-icon>
@@ -211,21 +202,12 @@ export default {
 
 <style lang="css" scoped>
 
+
 .iconSuperior {
   margin-top: 5px;
 
 }
-.textSuperior {
-  font-size: 12px;
-  padding-right: 10px;
-  border-right: 1px solid #bdb8b8;
-}
 
-.v-icon, .custom-icon {
-    width: 24px;
-    margin-bottom: 15px;
-
-}
 
 .herramientaSuperiores {
   height: 20px;
@@ -236,7 +218,7 @@ export default {
   width: 10% !important;
   float: right;
   padding: 15px;
-
+  margin-top: 20px;
 }
 
 .graphCustom {

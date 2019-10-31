@@ -1,6 +1,5 @@
 <template lang="html">
   <div >
-    <div class="tituloSubContenedor">Libro de ordenes</div>
     <div style="background-color: transparent !important; " id="thechart"/>
   </div>
 </template>
@@ -17,11 +16,6 @@ export default {
   components: {
     highcharts: Chart
   },
-  computed: {
-    divs() {
-      return Reac.state.divs
-    }
-  },
   created() {
     this.chartOptions = {
       chart: {
@@ -29,7 +23,7 @@ export default {
         type: 'area',
         zoomType: 'xy',
         backgroundColor: 'transparent',
-        inverted: false
+        inverted: true
       },
       title: {
           text: 'ETH-BTC Market Depth'
@@ -40,15 +34,8 @@ export default {
           plotLines: [{
               color: '#888',
               value: 0.1523,
-              width: 1,
-              label: {
-                  text: 'Actual price',
-                  rotation: 90
-              }
+              width: 1
           }],
-          title: {
-              text: 'Price'
-          }
       },
       yAxis: [{
           lineWidth: 1,
@@ -91,12 +78,13 @@ export default {
       },
       series: [
         {
-          name: 'Bids',
+          name: 'Ventas',
           data: this.Bids1,
           color: '#f7107a'
         },{
-          name: 'Bids',
-          data: this.Bids2
+          name: 'Compras',
+          data: this.Bids2,
+          color: '#70a800'
         }
       ],
     };
@@ -104,10 +92,6 @@ export default {
   },
   mounted() {
     this.chart = new Highcharts.chart(this.chartOptions)
-    setInterval(() => {
-      // this.chart.series[0].setData(this.shuffle(this.Bids1),true)
-      // this.chart.series[1].setData(this.shuffle(this.Bids2),true)
-    }, 2000)
   },
   methods: {},
   data() {
