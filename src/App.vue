@@ -1,23 +1,51 @@
 <template lang="html">
 <div id="app" class="">
   <div class="contenedores">
-    <MerkatDescription/>
     <transition name="fade">
-    <b-row class="mx-1" v-if="reloadDivs" >
-      <div v-bind:style="width.PriceHistory"class="subContenedor colorBackground">
+      <b-row class="mx-1" v-if="reloadDivs" >
+      <div class="navBar">
+        <MerkatDescription/>
+        <div class="itemsCollapse">
+          <div v-if="!divs.DeepPrice" class="contenedorItem" @click="toggleDivs('DeepPrice')">
+            <div class="itemOpen" >
+              <v-icon name="plus-square"/>
+            </div>
+            <div>
+              <span>Deep Price</span>
+            </div>
+          </div>
+          <div v-if="!divs.OrderBook" class="contenedorItem" @click="toggleDivs('OrderBook')">
+            <div class="itemOpen" >
+              <v-icon name="plus-square"/>
+            </div>
+            <div>
+              <span>Order Book</span>
+            </div>
+          </div>
+          <div v-if="!divs.Tradding" class="contenedorItem" @click="toggleDivs('Tradding')">
+            <div class="itemOpen" >
+              <v-icon name="plus-square"/>
+            </div>
+            <div class="pl-2">
+              <span>Tradding</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div v-bind:style="width.PriceHistory" class="subContenedor colorBackground">
         <MerkatChart/>
         <MerkatChart2/>
       </div>
       <div  v-if="divs.DeepPrice" v-bind:style="width.DeepPrice"  class="subContenedor colorBackground">
         <div class="iconCollapse" @click="toggleDivs('DeepPrice')">
-          <v-icon name="grid"/>
+          <v-icon name="minimize-2"/>
         </div>
         <DeepPrice />
         <FavoriteMerkats class="subContenedor"/>
       </div>
       <div v-if="divs.OrderBook" v-bind:style="width.OrderBook"  class="subContenedor colorBackground">
         <div class="iconCollapse" @click="toggleDivs('OrderBook')">
-          <v-icon name="grid"/>
+          <v-icon name="minimize-2"/>
         </div>
         <OrderBook />
       </div>
@@ -25,11 +53,11 @@
         <div class="subImagen">
           <div class="transaciones">
             <div class="iconCollapse" @click="toggleDivs('Tradding')">
-              <v-icon name="grid"/>
+              <v-icon name="minimize-2"/>
             </div>
             <div class="tituloSubContenedor" > TRADDING</div>
-            <span >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span>
-            <!-- <Transaciones/> -->
+            <!-- <span >Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</span> -->
+            <Transaciones/>
           </div>
         </div>
       </div>
@@ -87,31 +115,19 @@ export default {
     }
   },
   methods: {
-    preCalculate(divChange) {
-      console.log(divChange);
-      var cantDivs = 0
-      if(this.divs.Tradding && divChange != 'Tradding') cantDivs++
-      if(this.divs.OrderBook && divChange != 'OrderBook') cantDivs++
-      if(this.divs.DeepPrice && divChange != 'DeepPrice') cantDivs++
-      var prom = (55/cantDivs).toFixed(0)
-      if((prom*3) > 55) prom = prom - 2
-      console.log(prom);
-      return prom
-    },
 
-    calculateWidth(divChange,prom) {
-      if(this.divs.Tradding && divChange != 'Tradding') this.width.Tradding.width = '' + prom + '%'
-      if(this.divs.OrderBook && divChange != 'OrderBook') this.width.OrderBook.width = '' + prom + '%'
-      if(this.divs.DeepPrice && divChange != 'DeepPrice') this.width.DeepPrice.width  = '' + prom + '%'
+    calculateWidth(divChange) {
+      if(this.divs.Tradding && divChange == 'Tradding') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 21) + '%'
+      if(this.divs.OrderBook && divChange == 'OrderBook') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 17) + '%'
+      if(this.divs.DeepPrice && divChange == 'DeepPrice') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 17) + '%'
 
-      if(this.divs.Tradding && divChange == 'Tradding') this.width.Tradding.width = '0%'
-      if(this.divs.OrderBook && divChange == 'OrderBook') this.width.OrderBook.width = '0%'
-      if(this.divs.DeepPrice && divChange == 'DeepPrice') this.width.DeepPrice.width  = '0%'
+      if(!this.divs.Tradding && divChange == 'Tradding') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) + parseInt(this.width.Tradding.width.match(/\d+/)[0])) + '%'
+      if(!this.divs.OrderBook && divChange == 'OrderBook') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) + parseInt(this.width.OrderBook.width.match(/\d+/)[0])) + '%'
+      if(!this.divs.DeepPrice && divChange == 'DeepPrice') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) + parseInt(this.width.DeepPrice.width.match(/\d+/)[0])) + '%'
     },
 
     toggleDivs(divChange) {
       var preDivs = this.divs
-      var prom = this.preCalculate(divChange)
       Reac.commit('changeDivs', {
         OrderBook: false,
         DeepPrice: false,
@@ -125,7 +141,7 @@ export default {
           PriceHistory: divChange == 'PriceHistory' ? !preDivs.PriceHistory : preDivs.PriceHistory,
           Tradding: divChange == 'Tradding' ? !preDivs.Tradding : preDivs.Tradding,
         })
-        this.calculateWidth(divChange,prom)
+        this.calculateWidth(divChange)
         this.reloadDivs = true
       }, 600)
       this.reloadDivs = false
@@ -145,6 +161,51 @@ export default {
 </style>
 
 <style lang="css" scoped>
+
+.contenedorItem {
+  display: inline-block;
+  width: 80px;
+  padding: 12px;
+  float: right;
+  color: #848f9e;
+
+}
+
+.contenedorItem:hover {
+  color: white;
+}
+
+.itemOpen {
+  margin: auto;
+  width: 20px;
+}
+
+.navBar {
+  width: 100%;
+  height: 60px;
+  z-index: 2;  /* box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); */
+}
+
+.itemsCollapse {
+  float: right;
+  z-index: 3;
+  position: relative;
+  width: 40%;
+}
+
+.iconCollapse:hover {
+  color: white;
+}
+
+.iconCollapse {
+  position: relative;
+  width: 20px !important;
+  float: right;
+  margin-left: -20px;
+  z-index: 3;
+  color: #848f9e;
+}
+
 
 .transaciones {
   /* -webkit-backdrop-filter: blur(10px); */
