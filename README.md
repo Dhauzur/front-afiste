@@ -1,18 +1,16 @@
-# portafolio
+# Prototipo - Afiste
 
-> Portafolio de Mauro Pérez Araya
+> Master: Mauro Pérez Araya
+> correo: mp@afiste.com - mmauroperez@gmail.com
 
 ## Build Setup
 
 ``` bash
 # install dependencies
+git remote update
+git checkout development
+git pull origin development
 npm install
-
-# serve with hot reload at localhost:8080
-npm run dev
-
-# build for production with minification
-npm run build
+npm run dev (Dev)
+npm run build (Prod)
 ```
-
-For detailed explanation on how things work, consult the [docs for vue-loader](http://vuejs.github.io/vue-loader).
