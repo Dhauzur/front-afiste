@@ -6,5 +6,5 @@ handlers:
   upload: dist/(.*\..+)$
   # catch all handler to index.html
 - url: /.*
-  static_files: index.html
-  upload: index.html
+  static_files: dist/index.html
+  upload: dist/index.html
