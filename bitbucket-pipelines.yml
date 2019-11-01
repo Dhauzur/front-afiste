@@ -15,9 +15,11 @@ pipelines:
       - step:
           script:
             - echo "This script runs only on commit to the master branch."
+            - npm install
+            - npm run build
     development:
       - step:
           script:
-            - echo "This script runs only on commit to branches with names that match the feature/* pattern."
+            - echo "This script runs only on commit to development. (feature/* to others branchs)"
             - npm install
             - npm run build
