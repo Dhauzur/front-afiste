@@ -56,7 +56,7 @@
               <v-icon name="minimize-2"/>
             </div>
             <div class="tituloSubContenedor" ></div>
-            <!-- <Transaciones/> -->
+            <Transaciones/>
           </div>
         </div>
       </div>
@@ -73,7 +73,7 @@ import DeepPrice from './components/deep-price'
 import MerkatChart from './components/merkat-chart'
 import MerkatChart2 from './components/merkat-chart2'
 import FavoriteMerkats from './components/favorite-merkats'
-// import Transaciones from './components/transaciones'
+import Transaciones from './components/transaciones'
 import { mapGetters, mapMutations } from 'vuex';
 
 export default {
@@ -84,7 +84,7 @@ export default {
     MerkatChart,
     MerkatChart2,
     FavoriteMerkats,
-    // Transaciones
+    Transaciones
   },
   data() {
     return {
