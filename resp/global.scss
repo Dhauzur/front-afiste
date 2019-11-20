@@ -3,6 +3,8 @@
   background-color: #3a37379c;
   color: white;
   transition: all ease-in-out 0.3s;
+  border: 1px solid transparent;
+
 }
 
 .v-icon {
@@ -158,7 +160,7 @@ li {
 .subContenedor {
   z-index: 2;
   padding: 5px;
-  border: 1px solid #374050;
+  border: 1px solid rgba(30, 43, 55, 0.36);
 
   // margin: 20px;
   // margin-left: 30px;

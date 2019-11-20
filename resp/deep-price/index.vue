@@ -4,18 +4,13 @@
   </div>
 </template>
 <script>
-import { Chart } from "highcharts-vue";
 import Highcharts from "highcharts";
 import exportingInit from "highcharts/modules/exporting";
 import dataInit from "highcharts/modules/data";
-import stockInit from "highcharts/modules/stock";
 
 import Reac from '../reactivo'
 
 export default {
-  components: {
-    highcharts: Chart
-  },
   created() {
     this.chartOptions = {
       chart: {
