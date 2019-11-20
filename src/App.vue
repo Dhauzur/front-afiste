@@ -127,23 +127,19 @@ export default {
 
     toggleDivs(divChange) {
       var preDivs = this.divs;
-      console.log("ok?1");
       this.changeDivs({
         OrderBook: false,
         DeepPrice: false,
         PriceHistory: false,
         Tradding: false
       })
-      console.log("ok?2");
       setTimeout(() => {
-        console.log("3");
         this.changeDivs({
           OrderBook: divChange == 'OrderBook' ? !preDivs.OrderBook : preDivs.OrderBook,
           DeepPrice: divChange == 'DeepPrice' ? !preDivs.DeepPrice : preDivs.DeepPrice,
           PriceHistory: divChange == 'PriceHistory' ? !preDivs.PriceHistory : preDivs.PriceHistory,
           Tradding: divChange == 'Tradding' ? !preDivs.Tradding : preDivs.Tradding,
         })
-        console.log("ok?4");
         this.calculateWidth(divChange)
         this.reloadDivs = true
       }, 600)

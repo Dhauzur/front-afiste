@@ -9,7 +9,7 @@
           </tr>
         </thead>
         <tbody  is="transition-group"  name="flip-list" tag="tbody">
-          <tr v-for="(o, index) in orders" v-if=" index <= (orders.length/2) && index < 10" :key="index">
+          <tr v-for="(o, index)  in ordenesVenta" :key="index">
             <td class="color-verde">{{ o[0].toFixed(2) }}</td>
             <td>{{ o[1].toFixed(2) }}</td>
           </tr>
@@ -25,7 +25,7 @@
           </tr>
         </thead>
         <tbody >
-          <tr v-for="(o, index) in orders" v-if="index > (orders.length/2) && index < (orders.length/2)+10">
+          <tr v-for="(o, index) in ordenesCompra" :key="index">
             <td class="color-rojo">{{ o[0].toFixed(2) }}</td>
             <td>{{ o[1].toFixed(2) }}</td>
           </tr>
@@ -41,7 +41,7 @@
           </tr>
         </thead>
         <tbody >
-          <tr v-for="(o, index) in orders" v-if=" index < 10">
+          <tr v-for="(o, index) in ordenesHistoricas" :key="index">
             <td>{{ o[0].toFixed(2) }}</td>
             <td>{{ o[1].toFixed(2) }}</td>
           </tr>
@@ -57,6 +57,26 @@ export default {
   data() {
     return {
       orders: null
+    }
+  },
+  computed: {
+
+    ordenesHistoricas() {
+      return this.orders.filter((order, index) => {
+        index < 10
+      })
+    },
+
+    ordenesVenta() {
+      return this.orders.filter((order, index) => {
+        index <= (orders.length/2) && index < 10
+      })
+    },
+
+    ordenesCompra() {
+      return this.orders.filter((order, index) => {
+        index > (this.orders.length/2) && index < (this.orders.length/2)+10
+      })
     }
   },
   created() {
