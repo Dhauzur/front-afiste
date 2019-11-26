@@ -16,6 +16,7 @@
         </tbody>
       </table>
     </div>
+    <span>234234 EUR</span>
     <div class="tableOrder mt-0" >
       <table class="table table-striped table-hover table-responsive">
         <thead>

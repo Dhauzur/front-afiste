@@ -1,46 +1,22 @@
 <template lang="html">
-  <div  >
-
-    <div class="">
-      <div class="tools-container">
-        <button class="highcharts-circle-annotation">Add Circle</button>
-      </div>
-      <div class="graphCustom mt-4" id="chartCandlestick"/>
-      <!-- <highcharts id="2" ref="highcharts2"  :options="chartOptions"/> -->
-      <div class="herramientasLaterales">
-        <v-icon class="v-icon" name="trending-down"></v-icon>
-        <v-icon class="v-icon" name="plus"></v-icon>
-        <v-icon class="v-icon" name="sliders"></v-icon>
-        <v-icon class="v-icon" name="minimize-2"></v-icon>
-        <v-icon class="v-icon" name="minus-square"></v-icon>
-        <v-icon class="v-icon" name="git-merge"></v-icon>
-      </div>
+  <div class="">
+    <div class="graphCustom mt-4" id="chartCandlestick"/>
+    <!-- <highcharts id="2" ref="highcharts2"  :options="chartOptions"/> -->
+    <div class="herramientasLaterales">
+      <v-icon class="v-icon" name="trending-down"></v-icon>
+      <v-icon class="v-icon" name="plus"></v-icon>
+      <v-icon class="v-icon" name="sliders"></v-icon>
+      <v-icon class="v-icon" name="minimize-2"></v-icon>
+      <v-icon class="v-icon" name="minus-square"></v-icon>
+      <v-icon class="v-icon" name="git-merge"></v-icon>
     </div>
-
   </div>
 </template>
 <script>
 import Highcharts from "highcharts/highstock";
-import exportingInit from 'highcharts/modules/exporting'
-import stockInit from 'highcharts/modules/stock'
 // import dataInit from "highcharts/modules/data";
 import configData from './config-data.js'
 import { mapGetters } from 'vuex';
-
-import DragPanes from 'highcharts/modules/drag-panes'
-import AnnotationsAdvanced from 'highcharts/modules/annotations-advanced'
-import PriceIndicator from 'highcharts/modules/price-indicator'
-import FullScreen from 'highcharts/modules/full-screen'
-import StockTools from 'highcharts/modules/stock-tools'
-
-
-DragPanes(Highcharts)
-AnnotationsAdvanced(Highcharts)
-PriceIndicator(Highcharts)
-FullScreen(Highcharts)
-exportingInit(Highcharts)
-stockInit(Highcharts)
-StockTools(Highcharts)
 
 export default {
   computed: {

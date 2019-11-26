@@ -1,6 +1,6 @@
 <template lang="html">
   <b-col md="12">
-    <div class="tituloSubContenedor">Mercados favoritos</div>
+    <div class="tituloSubContenedor">Listado en observación</div>
     <table class="table  table-striped table-hover table-responsive">
       <thead>
         <th></th>

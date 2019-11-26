@@ -1,6 +1,6 @@
 <template lang="html">
   <div >
-    <div style="background-color: transparent !important; " id="thechart"/>
+    <div style="margin-top: 20px; background-color: transparent !important; " id="thechart"/>
   </div>
 </template>
 <script>
@@ -21,7 +21,7 @@ export default {
         inverted: true
       },
       title: {
-          text: 'ETH-BTC Market Depth'
+          text: ''
       },
       xAxis: {
           minPadding: 0,
