@@ -28,10 +28,11 @@
         <tbody >
           <tr v-for="(o, index) in orders" v-if="index > (orders.length/2) && index < (orders.length/2)+10">
             <td class="color-rojo">{{ o[0].toFixed(2) }}</td>
-            <td>{{ o[1].toFixed(2) }}</td>
+            <td>{{ o[0].toFixed(2) }}</td>
           </tr>
         </tbody>
       </table>
+
     </div>
     <div class="tableOrder">
       <table class="table table-striped table-hover table-responsive">
@@ -44,6 +45,7 @@
         <tbody >
           <tr v-for="(o, index) in orders" v-if=" index < 10">
             <td>{{ o[0].toFixed(2) }}</td>
+            <td>{{ o[1].toFixed(2) }}</td>
             <td>{{ o[1].toFixed(2) }}</td>
           </tr>
         </tbody>
