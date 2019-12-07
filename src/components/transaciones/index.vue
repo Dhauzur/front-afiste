@@ -76,7 +76,7 @@
        <b-row class="ColumnaTrading">
 
 
-      <b-col cols="2">Comprar</b-col>
+      <b-col cols="2" class="color-verde">Comprar</b-col>
 
       <b-col cols="2">Límite</b-col>
 
@@ -91,7 +91,7 @@
 
       <b-row class="ColumnaTrading" >
 
-      <b-col cols="2">Vender</b-col>
+      <b-col cols="2" class="color-rojo">Vender</b-col>
 
       <b-col cols="2">Límite</b-col>
 
@@ -108,7 +108,7 @@
 <tr class="StyleTR">
 
       <b-row class="ColumnaTrading" >
-      <b-col cols="2">Vender</b-col>
+      <b-col cols="2" class="color-rojo">Vender</b-col>
      <b-col cols="2">Límite</b-col>
       <b-col cols="3">98</b-col>
       <b-col cols="2">5728</b-col>
@@ -119,7 +119,7 @@
 
 <tr class="StyleTR">
       <b-row class="ColumnaTrading" >
-      <b-col cols="2">Comprar</b-col>
+      <b-col cols="2" class="color-verde">Comprar</b-col>
       <b-col cols="2">Límite</b-col>
       <b-col cols="3">10</b-col>
       <b-col cols="2">7728</b-col>
@@ -199,15 +199,8 @@ li {
 .tableStyleNew {
 border-collapse: collapse;
 
-
 }
 
-hr.newStyle1{
-
-border-bottom: 1pt solid black;
-
-
-}
 
 
 .tbody
