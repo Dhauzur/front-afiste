@@ -1,14 +1,9 @@
 <template lang="html">
 <div>
-
     <div class="textSuperior"> BTC BTC/EUR 0.000023 BTC/USD 7555.00   </div>
-
-
     <div class="textSuperior"> ETH ETH/BTC 4.0657 </div>
-
     <div class="textSuperior"> ZEC ZEC/BTC</div>
-    <div type="button" class="textSuperior StyleButton" > + </div>
-
+    <div type="button" class="textSuperior v-icon" > + </div>
 </div>
 </template>
 
@@ -25,19 +20,18 @@ export default {
 .textSuperior {
   font-size: 12px;
   line-height: 5px;
-  border-right: 2px solid #bdb8b8;
-  border-bottom: 2px solid #bdb8b8;
+  border: 1px solid #1e2b375c;
   float: left;
   word-spacing: 6pt;
-  padding: 20px;
-  border-top: 2px solid #bdb8b8;
-  border-left: 2px solid #bdb8b8;
+  padding: 13px;
 
 }
 .StyleButton
 {
 font-size: 20px;
-background-color: blue;
+background-image: linear-gradient(45deg, #181c27, #181c27);
+background-color: #3a37379c;
+color: white;
 font-weight: bold;
 
 }
