@@ -1,6 +1,6 @@
 <template lang="html">
 <div id="app" class="">
-  <img :src="`${publicPath}afiste-vnx.png`" v-show="true">
+  <img :src="`${publicPath}afiste-vnx.png`" v-show="false">
 
   <div class="contenedores">
     <transition name="fade">
