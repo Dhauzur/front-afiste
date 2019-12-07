@@ -1,13 +1,10 @@
 <template lang="html">
-  <b-row>
-    <b-col class="textSuperior ">ETC</b-col>
-    <b-col class="textSuperior ">BTC 0.000023</b-col>
-    <b-col class="textSuperior ">ETH 0.023434</b-col>
-    <b-col class="textSuperior ">USD 4.423</b-col>
-    <b-col class="textSuperior ">EUR 4.0657</b-col>
-    <b-col class="textSuperior ">ETC</b-col>
-    <b-col class="textSuperior ">EUR 4.0657</b-col>
-  </b-row>
+<div>
+    <div class="textSuperior"> BTC BTC/EUR 0.000023 BTC/USD 7555.00   </div>
+    <div class="textSuperior"> ETH ETH/BTC 4.0657 </div>
+    <div class="textSuperior"> ZEC ZEC/BTC</div>
+    <div type="button" class="textSuperior v-icon" > + </div>
+</div>
 </template>
 
 <script>
@@ -22,6 +19,21 @@ export default {
 }*/
 .textSuperior {
   font-size: 12px;
-  border: 1px solid #bdb8b8;
+  line-height: 5px;
+  border: 1px solid #1e2b375c;
+  float: left;
+  word-spacing: 6pt;
+  padding: 13px;
+
 }
+.StyleButton
+{
+font-size: 20px;
+background-image: linear-gradient(45deg, #181c27, #181c27);
+background-color: #3a37379c;
+color: white;
+font-weight: bold;
+
+}
+
 </style>
