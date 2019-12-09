@@ -48,13 +48,10 @@ export default {
       navigator: {
           enabled: false
       },
-      title: {
-          text: 'AAPL Stock Price'
-      },
 
       series: [{
           type: 'candlestick',
-          name: 'AAPL Stock Price',
+          name: 'BTC/EUR',
           data: this.data,
           dataGrouping: {
               units: [
