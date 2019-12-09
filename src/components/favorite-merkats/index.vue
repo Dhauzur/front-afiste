@@ -1,33 +1,45 @@
 <template lang="html">
-  <b-col md="12">
-    <div class="tituloSubContenedor">Listado en observación</div>
-    <table class="table  table-striped table-hover table-responsive">
-      <thead>
-        <th></th>
-      </thead>
-      <tbody>
+  <b-col md="20">
+    <div class="tituloSubContenedor TittleStyle">Listado en observación</div>
+
+        <div class="BodyStyle">
+
+          <td> AFISTE BTC USD </td>
+
+          <tr>
+          <td class="leftStyle" >7487.10 USD</td>
+          <td class="color-verde ">+0.64%</td>
+          <td>2,017k</td>
+         </tr>
+      </div>
+       <div class="BodyStyle">
+         <td> AFISTE BTC USD</td>
         <tr>
-          <th>BTCEUR</th>
-          <th class="color-verde">BTCEUR</th>
-          <th>BTCEUR</th>
+          <td class="leftStyle" >7487.10 USD</td>
+          <td class="color-verde ">+0.64%</td>
+          <td>2,017k</td>
         </tr>
+      </div>
+
+       <div class="BodyStyle">
+         <td> AFISTE BTC USD</td>
+      <tr>
+        <td class="leftStyle" >7487.10 USD</td>
+        <td class="color-rojo ">+0.64%</td>
+        <td>2,017k</td>
+      </tr>
+    </div>
+
+       <div class="BodyStyle">
+         <td> AFISTE  BTC USD </td>
         <tr>
-          <td>0.0025</td>
-          <td class="color-verde">-2.54%</td>
-          <td>1.99%</td>
+          <td class="leftStyle"> 7487.10 USD</td>
+          <td class="color-rojo centerStyle"> +0.64%</td>
+          <td>2,017k</td>
         </tr>
-        <tr>
-          <td>0.0025</td>
-          <td class="color-rojo">2.54%</td>
-          <td>1.99%</td>
-        </tr>
-        <tr>
-          <td>0.0025</td>
-          <td class="color-rojo">2.54%</td>
-          <td>1.99%</td>
-        </tr>
-      </tbody>
-    </table>
+      </div>
+
+
   </b-col>
 </template>
 
@@ -38,6 +50,23 @@ export default {
 
 <style lang="css" scoped>
 td {
-  padding: 0px !important;
+  padding: 3px !important;
+
 }
+
+.TittleStyle{
+  border-bottom: 1px solid #1e2b375c;
+}
+
+.BodyStyle{
+  border-bottom: 1px solid #1e2b375c;
+
+}
+
+.leftStyle{
+  text-align: left;
+}
+
+
+
 </style>
