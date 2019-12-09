@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <div class="tableOrder">
+    <div class="tableOrder mt-2">
       <table class="table table-striped table-hover mb-0">
         <thead>
           <tr>
@@ -16,15 +16,9 @@
         </tbody>
       </table>
     </div>
-    <span>234234 EUR</span>
+    <div class="h6" style="text-align: center; vertical-align: middle; margin-top:5px; margin-right:20px;">234234 EUR</div>
     <div class="tableOrder mt-0" >
       <table class="table table-striped table-hover table-responsive">
-        <thead>
-          <tr>
-            <th></th>
-            <th></th>
-          </tr>
-        </thead>
         <tbody >
           <tr v-for="(o, index) in orders" v-if="index > (orders.length/2) && index < (orders.length/2)+10">
             <td class="color-rojo">{{ o[0].toFixed(2) }}</td>
@@ -32,7 +26,6 @@
           </tr>
         </tbody>
       </table>
-
     </div>
     <div class="tableOrder">
       <table class="table table-striped table-hover table-responsive">
@@ -88,9 +81,7 @@ td {
 }
 
 .tableOrder {
-  max-height: 30vh;
   overflow-y: auto;
-  margin-top:20px;
   margin-right: 30px;
 }
 </style>

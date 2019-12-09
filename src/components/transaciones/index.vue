@@ -53,7 +53,7 @@
     <b-tabs  content-class="my-3 " justified >
       <b-tab title="Órdenes"  active>
 
-<table class="table table-border table-responsive tableOrder tableOrder tableStyleNew">
+<table class="table table-border table-responsive tableTransacction  tableStyleNew">
   <thead align="left">
 <tr class="StyleTR">
    <b-row class="ColumnaTrading" >
@@ -150,7 +150,7 @@ export default {
 </script>
 
 <style lang="scss">
-.tableOrder {
+.tableTransacction {
   height: 40vh;
   overflow-y: auto;
 }
