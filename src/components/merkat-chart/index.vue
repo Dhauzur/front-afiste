@@ -51,7 +51,7 @@ export default {
 
       series: [{
           type: 'candlestick',
-          name: 'BTC/EUR',
+          name: 'CLP / UBR',
           data: this.data,
           dataGrouping: {
               units: [

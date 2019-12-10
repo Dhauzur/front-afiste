@@ -3,8 +3,7 @@
     <div class="tituloSubContenedor TittleStyle">Listado en observación</div>
 
         <div class="BodyStyle">
-
-          <td> AFISTE BTC USD </td>
+          <td> UBR/CLP </td>
 
           <tr>
           <td class="leftStyle" >7487.10 USD</td>
@@ -13,7 +12,7 @@
          </tr>
       </div>
        <div class="BodyStyle">
-         <td> AFISTE BTC USD</td>
+         <td> UBR/USD </td>
         <tr>
           <td class="leftStyle" >7487.10 USD</td>
           <td class="color-verde ">+0.64%</td>
@@ -22,7 +21,7 @@
       </div>
 
        <div class="BodyStyle">
-         <td> AFISTE BTC USD</td>
+         <td> RPP/USD </td>
       <tr>
         <td class="leftStyle" >7487.10 USD</td>
         <td class="color-rojo ">+0.64%</td>
@@ -31,7 +30,7 @@
     </div>
 
        <div class="BodyStyle">
-         <td> AFISTE  BTC USD </td>
+         <td> RPI/CLP </td>
         <tr>
           <td class="leftStyle"> 7487.10 USD</td>
           <td class="color-rojo centerStyle"> +0.64%</td>

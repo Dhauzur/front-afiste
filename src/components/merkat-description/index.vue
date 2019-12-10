@@ -1,9 +1,9 @@
 <template lang="html">
 <div>
-  <div class="textSuperior">  BTC/EUR 6635.10 <span class="color-rojo">-2.73%</span> </div>
-    <div class="textSuperior">  BTC/USD 7555.00  <span class="color-rojo">-1.78%</span>  </div>
-    <div class="textSuperior"> ETH ETH/BTC 4.0657 <span class="color-verde">0.33%</span>  </div>
-    <div class="textSuperior"> ZEC ZEC/BTC <span class="color-verde">9.73%</span> </div>
+  <div class="textSuperior">  UBR/CLP 6635.10 <span class="color-rojo">-2.73%</span> </div>
+    <div class="textSuperior">  UBR/USD 7555.00  <span class="color-rojo">-1.78%</span>  </div>
+    <div class="textSuperior"> RPP/USD  4.0657 <span class="color-verde">0.33%</span>  </div>
+    <div class="textSuperior"> RPI/CLP <span class="color-verde">9.73%</span> </div>
     <div type="button" class="textSuperior v-icon" > + </div>
 </div>
 </template>
