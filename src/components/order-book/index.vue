@@ -1,6 +1,6 @@
 <template lang="html">
   <div>
-    <div class="tableOrder mt-2">
+    <div class="tableOrder noScrollY mt-2">
       <table class="table table-striped table-hover mb-0">
         <thead>
           <tr>
@@ -10,19 +10,21 @@
         </thead>
         <tbody  is="transition-group"  name="flip-list" tag="tbody">
           <tr v-for="(o, index) in orders" v-if=" index <= (orders.length/2) && index < 15" :key="index">
-            <td class="color-verde">{{ o[0].toFixed(2) }}</td>
-            <td>{{ o[1].toFixed(2) }}</td>
+            <td class="color-verde">{{ o[0].toFixed(4) }}</td>
+            <td>{{ o[1].toFixed(4) }}</td>
+            <td>{{ o[1].toFixed(4) }}</td>
           </tr>
         </tbody>
       </table>
     </div>
     <div class="h6" style="text-align: center; vertical-align: middle; margin-top:5px; margin-right:20px;">19103 CLP</div>
-    <div class="tableOrder mt-0" >
+    <div class="tableOrder noScrollY mt-0" >
       <table class="table table-striped table-hover table-responsive">
         <tbody >
           <tr v-for="(o, index) in orders" v-if="index > (orders.length/2) && index < (orders.length/2)+15">
-            <td class="color-rojo">{{ o[0].toFixed(2) }}</td>
-            <td>{{ o[0].toFixed(2) }}</td>
+            <td class="color-rojo">{{ o[0].toFixed(4) }}</td>
+            <td>{{ o[0].toFixed(4) }}</td>
+            <td>{{ o[0].toFixed(4) }}</td>
           </tr>
         </tbody>
       </table>
@@ -37,9 +39,9 @@
         </thead>
         <tbody >
           <tr v-for="(o, index) in orders" v-if=" index < 15">
-            <td>{{ o[0].toFixed(2) }}</td>
-            <td>{{ o[1].toFixed(2) }}</td>
-            <td>{{ o[1].toFixed(2) }}</td>
+            <td>{{ o[0].toFixed(4) }}</td>
+            <td>{{ o[1].toFixed(4) }}</td>
+            <td>{{ o[1].toFixed(4) }}</td>
           </tr>
         </tbody>
       </table>
@@ -72,6 +74,10 @@ export default {
 
 <style lang="css" scoped>
 
+.noScrollY {
+  overflow-y: hidden !important;
+}
+
 .flip-list-move {
   transition: transform 1s;
 }
@@ -81,7 +87,7 @@ td {
 }
 
 .tableOrder {
+  max-height: calc(33vh - 30px) !important;
   overflow-y: auto;
-  margin-right: 30px;
 }
 </style>

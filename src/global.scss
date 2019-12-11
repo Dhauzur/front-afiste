@@ -108,8 +108,12 @@ h6 {
 }
 
 .table-hover tbody tr:hover, .table-striped tbody tr:nth-of-type(odd) {
-    color: #e0dbdb;
-    background-color: transparent !important;
+  color: #e0dbdb;
+  background-color: transparent;
+}
+
+tbody tr:hover {
+ background-color: #474a4a !important;
 }
 
 table, th, td, tr {

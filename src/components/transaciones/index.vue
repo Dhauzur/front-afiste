@@ -24,21 +24,19 @@
       </b-col>
     </b-row>
 
-    <b-row class="p-1">
-      <b-col cols="3" >Cantidad </b-col>
-      <b-col cols= "12">
-        <template><b-form-input v-model="cantidad" size="sm" placeholder=""></b-form-input></template>
+    <b-row class="p-1 justify-content-center">
+      <b-col cols="8" >Cantidad </b-col>
+      <b-col cols= "8">
+        <b-form-input class="inputCustom" v-model="cantidad" size="sm" placeholder=""></b-form-input>
       </b-col>
-      <b-col cols= "6">
-        <b-form-input  type="number" v-model="precio" size="sm"></b-form-input>
+      <b-col cols="8" >Precio </b-col>
+      <b-col cols= "8">
+        <b-form-input class="inputCustom" v-model="cantidad" size="sm" placeholder=""></b-form-input>
       </b-col>
-    </b-row>
 
-
-    <b-row class="p-1  justify-content-center">
-      <b-col cols= "6" >
+      <b-col cols= "8" class="mt-2">
         <span>TOTAL</span>
-        <b-form-input v-model="total" size="sm" disabled></b-form-input>
+        <b-form-input class="inputCustom" v-model="total" size="sm" disabled></b-form-input>
       </b-col>
     </b-row>
 
@@ -157,6 +155,12 @@ export default {
 </script>
 
 <style lang="scss">
+
+.inputCustom {
+  background-color: #e0dbdb36 !important;
+  border: none !important;
+}
+
 .tableTransacction {
   height: 40vh;
   overflow-y: auto;
