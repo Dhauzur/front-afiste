@@ -48,13 +48,10 @@ export default {
       navigator: {
           enabled: false
       },
-      title: {
-          text: 'AAPL Stock Price'
-      },
 
       series: [{
           type: 'candlestick',
-          name: 'AAPL Stock Price',
+          name: 'CLP / UBR',
           data: this.data,
           dataGrouping: {
               units: [

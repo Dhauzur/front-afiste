@@ -25,10 +25,9 @@
     </b-row>
 
     <b-row class="p-1">
-      <b-col cols="6">Cantidad</b-col>
-      <b-col cols="6">Precio</b-col>
-      <b-col cols= "6">
-        <b-form-input  type="text" v-model="cantidad" size="sm"></b-form-input>
+      <b-col cols="3" >Cantidad </b-col>
+      <b-col cols= "12">
+        <template><b-form-input v-model="cantidad" size="sm" placeholder=""></b-form-input></template>
       </b-col>
       <b-col cols= "6">
         <b-form-input  type="number" v-model="precio" size="sm"></b-form-input>
@@ -50,46 +49,80 @@
     <b-tabs  content-class="my-3 " justified >
       <b-tab title="Órdenes"  active>
 
-<table class="table table-border table-responsive tableOrder tableOrder">
-  <thead>
-    <tr>
-      <th>Lado</th>
-      <th>Tipo</th>
-      <th>Cantidad</th>
-      <th>Precio</th>
-      <th>Cancelar</th>
-    </tr>
-  </thead>
-  <tbody>
-    <tr>
-      <td>Comprar</td>
-      <td>Límite</td>
-      <td>48</td>
-      <td>6728</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <td>Vender</td>
-      <td>Límite</td>
-      <td>46</td>
-      <td>6528</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <td>Vender</td>
-      <td>Límite</td>
-      <td>98</td>
-      <td>5728</td>
-      <td>x</td>
-    </tr>
-    <tr>
-      <td>Comprar</td>
-      <td>Límite</td>
-      <td>10</td>
-      <td>7728</td>
-      <td>x</td>
-    </tr>
+<table class="table table-border table-responsive tableTransacction  tableStyleNew">
+  <thead align="left">
+<tr class="StyleTR">
+   <b-row class="ColumnaTrading" >
 
+    <b-col cols="1">Lado</b-col>
+
+    <b-col cols="3">Tipo</b-col>
+    <b-col cols="3">Cantidad</b-col>
+    <b-col cols="2">Precio</b-col>
+    <b-col>Cancelar</b-col>
+
+  </b-row>
+</tr>
+
+  </thead>
+  <tbody align="left">
+
+   <tr  class="StyleTR">
+
+       <b-row class="ColumnaTrading">
+
+
+      <b-col cols="2" class="color-verde">Comprar</b-col>
+
+      <b-col cols="2">Límite</b-col>
+
+      <b-col cols="3">48</b-col>
+      <b-col cols="2">6728</b-col>
+      <b-col>x</b-col>
+    </b-row>
+
+</tr>
+
+<tr class="StyleTR">
+
+      <b-row class="ColumnaTrading" >
+
+      <b-col cols="2" class="color-rojo">Vender</b-col>
+
+      <b-col cols="2">Límite</b-col>
+
+      <b-col cols="3">46</b-col>
+
+      <b-col cols="2">6528</b-col>
+
+      <b-col>x</b-col>
+
+    </b-row>
+</tr>
+
+
+<tr class="StyleTR">
+
+      <b-row class="ColumnaTrading" >
+      <b-col cols="2" class="color-rojo">Vender</b-col>
+     <b-col cols="2">Límite</b-col>
+      <b-col cols="3">98</b-col>
+      <b-col cols="2">5728</b-col>
+      <b-col>x</b-col>
+    </b-row>
+  </tr>
+
+
+<tr class="StyleTR">
+      <b-row class="ColumnaTrading" >
+      <b-col cols="2" class="color-verde">Comprar</b-col>
+      <b-col cols="2">Límite</b-col>
+      <b-col cols="3">10</b-col>
+      <b-col cols="2">7728</b-col>
+      <b-col>x</b-col;>
+    </b-row>
+
+</tr>
   </tbody>
 </table>
 
@@ -124,8 +157,8 @@ export default {
 </script>
 
 <style lang="scss">
-.tableOrder {
-  max-height: 15vh;
+.tableTransacction {
+  height: 40vh;
   overflow-y: auto;
 }
 
@@ -156,6 +189,35 @@ li {
   padding-bottom: 5px;
   margin: 0px ;
 
+}
+
+.ColumnaTrading {
+  font-size: 10px;
+  border-bottom: 1px solid #bdb8b8;
+
+}
+
+.StyleTR{
+
+  border-bottom: 1px solid black;
+
+}
+
+.tableStyleNew {
+border-collapse: collapse;
+
+}
+
+
+
+.tbody
+{
+
+ border-width: 2px;
+  border-spacing: 0px 0px;
+  border: 1px solid #bdb8b8;
+  text-align: left;
+  justified: margin-left;
 }
 
 .nav-tabs {

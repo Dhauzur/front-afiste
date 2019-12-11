@@ -1,5 +1,7 @@
 <template lang="html">
 <div id="app" class="">
+  <img :src="`${publicPath}afiste-vnx-logo2.png`" style="position: absolute; z-index: -1">
+
   <div class="contenedores">
     <transition name="fade">
       <b-row class="mx-1" v-if="reloadDivs" >
@@ -50,7 +52,7 @@
         <OrderBook />
       </div>
       <div  v-if="divs.Tradding" v-bind:style="width.Tradding" style="padding: 0px !important;" class="subContenedor colorBackground">
-        <div class="subImagen">
+        <div class="">
           <div class="transaciones">
             <div class="iconCollapse" @click="toggleDivs('Tradding')">
               <v-icon name="minimize-2"/>
@@ -88,13 +90,14 @@ export default {
   },
   data() {
     return {
+      publicPath: process.env.BASE_URL,
       reloadDivs: true,
       width: {
         Tradding: {
-          width: '21%'
+          width: '23%'
         },
         OrderBook:{
-          width: '17%'
+          width: '15%'
         },
         PriceHistory:{
           width: '45%'
@@ -116,8 +119,8 @@ export default {
     }),
 
     calculateWidth(divChange) {
-      if(this.divs.Tradding && divChange == 'Tradding') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 21) + '%'
-      if(this.divs.OrderBook && divChange == 'OrderBook') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 17) + '%'
+      if(this.divs.Tradding && divChange == 'Tradding') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 24) + '%'
+      if(this.divs.OrderBook && divChange == 'OrderBook') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 15) + '%'
       if(this.divs.DeepPrice && divChange == 'DeepPrice') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 17) + '%'
 
       if(!this.divs.Tradding && divChange == 'Tradding') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) + parseInt(this.width.Tradding.width.match(/\d+/)[0])) + '%'
@@ -212,15 +215,15 @@ export default {
 
 
 .transaciones {
-  -webkit-backdrop-filter: blur(30px);
-  backdrop-filter: blur(30px);
-  background-color: #1715157a;
+  /* -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px); */
+  /* background-color: #1715157a; */
   top: -30px;
   left: 10px;
-  padding: 30px;
+  padding: 10px;
   height: 100%;
   color: white !important;
-  box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
+  /* box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75); */
 
 }
 
