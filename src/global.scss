@@ -110,6 +110,7 @@ h6 {
 .table-hover tbody tr:hover, .table-striped tbody tr:nth-of-type(odd) {
   color: #e0dbdb;
   background-color: transparent;
+
 }
 
 tbody tr:hover {
@@ -118,8 +119,7 @@ tbody tr:hover {
 
 table, th, td, tr {
   border-bottom-color:  transparent !important;
-  text-align: center;
-  border-top-color: transparent !important;
+      border-top-color: transparent !important;
 }
 
 tr {
@@ -133,6 +133,7 @@ th {
   border-top-color: transparent !important
 
 }
+td:first-child { width: 33% ;}
 
 .table, h1, h2, h3, h4, h5, .highcharts-container, .highcharts-title {
   color: #bdb8b8 !important;

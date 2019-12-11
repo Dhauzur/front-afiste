@@ -221,8 +221,10 @@ export default {
   top: -30px;
   left: 10px;
   padding: 10px;
-  height: 100%;
+  height: 95vh;
   color: white !important;
+  overflow-y: auto;
+
   /* box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75); */
 
 }

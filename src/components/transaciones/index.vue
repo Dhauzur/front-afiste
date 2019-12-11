@@ -20,29 +20,29 @@
     <b-row class="p-1">
       <b-col cols="3" >Mercado</b-col>
       <b-col cols= "12">
-        <b-form-select style="color: white;" v-model="selectedMerkat" :options="optionsMerkats"></b-form-select>
+        <b-form-select class="text-white" v-model="selectedMerkat" :options="optionsMerkats"></b-form-select>
       </b-col>
     </b-row>
 
     <b-row class="p-1 justify-content-center">
       <b-col cols="8" >Cantidad </b-col>
       <b-col cols= "8">
-        <b-form-input class="inputCustom" v-model="cantidad" size="sm" placeholder=""></b-form-input>
+        <b-form-input type="number" class="inputCustom text-white" v-model="cantidad" size="sm" placeholder=""></b-form-input>
       </b-col>
       <b-col cols="8" >Precio </b-col>
       <b-col cols= "8">
-        <b-form-input class="inputCustom" v-model="cantidad" size="sm" placeholder=""></b-form-input>
+        <b-form-input type="number" class="inputCustom text-white" v-model="precio" size="sm" placeholder=""></b-form-input>
       </b-col>
 
       <b-col cols= "8" class="mt-2">
         <span>TOTAL</span>
-        <b-form-input class="inputCustom" v-model="total" size="sm" disabled></b-form-input>
+        <b-form-input class="inputCustom text-white" v-model="total" size="sm" disabled></b-form-input>
       </b-col>
     </b-row>
 
 
     <b-row class="p-1 mb-2 mt-2">
-      <b-col cols="12" ><b-button block variant="outline-warning" size="sm">Realizar orden</b-button></b-col>
+      <b-col cols="12" ><b-button block variant="outline-warning" @click="inputsDelet()" size="sm">Realizar orden</b-button></b-col>
     </b-row>
     <b-tabs  content-class="my-3 " justified >
       <b-tab title="Órdenes"  active>
@@ -138,17 +138,35 @@ export default {
   data() {
     return {
       selectedMerkat: null,
+      cantidad: null,
+      precio: null,
       options: [
         { text: 'Compra', value: 'COMPRA' },
         { text: 'Venta', value: 'VENTA' }
       ],
       optionsMerkats: [
-        { value: null, text: 'UBR/CLP'},
+        { value: null, text: 'Selecione mercado'},
+        { value: 'UBR/CLP', text: 'UBR/CLP'},
         { text: 'UBR/USD', value: 'UBR/USD' },
         { text: 'RPP/USD', value: 'RPP/USD' },
         { text: 'RPI/CLP', value: 'RPI/CLP' },
       ],
       selectedMerkat: null,
+    }
+  },
+  computed: {
+    total() {
+      return this.cantidad * this.precio
+    }
+  },
+  methods: {
+    inputsDelet() {
+      if(this.selectedMerkat && this.cantidad && this.precio) this.resetInputs()
+    },
+    resetInputs() {
+      this.cantidad = null
+      this.precio = null
+      this.selectedMerkat = null
     }
   }
 }
@@ -156,6 +174,9 @@ export default {
 
 <style lang="scss">
 
+.text-white {
+  color: white;
+}
 .inputCustom {
   background-color: #e0dbdb36 !important;
   border: none !important;

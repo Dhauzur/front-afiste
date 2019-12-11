@@ -1,6 +1,6 @@
 <template lang="html">
   <div >
-    <div style="margin-top: 20px; background-color: transparent !important; " id="thechart"/>
+    <div style="margin-top: 20px; background-color: transparent !important; height: 50vh; " id="thechart"/>
   </div>
 </template>
 <script>
@@ -68,16 +68,16 @@ export default {
           }
       },
       tooltip: {
-          headerFormat: '<span style="font-size=10px;">Price: {point.key}</span><br/>',
+          headerFormat: '<span style="font-size=10px;">Precio: {point.key}</span><br/>',
           valueDecimals: 2
       },
       series: [
         {
-          name: 'Ventas',
+          name: 'Venta',
           data: this.Bids1,
           color: '#f7107a'
         },{
-          name: 'Compras',
+          name: 'Compra',
           data: this.Bids2,
           color: '#70a800'
         }
@@ -268,7 +268,7 @@ export default {
 #container {
 	min-width: 310px;
 	max-width: 1040px;
-	height: 400px;
+	max-height: 60vh;
 	margin: 0 auto;
 }
 </style>
