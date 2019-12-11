@@ -1,14 +1,14 @@
 <template lang="html">
   <div >
 
-    <b-row class="p-1 mt-4 justify-content-center">
-      <b-col cols="6">
+    <b-row class=" mt-4 justify-content-center">
+      <b-col cols="12">
         <b-form-group>
           <b-form-radio-group
             id="btn-radios-2"
             v-model="selected"
             :options="options"
-            buttons
+            buttons class="w-100 mt-2"
             button-variant="outline-primary"
             size="md"
             name="radio-btn-outline"
@@ -20,7 +20,7 @@
     <b-row class="p-1">
       <b-col cols="3" >Mercado</b-col>
       <b-col cols= "12">
-        <template><b-form-input v-model="mercado" size="sm" placeholder=""></b-form-input></template>
+        <b-form-select style="color: white;" v-model="selectedMerkat" :options="optionsMerkats"></b-form-select>
       </b-col>
     </b-row>
 
@@ -106,11 +106,18 @@
 export default {
   data() {
     return {
-      selected: 'radio1',
+      selectedMerkat: null,
       options: [
         { text: 'Compra', value: 'COMPRA' },
         { text: 'Venta', value: 'VENTA' }
-      ]
+      ],
+      optionsMerkats: [
+        { value: null, text: 'UBR/CLP'},
+        { text: 'UBR/USD', value: 'UBR/USD' },
+        { text: 'RPP/USD', value: 'RPP/USD' },
+        { text: 'RPI/CLP', value: 'RPI/CLP' },
+      ],
+      selectedMerkat: null,
     }
   }
 }

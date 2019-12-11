@@ -249,7 +249,7 @@ export default {
   position: absolute;
   z-index: 1;
   width: 100%;
-  background-image: linear-gradient(5deg, #1e2b37, #030914);
+  background-image: linear-gradient(5deg, #181a1c, #090a0a);
   height: 100vh;
   overflow-y: auto;
 }
