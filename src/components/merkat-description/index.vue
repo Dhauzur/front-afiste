@@ -1,5 +1,8 @@
 <template lang="html">
 <div>
+  <div class="logoAfiste">
+    <img :src="`${publicPath}logoAfiste.png`"/>
+  </div>
   <div class="textSuperior">  UBR/CLP 6635.10 <span class="color-rojo">-2.73%</span> </div>
     <div class="textSuperior">  UBR/USD 7555.00  <span class="color-rojo">-1.78%</span>  </div>
     <div class="textSuperior"> RPP/USD  4.0657 <span class="color-verde">0.33%</span>  </div>
@@ -10,11 +13,20 @@
 
 <script>
 export default {
+  data () {
+    return {
+      publicPath: process.env.BASE_URL
+    }
+  }
 }
 </script>
 
 <style lang="css" scoped>
 
+.logoAfiste {
+  float: left;
+  height: 30px;
+}
 /* .favoryMerkat {
   display: block;
 }*/
