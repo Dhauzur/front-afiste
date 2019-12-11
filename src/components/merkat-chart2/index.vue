@@ -40,50 +40,48 @@ export default {
             }
         }],
         yAxis: [{ // Primary yAxis
-            labels: {
-                format: '{value}',
-                style: {
-                    color: '#f7107a'
-                }
-            },
-            title: {
-                text: '',
-                style: {
-                    color: 'white'
-                }
-            },
-            opposite: true
-
+          labels: {
+              format: '{value}',
+              style: {
+                  color: '#f7107a'
+              }
+          },
+          title: {
+              text: '',
+              style: {
+                  color: 'white'
+              }
+          },
+          opposite: true
         }, { // Secondary yAxis
-            gridLineWidth: 0,
-            title: {
-                text: '',
-                style: {
-                    color: '#f7107a'
-                }
-            },
-            labels: {
-                format: '{value} ',
-                style: {
-                    color: 'white'
-                }
-            }
-
+          gridLineWidth: 0,
+          title: {
+              text: '',
+              style: {
+                  color: '#f7107a'
+              }
+          },
+          labels: {
+              format: '{value} ',
+              style: {
+                  color: 'white'
+              }
+          }
         }, { // Tertiary yAxis
-            gridLineWidth: 0,
-            title: {
-                text: '',
-                style: {
-                    color: '#f7107a'
-                }
-            },
-            labels: {
-                format: '{value} ',
-                style: {
-                    color: 'white'
-                }
-            },
-            opposite: true
+          gridLineWidth: 0,
+          title: {
+              text: '',
+              style: {
+                  color: '#f7107a'
+              }
+          },
+          labels: {
+              format: '{value} ',
+              style: {
+                  color: 'white'
+              }
+          },
+          opposite: true
         }],
         tooltip: {
             shared: true
@@ -102,8 +100,8 @@ export default {
                 fillColor: {
                     linearGradient: { x1: 0, y1: 0, x2: 0, y2: 1},
                     stops: [
-                        [0, '#500202'],
-                        [1, '#0e02029c']
+                        [0, '#70a800'],
+                        [1, '#f7107a']
                     ]
                 },
                 marker: {
@@ -118,27 +116,27 @@ export default {
             }
         },
         series: [{
-            name: '',
-            type: 'column',
-            yAxis: 1,
-            data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 ,135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
-            tooltip: {
-                valueSuffix: ' '
-            }
-
+          name: '',
+          type: 'column',
+          yAxis: 1,
+          color: '#70a800',
+          data: [49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 49.9, 71.5, 106.4, 129.2, 144.0, 176.0, 135.6, 148.5, 216.4, 194.1, 95.6, 54.4 ,135.6, 148.5, 216.4, 194.1, 95.6, 54.4],
+          tooltip: {
+            valueSuffix: ' '
+          }
         }, {
             name: '',
             type: 'spline',
             yAxis: 2,
+            color: '#f7107a',
             data: [1016, 1016, 1015.9, 1015.5, 1012.3, 1009.5, 1016, 1016, 1015.9, 1015.5, 1012.3, 1009.5, 1009.6, 1010.2, 1013.1, 1016.9, 1018.2, 1016.7, 1009.6, 1010.2, 1013.1, 1016.9, 1018.2, 1016.7],
             marker: {
-                enabled: false
+              enabled: false
             },
             dashStyle: 'shortdot',
             tooltip: {
-                valueSuffix: ''
+              valueSuffix: ''
             }
-
         }, {
             name: '',
             type: 'spline',

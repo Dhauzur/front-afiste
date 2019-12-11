@@ -64,7 +64,13 @@ export default {
                   ]
               ]
           }
-      }]
+      }],
+      plotOptions: {
+       candlestick: {
+         color: '#70a800',
+         upColor: '#f7107a'
+       }
+      },
     }
   },
   data() {
@@ -104,7 +110,7 @@ export default {
 
 .graphCustom {
   width: 90% !important;
-  min-height: calc(60vh - 30px) !important;  
+  min-height: calc(60vh - 30px) !important;
   float: left;
 }
 
