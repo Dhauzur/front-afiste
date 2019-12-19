@@ -1,23 +1,29 @@
-.v-icon:hover {
-  background-image: linear-gradient(45deg, #181c27, #181c27);
-  background-color: #3a37379c;
-  color: white;
-  transition: all ease-in-out 0.3s;
-  border: 1px solid transparent;
+@import './table.scss';
 
+
+
+
+.vIcon {
+  & > svg  {
+    width: 34px;
+    transition: all ease-in-out 0.3s;
+    border: 1px solid #37404f;
+    padding: 7px;
+    color: #848f9e;
+    margin-bottom: 5px;
+    background-color: #25252759;
+    background-image: linear-gradient(45deg, #23273463, #25252759);
+  }
+
+  & > svg:hover {
+    background-image: linear-gradient(45deg, #181c27, #181c27);
+    background-color: #3a37379c;
+    color: white;
+    transition: all ease-in-out 0.3s;
+    border: 1px solid transparent;
+  }
 }
 
-.v-icon {
-  width: 34px;
-  transition: all ease-in-out 0.3s;
-  border: 1px solid #37404f;
-  padding: 7px;
-  color: #848f9e;
-
-  margin-bottom: 5px;
-  background-color: #25252759;
-  background-image: linear-gradient(45deg, #23273463, #25252759);
-}
 
 .btn {
   border-radius: 20px;
@@ -107,39 +113,7 @@ h6 {
   background: #231704d9;
 }
 
-.table-hover tbody tr:hover, .table-striped tbody tr:nth-of-type(odd) {
-  color: #e0dbdb;
-  background-color: transparent;
 
-}
-
-tbody tr:hover {
- background-color: #474a4a !important;
-}
-
-table, th, td, tr {
-  border-bottom-color:  transparent !important;
-      border-top-color: transparent !important;
-}
-
-tr {
-
-  width: 100% !important;
-  display: inline-table !important;
-
-}
-th {
-  border-bottom-color: transparent !important;
-  border-top-color: transparent !important
-
-}
-td:first-child { width: 33% ;}
-
-.table, h1, h2, h3, h4, h5, .highcharts-container, .highcharts-title {
-  color: #bdb8b8 !important;
-  font-weight: normal;
-  fill: #bdb8b8 !important;
-}
 
 ul {
   list-style-type: none;

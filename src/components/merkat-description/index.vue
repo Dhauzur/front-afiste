@@ -1,13 +1,13 @@
 <template lang="html">
-<div>
+<div class="textSuperior">
   <div class="logoAfiste">
     <img :src="`${publicPath}logoAfiste.png`"/>
   </div>
-  <div class="textSuperior">  UBR/CLP 6635.10 <span class="color-rojo">-2.73%</span> </div>
-    <div class="textSuperior">  UBR/USD 7555.00  <span class="color-rojo">-1.78%</span>  </div>
-    <div class="textSuperior"> RPP/USD  4.0657 <span class="color-verde">0.33%</span>  </div>
-    <div class="textSuperior"> RPI/CLP <span class="color-verde">9.73%</span> </div>
-    <div type="button" class="textSuperior v-icon" > + </div>
+  <div> UBR/CLP 6635.10 <span class="color-rojo">-2.73%</span> </div>
+  <div>  UBR/USD 7555.00  <span class="color-rojo">-1.78%</span>  </div>
+  <div> RPP/USD  4.0657 <span class="color-verde">0.33%</span>  </div>
+  <div> RPI/CLP <span class="color-verde">9.73%</span> </div>
+  <div type="button" class="v-icon" > + </div>
 </div>
 </template>
 
@@ -21,32 +21,27 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
+
+
+
 
 .logoAfiste {
   float: left;
   height: 30px;
 }
-/* .favoryMerkat {
-  display: block;
-}*/
+
 .textSuperior {
-  font-size: 12px;
-  line-height: 5px;
-  border: 1px solid #1e2b375c;
-  float: left;
-  word-spacing: 6pt;
-  padding: 13px;
-
+  & > div:not(:first-child)  {
+    font-size: 12px;
+    line-height: 5px;
+    border: 1px solid #1e2b375c;
+    float: left;
+    word-spacing: 6pt;
+    padding: 13px;
+  }
 }
-.StyleButton
-{
-font-size: 20px;
-background-image: linear-gradient(45deg, #181c27, #181c27);
-background-color: #3a37379c;
-color: white;
-font-weight: bold;
 
-}
+
 
 </style>

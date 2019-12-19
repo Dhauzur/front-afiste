@@ -1,42 +1,51 @@
 <template lang="html">
   <b-col md="20">
     <div class="tituloSubContenedor TittleStyle">Listado en observación</div>
+<table>
 
-        <div class="BodyStyle">
-          <td> UBR/CLP </td>
-
-          <tr>
-          <td class="leftStyle" >7487.10 USD</td>
-          <td class="color-verde ">+0.64%</td>
-          <td>2,017k</td>
-         </tr>
-      </div>
-       <div class="BodyStyle">
-         <td> UBR/USD </td>
+  <tbody class="borderBottom">
+    <tr>
+      <th>
         <tr>
-          <td class="leftStyle" >7487.10 USD</td>
-          <td class="color-verde ">+0.64%</td>
-          <td>2,017k</td>
+          <td > UBR/CLP</td>
         </tr>
-      </div>
-
-       <div class="BodyStyle">
-         <td> RPP/USD </td>
-      <tr>
-        <td class="leftStyle" >7487.10 USD</td>
-        <td class="color-rojo ">+0.64%</td>
-        <td>2,017k</td>
-      </tr>
-    </div>
-
-       <div class="BodyStyle">
-         <td> RPI/CLP </td>
+      <td >7487.10 USD</td>
+      <td class="color-verde ">+0.64%</td>
+      <td>2,017k</td>
+     </th>
+    </tr>
+    <tr>
+      <th>
         <tr>
-          <td class="leftStyle"> 7487.10 USD</td>
-          <td class="color-rojo centerStyle"> +0.64%</td>
-          <td>2,017k</td>
+          <td > UBR/USD</td>
         </tr>
-      </div>
+      <td >7487.10 USD</td>
+      <td class="color-verde ">+0.64%</td>
+      <td>2,017k</td>
+     </th>
+    </tr>
+    <tr>
+      <th>
+        <tr>
+          <td > RPP/USD</td>
+        </tr>
+      <td >7487.10 USD</td>
+      <td class="color-verde ">+0.64%</td>
+      <td>2,017k</td>
+     </th>
+    </tr>
+    <tr>
+      <th>
+        <tr>
+          <td > RPI/CLP</td>
+        </tr>
+      <td >7487.10 USD</td>
+      <td class="color-verde ">+0.64%</td>
+      <td>2,017k</td>
+     </th>
+    </tr>
+  </tbody>
+</table>
 
 
   </b-col>
@@ -47,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 td {
   padding: 3px !important;
 
@@ -57,14 +66,14 @@ td {
   border-bottom: 1px solid #1e2b375c;
 }
 
-.BodyStyle{
+.borderBottom {
   border-bottom: 1px solid #1e2b375c;
+  & > tr{
+    border-bottom: 1px solid #1e2b375c;
+    }
 
 }
 
-.leftStyle{
-  text-align: left;
-}
 
 
 

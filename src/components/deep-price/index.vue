@@ -1,6 +1,6 @@
 <template lang="html">
   <div >
-    <div style="margin-top: 20px; background-color: transparent !important; height: 50vh; " id="thechart"/>
+    <div  id="thechart"/>
   </div>
 </template>
 <script>
@@ -265,10 +265,9 @@ export default {
 </script>
 
 <style lang="css" scoped>
-#container {
-	min-width: 310px;
-	max-width: 1040px;
-	max-height: 60vh;
-	margin: 0 auto;
+#thechart {
+  margin-top: 20px;
+  background-color: transparent !important;
+  height: 50vh;
 }
 </style>

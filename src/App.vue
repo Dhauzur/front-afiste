@@ -159,7 +159,7 @@ export default {
 @import 'node_modules/bootstrap-vue/src/index.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Exo+2|Hind&display=swap');
-@import './global.scss';
+@import 'src/assets/scss/global.scss';
 
 </style>
 
