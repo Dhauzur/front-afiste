@@ -51,7 +51,7 @@
         </div>
         <OrderBook />
       </div>
-      <div  v-if="divs.Tradding" v-bind:style="width.Tradding" style="padding: 0px !important;" class="subContenedor colorBackground">
+      <div  v-if="divs.Tradding" v-bind:style="width.Tradding" class="subContenedor colorBackground paddingDiv" >
         <div class="">
           <div class="transaciones">
             <div class="iconCollapse" @click="toggleDivs('Tradding')">
@@ -259,5 +259,8 @@ export default {
   overflow-y: auto;
 }
 
+.paddingDiv{
+padding: 0px !important;
 
+}
 </style>
