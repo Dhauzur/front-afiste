@@ -51,7 +51,7 @@
         </div>
         <OrderBook />
       </div>
-      <div  v-if="divs.Tradding" v-bind:style="width.Tradding" class="subContenedor colorBackground paddingDiv" >
+      <div  v-if="divs.Tradding" v-bind:style="width.Tradding" style="padding: 0px !important;" class="subContenedor colorBackground">
         <div class="">
           <div class="transaciones">
             <div class="iconCollapse" @click="toggleDivs('Tradding')">
@@ -159,7 +159,7 @@ export default {
 @import 'node_modules/bootstrap-vue/src/index.scss';
 
 @import url('https://fonts.googleapis.com/css?family=Exo+2|Hind&display=swap');
-@import './global.scss';
+@import 'src/assets/scss/global.scss';
 
 </style>
 
@@ -259,8 +259,5 @@ export default {
   overflow-y: auto;
 }
 
-.paddingDiv{
-padding: 0px !important;
 
-}
 </style>
