@@ -9,16 +9,16 @@
   </thead>
   <tbody class="BodyStyle">
     <tr>
-      <td class="leftStyle" >7487.10 USD</td>
+      <td  >7487.10 USD</td>
       <td class="color-verde ">+0.64%</td>
       <td>2,017k</td>
     </tr>
 
-    <tr>
+    <tr class="border_bottom">
      <td> UBR/USD </td>
    </tr>
    <tr>
-     <td class="leftStyle" >7487.10 USD</td>
+     <td  >7487.10 USD</td>
      <td class="color-rojo ">+0.64%</td>
      <td>2,017k</td>
    </tr>
@@ -26,7 +26,7 @@
     <td> RPP/USD </td>
   </tr>
   <tr>
-    <td class="leftStyle" >7487.10 USD</td>
+    <td >7487.10 USD</td>
     <td class="color-rojo ">+0.64%</td>
     <td>2,017k</td>
   </tr>
@@ -34,7 +34,7 @@
    <td> RPI/CLP </td>
   </tr>
   <tr>
-   <td class="leftStyle" >7487.10 USD</td>
+   <td  >7487.10 USD</td>
    <td class="color-verde ">+0.64%</td>
    <td>2,017k</td>
   </tr>
@@ -65,9 +65,6 @@ td {
 
 }
 
-.leftStyle{
-  text-align: left;
-}
 
 
 
