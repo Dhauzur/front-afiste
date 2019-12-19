@@ -4,50 +4,42 @@
 <table>
   <thead>
     <tr>
-    <th></th>
+    <td> UBR/CLP</td>
     </tr>
   </thead>
-  <tbody>
+  <tbody class="BodyStyle">
     <tr>
-      <td></td>
+      <td class="leftStyle" >7487.10 USD</td>
+      <td class="color-verde ">+0.64%</td>
+      <td>2,017k</td>
     </tr>
+
+    <tr>
+     <td> UBR/USD </td>
+   </tr>
+   <tr>
+     <td class="leftStyle" >7487.10 USD</td>
+     <td class="color-rojo ">+0.64%</td>
+     <td>2,017k</td>
+   </tr>
+   <tr>
+    <td> RPP/USD </td>
+  </tr>
+  <tr>
+    <td class="leftStyle" >7487.10 USD</td>
+    <td class="color-rojo ">+0.64%</td>
+    <td>2,017k</td>
+  </tr>
+  <tr>
+   <td> RPI/CLP </td>
+  </tr>
+  <tr>
+   <td class="leftStyle" >7487.10 USD</td>
+   <td class="color-verde ">+0.64%</td>
+   <td>2,017k</td>
+  </tr>
   </tbody>
 </table>
-        <div class="BodyStyle">
-          <td> UBR/CLP </td>
-
-          <tr>
-          <td class="leftStyle" >7487.10 USD</td>
-          <td class="color-verde ">+0.64%</td>
-          <td>2,017k</td>
-         </tr>
-      </div>
-       <div class="BodyStyle">
-         <td> UBR/USD </td>
-        <tr>
-          <td class="leftStyle" >7487.10 USD</td>
-          <td class="color-verde ">+0.64%</td>
-          <td>2,017k</td>
-        </tr>
-      </div>
-
-       <div class="BodyStyle">
-         <td> RPP/USD </td>
-      <tr>
-        <td class="leftStyle" >7487.10 USD</td>
-        <td class="color-rojo ">+0.64%</td>
-        <td>2,017k</td>
-      </tr>
-    </div>
-
-       <div class="BodyStyle">
-         <td> RPI/CLP </td>
-        <tr>
-          <td class="leftStyle"> 7487.10 USD</td>
-          <td class="color-rojo centerStyle"> +0.64%</td>
-          <td>2,017k</td>
-        </tr>
-      </div>
 
 
   </b-col>
