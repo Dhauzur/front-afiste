@@ -1,54 +1,48 @@
 <template lang="html">
   <div >
 
-    <b-row class="p-1 mt-4">
-      <b-col >
-        <b-button class="mb-1" block variant="outline-success" size="sm">Comprar</b-button>
-      </b-col>
-      <b-col >
-        <b-button class="" block variant="outline-danger" size="sm">Vender</b-button>
-        </b-col>
-      </b-col>
-    </b-row>
-
-    <b-row class="p-1">
-      <b-col cols="3">Mercado</b-col>
+    <b-row class=" mt-4 justify-content-center">
       <b-col cols="12">
-        <template><b-form-select v-model="selected" :options="options" size="sm"></b-form-select></template>
+        <b-form-group>
+          <b-form-radio-group
+            id="btn-radios-2"
+            v-model="selected"
+            :options="options"
+            buttons class="w-100 mt-2"
+            button-variant="outline-primary"
+            size="md"
+            name="radio-btn-outline"
+          ></b-form-radio-group>
+        </b-form-group>
       </b-col>
     </b-row>
 
     <b-row class="p-1">
-      <b-col cols="3">Fondo</b-col>
+      <b-col cols="3" >Mercado</b-col>
       <b-col cols= "12">
-        <template><b-form-input  v-model="Fondo" placeholder="0.0" size="sm"></b-form-input></template>
+        <b-form-select class="text-white" v-model="selectedMerkat" :options="optionsMerkats"></b-form-select>
       </b-col>
     </b-row>
 
-    <b-row class="p-1">
-      <b-col cols="3" >Cantidad </b-col>
-      <b-col cols= "12">
-        <template><b-form-input v-model="cantidad" size="sm" placeholder=""></b-form-input></template>
+    <b-row class="p-1 justify-content-center">
+      <b-col cols="8" >Cantidad </b-col>
+      <b-col cols= "8">
+        <b-form-input type="number" class="inputCustom text-white" v-model="cantidad" size="sm" placeholder=""></b-form-input>
       </b-col>
-    </b-row>
-
-    <b-row class="p-1">
-      <b-col cols="3">Precio</b-col>
-      <b-col cols= "12">
-        <template><b-form-input variant="success"v-model="precio" size="sm"></b-form-input></template>
+      <b-col cols="8" >Precio </b-col>
+      <b-col cols= "8">
+        <b-form-input type="number" class="inputCustom text-white" v-model="precio" size="sm" placeholder=""></b-form-input>
       </b-col>
-    </b-row>
 
-    <b-row class="p-1">
-      <b-col cols="3">Total</b-col>
-      <b-col cols= "12">
-          <template><b-form-input v-model="total" size="sm" placeholder="100.000"></b-form-input></template>
+      <b-col cols= "8" class="mt-2">
+        <span>TOTAL</span>
+        <b-form-input class="inputCustom text-white" v-model="total" size="sm" disabled></b-form-input>
       </b-col>
     </b-row>
 
 
     <b-row class="p-1 mb-2 mt-2">
-      <b-col cols="12" ><b-button block variant="outline-warning" size="sm">Realizar orden</b-button></b-col>
+      <b-col cols="12" ><b-button block variant="outline-warning" @click="inputsDelet()" size="sm">Realizar orden</b-button></b-col>
     </b-row>
     <b-tabs  content-class="my-3 " justified >
       <b-tab title="Órdenes"  active>
@@ -131,8 +125,8 @@
 </table>
 
       </b-tab>
-      <b-tab title="Intercambios" disabled><p>I'm the first tab</p></b-tab>
-      <b-tab title="Posiciones" disabled><p>I'm the first tab</p></b-tab>
+      <b-tab title="Intercambios" ><p>I'm the first tab</p></b-tab>
+      <b-tab title="Posiciones"><p>I'm the first tab</p></b-tab>
     </b-tabs>
   </div>
 
@@ -141,15 +135,53 @@
 
 <script>
 export default {
-  data(){
-    return{
-    options:[]
+  data() {
+    return {
+      selectedMerkat: null,
+      cantidad: null,
+      precio: null,
+      options: [
+        { text: 'Compra', value: 'COMPRA' },
+        { text: 'Venta', value: 'VENTA' }
+      ],
+      optionsMerkats: [
+        { value: null, text: 'Selecione mercado'},
+        { value: 'UBR/CLP', text: 'UBR/CLP'},
+        { text: 'UBR/USD', value: 'UBR/USD' },
+        { text: 'RPP/USD', value: 'RPP/USD' },
+        { text: 'RPI/CLP', value: 'RPI/CLP' },
+      ],
+      selectedMerkat: null,
+    }
+  },
+  computed: {
+    total() {
+      return this.cantidad * this.precio
+    }
+  },
+  methods: {
+    inputsDelet() {
+      if(this.selectedMerkat && this.cantidad && this.precio) this.resetInputs()
+    },
+    resetInputs() {
+      this.cantidad = null
+      this.precio = null
+      this.selectedMerkat = null
     }
   }
 }
 </script>
 
 <style lang="scss">
+
+.text-white {
+  color: white;
+}
+.inputCustom {
+  background-color: #e0dbdb36 !important;
+  border: none !important;
+}
+
 .tableTransacction {
   height: 40vh;
   overflow-y: auto;
@@ -216,6 +248,4 @@ border-collapse: collapse;
 .nav-tabs {
     border-bottom: 0px solid transparent;
 }
-
-
 </style>
