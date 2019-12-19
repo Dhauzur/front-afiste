@@ -5,38 +5,45 @@
 
   <tbody class="borderBottom">
     <tr>
-    <td> UBR/CLP</td>
-    </tr>
-    <tr class="borderBottom">
-      <td  >7487.10 USD</td>
+      <th>
+        <tr>
+          <td > UBR/CLP</td>
+        </tr>
+      <td >7487.10 USD</td>
       <td class="color-verde ">+0.64%</td>
       <td>2,017k</td>
+     </th>
     </tr>
-
-    <tr >
-     <td> UBR/USD </td>
-   </tr>
-   <tr class="borderBottom">
-     <td  >7487.10 USD</td>
-     <td class="color-rojo ">+0.64%</td>
-     <td>2,017k</td>
-   </tr>
-   <tr>
-    <td> RPP/USD </td>
-  </tr>
-  <tr class="borderBottom">
-    <td >7487.10 USD</td>
-    <td class="color-rojo ">+0.64%</td>
-    <td>2,017k</td>
-  </tr>
-  <tr>
-   <td> RPI/CLP </td>
-  </tr>
-  <tr class="borderBottom">
-   <td  >7487.10 USD</td>
-   <td class="color-verde ">+0.64%</td>
-   <td>2,017k</td>
-  </tr>
+    <tr>
+      <th>
+        <tr>
+          <td > UBR/USD</td>
+        </tr>
+      <td >7487.10 USD</td>
+      <td class="color-verde ">+0.64%</td>
+      <td>2,017k</td>
+     </th>
+    </tr>
+    <tr>
+      <th>
+        <tr>
+          <td > RPP/USD</td>
+        </tr>
+      <td >7487.10 USD</td>
+      <td class="color-verde ">+0.64%</td>
+      <td>2,017k</td>
+     </th>
+    </tr>
+    <tr>
+      <th>
+        <tr>
+          <td > RPI/CLP</td>
+        </tr>
+      <td >7487.10 USD</td>
+      <td class="color-verde ">+0.64%</td>
+      <td>2,017k</td>
+     </th>
+    </tr>
   </tbody>
 </table>
 
@@ -49,7 +56,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 td {
   padding: 3px !important;
 
@@ -59,8 +66,11 @@ td {
   border-bottom: 1px solid #1e2b375c;
 }
 
-.borderBottom{
+.borderBottom {
   border-bottom: 1px solid #1e2b375c;
+  & > tr{
+    border-bottom: 1px solid #1e2b375c;
+    }
 
 }
 
