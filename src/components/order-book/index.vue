@@ -11,7 +11,7 @@
         </thead>
         <tbody  >
           <tr v-for="(o, index) in orders" v-if=" index <= (orders.length/2) && index < 15" :key="index">
-            <td class="color-verde">{{ o[0].toFixed(3) }}</td>
+            <td class="greenColor">{{ o[0].toFixed(3) }}</td>
             <td>{{ o[1].toFixed(3) }}</td>
             <td>{{ o[1].toFixed(3) }}</td>
           </tr>
@@ -23,7 +23,7 @@
       <table class="table  table-hover">
         <tbody >
           <tr v-for="(o, index) in orders" v-if="index > (orders.length/2) && index < (orders.length/2)+15">
-            <td class="color-rojo">{{ o[0].toFixed(3) }}</td>
+            <td class="redColor">{{ o[0].toFixed(3) }}</td>
             <td>{{ o[0].toFixed(3) }}</td>
             <td>{{ o[0].toFixed(3) }}</td>
           </tr>

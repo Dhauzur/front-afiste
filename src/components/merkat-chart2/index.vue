@@ -1,6 +1,6 @@
 <template lang="html">
   <div class="">
-    <highcharts style="min-width: 310px; max-width: 1040px; height: 100px !important; max-height: 100px !important; margin: 0 auto; " class="graphCustom" :options="chartOptions"/>
+    <highcharts  class="graphCustom graphStyle" :options="chartOptions"/>
   </div>
 </template>
 <script>
@@ -195,6 +195,14 @@ export default {
   min-height: calc(30vh - 30px) !important;
   float: left;
   background-color: transparent ;
+}
+.graphStyle {
+
+min-width: 310px;
+max-width: 1040px;
+height: 100px !important;
+max-height: 100px !important; margin: 0 auto
+
 }
 
 </style>

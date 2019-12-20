@@ -1,13 +1,13 @@
 <template lang="html">
-<div class="textSuperior">
+<div class="textSuperior ">
   <div class="logoAfiste">
     <img :src="`${publicPath}logoAfiste.png`"/>
   </div>
-  <div> UBR/CLP 6635.10 <span class="color-rojo">-2.73%</span> </div>
-  <div>  UBR/USD 7555.00  <span class="color-rojo">-1.78%</span>  </div>
-  <div> RPP/USD  4.0657 <span class="color-verde">0.33%</span>  </div>
-  <div> RPI/CLP <span class="color-verde">9.73%</span> </div>
-  <div type="button" class="v-icon" > + </div>
+  <div> UBR/CLP 6635.10 <span class="redColor">-2.73%</span> </div>
+  <div>  UBR/USD 7555.00  <span class="redColor">-1.78%</span>  </div>
+  <div> RPP/USD  4.0657 <span class="greenColor">0.33%</span>  </div>
+  <div> RPI/CLP <span class="greenColor">9.73%</span> </div>
+  <div type="button" class="vIcon" > + </div>
 </div>
 </template>
 
@@ -24,15 +24,13 @@ export default {
 <style lang="scss" scoped>
 
 
-
-
 .logoAfiste {
   float: left;
   height: 30px;
 }
 
 .textSuperior {
-  & > div:not(:first-child)  {
+  & > div:not(:first-child )  {
     font-size: 12px;
     line-height: 5px;
     border: 1px solid #1e2b375c;
@@ -41,6 +39,7 @@ export default {
     padding: 13px;
   }
 }
+
 
 
 

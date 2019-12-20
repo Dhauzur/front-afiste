@@ -68,7 +68,7 @@ export default {
           }
       },
       tooltip: {
-          headerFormat: '<span style="font-size=10px;">Precio: {point.key}</span><br/>',
+          headerFormat: '<span class="spanStyle> Precio: {point.key}</span><br/>',
           valueDecimals: 2
       },
       series: [
@@ -270,4 +270,9 @@ export default {
   background-color: transparent !important;
   height: 50vh;
 }
+
+.spanStyle {
+    font-size:10px;
+  }
+
 </style>

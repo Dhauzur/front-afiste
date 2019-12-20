@@ -1,6 +1,6 @@
 <template lang="html">
   <b-col md="20">
-    <div class="tituloSubContenedor TittleStyle">Listado en observación</div>
+    <div class="titleSubContainer TittleStyle">Listado en observación</div>
 <table>
 
   <tbody class="borderBottom">
@@ -10,7 +10,7 @@
           <td > UBR/CLP</td>
         </tr>
       <td >7487.10 USD</td>
-      <td class="color-verde ">+0.64%</td>
+      <td class="redColor ">+0.64%</td>
       <td>2,017k</td>
      </th>
     </tr>
@@ -20,7 +20,7 @@
           <td > UBR/USD</td>
         </tr>
       <td >7487.10 USD</td>
-      <td class="color-verde ">+0.64%</td>
+      <td class="redColor ">+0.64%</td>
       <td>2,017k</td>
      </th>
     </tr>
@@ -30,7 +30,7 @@
           <td > RPP/USD</td>
         </tr>
       <td >7487.10 USD</td>
-      <td class="color-verde ">+0.64%</td>
+      <td class="greenColor">+0.64%</td>
       <td>2,017k</td>
      </th>
     </tr>
@@ -40,7 +40,7 @@
           <td > RPI/CLP</td>
         </tr>
       <td >7487.10 USD</td>
-      <td class="color-verde ">+0.64%</td>
+      <td class="greenColor">+0.64%</td>
       <td>2,017k</td>
      </th>
     </tr>
@@ -71,7 +71,6 @@ td {
   & > tr{
     border-bottom: 1px solid #1e2b375c;
     }
-
 }
 
 

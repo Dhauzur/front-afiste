@@ -54,10 +54,10 @@
   font-size: 0.6rem;
 }
 
-.color-verde {
+.greenColor {
   color:#70a800 !important;
 }
-.color-rojo {
+.redColor {
   color:#f7107a !important;
 }
 .highcharts-title {
@@ -127,7 +127,7 @@ li {
 
 ///////////////////
 //START CSS
-.tituloSubContenedor {
+.titleSubContainer {
   text-align: center;
   font-size: 0.9rem;
 }
@@ -136,7 +136,7 @@ li {
   // background-color: #20262b;
 }
 
-.subContenedor {
+.subContainer {
   z-index: 2;
   padding: 5px;
   border: 1px solid rgba(30, 43, 55, 0.36);

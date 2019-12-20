@@ -2,7 +2,7 @@
   <div class="">
     <div class="graphCustom mt-4" id="chartCandlestick"/>
     <!-- <highcharts id="2" ref="highcharts2"  :options="chartOptions"/> -->
-    <div class="herramientasLaterales vIcon">
+    <div class="sideTools vIcon">
       <v-icon  name="trending-down"></v-icon>
       <v-icon  name="plus"></v-icon>
       <v-icon  name="sliders"></v-icon>
@@ -92,27 +92,21 @@ export default {
 
 .iconSuperior {
   margin-top: 5px;
+  }
 
-}
 
-
-.herramientaSuperiores {
-  height: 20px;
-  margin-bottom: 20px;
-}
-
-.herramientasLaterales {
+.sideTools {
   width: 10% !important;
   float: right;
   padding: 15px;
   margin-top: 20px;
-}
+  }
 
 .graphCustom {
   width: 90% !important;
   min-height: calc(60vh - 30px) !important;
   float: left;
-}
+  }
 
 
 

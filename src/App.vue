@@ -1,14 +1,14 @@
 <template lang="html">
 <div id="app" class="">
-  <img :src="`${publicPath}afiste-vnx-logo2.png`" style="position: absolute; z-index: -1">
+  <img :src="`${publicPath}afiste-vnx-logo2.png`" class="styleImgLogo">
 
-  <div class="contenedores">
+  <div class="containers">
     <transition name="fade">
       <b-row class="mx-1" v-if="reloadDivs" >
       <div class="navBar">
         <MerkatDescription/>
         <div class="itemsCollapse">
-          <div v-if="!divs.DeepPrice" class="contenedorItem" @click="toggleDivs('DeepPrice')">
+          <div v-if="!divs.DeepPrice" class="itemContainer" @click="toggleDivs('DeepPrice')">
             <div class="itemOpen" >
               <v-icon name="plus-square"/>
             </div>
@@ -16,7 +16,7 @@
               <span>Deep Price</span>
             </div>
           </div>
-          <div v-if="!divs.OrderBook" class="contenedorItem" @click="toggleDivs('OrderBook')">
+          <div v-if="!divs.OrderBook" class="itemContainer" @click="toggleDivs('OrderBook')">
             <div class="itemOpen" >
               <v-icon name="plus-square"/>
             </div>
@@ -24,7 +24,7 @@
               <span>Order Book</span>
             </div>
           </div>
-          <div v-if="!divs.Tradding" class="contenedorItem" @click="toggleDivs('Tradding')">
+          <div v-if="!divs.Tradding" class="itemContainer" @click="toggleDivs('Tradding')">
             <div class="itemOpen" >
               <v-icon name="plus-square"/>
             </div>
@@ -34,30 +34,30 @@
           </div>
         </div>
       </div>
-      <div v-bind:style="width.PriceHistory" class="subContenedor colorBackground">
+      <div v-bind:style="width.PriceHistory" class="subContainer colorBackground">
         <MerkatChart/>
         <MerkatChart2/>
       </div>
-      <div  v-if="divs.DeepPrice" v-bind:style="width.DeepPrice"  class="subContenedor colorBackground">
+      <div  v-if="divs.DeepPrice" v-bind:style="width.DeepPrice"  class="subContainer colorBackground">
         <div class="iconCollapse" @click="toggleDivs('DeepPrice')">
           <v-icon name="minimize-2"/>
         </div>
         <DeepPrice />
-        <FavoriteMerkats class="subContenedor"/>
+        <FavoriteMerkats class="subContainer"/>
       </div>
-      <div v-if="divs.OrderBook" v-bind:style="width.OrderBook"  class="subContenedor colorBackground">
+      <div v-if="divs.OrderBook" v-bind:style="width.OrderBook"  class="subContainer colorBackground">
         <div class="iconCollapse" @click="toggleDivs('OrderBook')">
           <v-icon name="minimize-2"/>
         </div>
         <OrderBook />
       </div>
-      <div  v-if="divs.Tradding" v-bind:style="width.Tradding" style="padding: 0px !important;" class="subContenedor colorBackground">
+      <div  v-if="divs.Tradding" v-bind:style="width.Tradding"  class="styleTableTradding subContainer colorBackground">
         <div class="">
-          <div class="transaciones">
+          <div class="transactions">
             <div class="iconCollapse" @click="toggleDivs('Tradding')">
               <v-icon name="minimize-2"/>
             </div>
-            <div class="tituloSubContenedor" ></div>
+            <div class="titleSubContainer" ></div>
             <Transaciones/>
           </div>
         </div>
@@ -170,7 +170,7 @@ export default {
 
 <style lang="css" scoped>
 
-.contenedorItem {
+.itemContainer {
   display: inline-block;
   width: 80px;
   padding: 12px;
@@ -179,7 +179,7 @@ export default {
 
 }
 
-.contenedorItem:hover {
+.itemContainer:hover {
   color: white;
 }
 
@@ -214,7 +214,7 @@ export default {
 }
 
 
-.transaciones {
+.transactions {
   /* -webkit-backdrop-filter: blur(30px);
   backdrop-filter: blur(30px); */
   /* background-color: #1715157a; */
@@ -250,7 +250,12 @@ export default {
 
 }
 
-.contenedores {
+.styleTableTradding{
+
+padding: 0px !important;
+}
+
+.containers {
   position: absolute;
   z-index: 1;
   width: 100%;
@@ -259,5 +264,9 @@ export default {
   overflow-y: auto;
 }
 
+.styleImgLogo {
+ position : absolute;
+ z-index : -1;
+}
 
 </style>
