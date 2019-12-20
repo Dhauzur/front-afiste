@@ -1,16 +1,34 @@
-# Prototipo - Afiste
+# afiste
 
-> Master: Mauro Pérez Araya
-> correo: mp@afiste.com - mmauroperez@gmail.com
-
-## Build Setup
-
-``` bash
-# install dependencies
-git remote update
-git checkout development
-git pull origin development
-npm install
-npm run dev (Dev)
-npm run build (Prod)
+## Project setup
 ```
+npm install
+```
+
+### Compiles and hot-reloads for development
+```
+npm run serve
+```
+
+### Compiles and minifies for production
+```
+npm run build
+```
+
+### Run your tests
+```
+npm run test
+```
+
+### Lints and fixes files
+```
+npm run lint
+```
+
+### Run your unit tests
+```
+npm run test:unit
+```
+
+### Customize configuration
+See [Configuration Reference](https://cli.vuejs.org/config/).

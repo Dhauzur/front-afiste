@@ -1,34 +1,35 @@
-
 import Vue from 'vue'
-import BootstrapVue from 'bootstrap-vue'
-import VueRouter from 'vue-router'
-import VueCookies from 'vue-cookies'
-import routes from './routes'
 import App from './App.vue'
+import router from './router'
+import store from './store'
 import feather from 'vue-icon'
-import HighchartsVue from "highcharts-vue";
+import BootstrapVue from 'bootstrap-vue'
 
 // app.js
-import './sass/custom.scss'
+import 'bootstrap/dist/css/bootstrap.css'
+import 'bootstrap-vue/dist/bootstrap-vue.css'
 
 
-Vue.use(feather, 'v-icon')
+// This imports all the layout components such as <b-container>, <b-row>, <b-col>:
+import { LayoutPlugin } from 'bootstrap-vue'
+import { ModalPlugin } from 'bootstrap-vue'
+import { CardPlugin } from 'bootstrap-vue'
+import { VBScrollspyPlugin } from 'bootstrap-vue'
+import { DropdownPlugin, TablePlugin } from 'bootstrap-vue'
+
+Vue.use(CardPlugin)
+Vue.use(LayoutPlugin)
+Vue.use(ModalPlugin)
+Vue.use(VBScrollspyPlugin)
+Vue.use(DropdownPlugin)
+Vue.use(TablePlugin)
 
 Vue.use(BootstrapVue)
-Vue.use(VueRouter)
-Vue.use(VueCookies)
-Vue.use(HighchartsVue,{tagName: 'chart'})
-
-VueCookies.config('1h')
-VueCookies.set('theme','default');
-VueCookies.set('hover-time','1s');
-
-const router = new VueRouter({
-  routes
-})
+Vue.use(feather, 'v-icon')
+Vue.config.productionTip = false
 
 new Vue({
-  el: '#app',
   router,
-  render: h => h(App),
-})
+  store,
+  render: h => h(App)
+}).$mount('#app')

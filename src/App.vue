@@ -1,12 +1,14 @@
 <template lang="html">
 <div id="app" class="">
-  <div class="contenedores">
+  <img :src="`${publicPath}afiste-vnx-logo2.png`" class="styleImgLogo">
+
+  <div class="containers">
     <transition name="fade">
       <b-row class="mx-1" v-if="reloadDivs" >
       <div class="navBar">
         <MerkatDescription/>
         <div class="itemsCollapse">
-          <div v-if="!divs.DeepPrice" class="contenedorItem" @click="toggleDivs('DeepPrice')">
+          <div v-if="!divs.DeepPrice" class="itemContainer" @click="toggleDivs('DeepPrice')">
             <div class="itemOpen" >
               <v-icon name="plus-square"/>
             </div>
@@ -14,7 +16,7 @@
               <span>Deep Price</span>
             </div>
           </div>
-          <div v-if="!divs.OrderBook" class="contenedorItem" @click="toggleDivs('OrderBook')">
+          <div v-if="!divs.OrderBook" class="itemContainer" @click="toggleDivs('OrderBook')">
             <div class="itemOpen" >
               <v-icon name="plus-square"/>
             </div>
@@ -22,7 +24,7 @@
               <span>Order Book</span>
             </div>
           </div>
-          <div v-if="!divs.Tradding" class="contenedorItem" @click="toggleDivs('Tradding')">
+          <div v-if="!divs.Tradding" class="itemContainer" @click="toggleDivs('Tradding')">
             <div class="itemOpen" >
               <v-icon name="plus-square"/>
             </div>
@@ -32,30 +34,29 @@
           </div>
         </div>
       </div>
-      <div v-bind:style="width.PriceHistory" class="subContenedor colorBackground">
+      <div v-bind:style="width.PriceHistory" class="subContainer colorBackground">
         <MerkatChart/>
         <MerkatChart2/>
       </div>
-      <div  v-if="divs.DeepPrice" v-bind:style="width.DeepPrice"  class="subContenedor colorBackground">
+      <div  v-if="divs.DeepPrice" v-bind:style="width.DeepPrice"  class="subContainer colorBackground">
         <div class="iconCollapse" @click="toggleDivs('DeepPrice')">
           <v-icon name="minimize-2"/>
         </div>
         <DeepPrice />
-        <FavoriteMerkats class="subContenedor"/>
       </div>
-      <div v-if="divs.OrderBook" v-bind:style="width.OrderBook"  class="subContenedor colorBackground">
+      <div v-if="divs.OrderBook" v-bind:style="width.OrderBook"  class="subContainer colorBackground">
         <div class="iconCollapse" @click="toggleDivs('OrderBook')">
           <v-icon name="minimize-2"/>
         </div>
         <OrderBook />
       </div>
-      <div  v-if="divs.Tradding" v-bind:style="width.Tradding" style="padding: '0px';" class="subContenedor colorBackground">
-        <div class="subImagen">
-          <div class="transaciones">
+      <div  v-if="divs.Tradding" v-bind:style="width.Tradding"  class="styleTableTradding subContainer colorBackground">
+        <div class="">
+          <div class="transactions">
             <div class="iconCollapse" @click="toggleDivs('Tradding')">
               <v-icon name="minimize-2"/>
             </div>
-            <div class="tituloSubContenedor" > TRADDING</div>
+            <div class="titleSubContainer" ></div>
             <Transaciones/>
           </div>
         </div>
@@ -67,14 +68,14 @@
 </template>
 
 <script>
-import MerkatDescription from './merkat-description'
-import OrderBook from './order-book'
-import DeepPrice from './deep-price'
-import MerkatChart from './merkat-chart'
-import MerkatChart2 from './merkat-chart2'
-import FavoriteMerkats from './favorite-merkats'
-import Reac from './reactivo'
-import Transaciones from './transaciones'
+import MerkatDescription from './components/merkat-description'
+import OrderBook from './components/order-book'
+import DeepPrice from './components/deep-price'
+import MerkatChart from './components/merkat-chart'
+import MerkatChart2 from './components/merkat-chart2'
+import Transaciones from './components/transaciones'
+import { mapGetters, mapMutations } from 'vuex';
+
 export default {
   components: {
     MerkatDescription,
@@ -82,18 +83,18 @@ export default {
     DeepPrice,
     MerkatChart,
     MerkatChart2,
-    FavoriteMerkats,
     Transaciones
   },
   data() {
     return {
+      publicPath: process.env.BASE_URL,
       reloadDivs: true,
       width: {
         Tradding: {
-          width: '21%'
+          width: '23%'
         },
         OrderBook:{
-          width: '17%'
+          width: '15%'
         },
         PriceHistory:{
           width: '45%'
@@ -105,15 +106,18 @@ export default {
     }
   },
   computed: {
-    divs() {
-      return Reac.state.divs
-    }
+    ...mapGetters({
+      divs: 'dom/divs',
+    })
   },
   methods: {
+    ...mapMutations({
+      changeDivs: 'dom/changeDivs',
+    }),
 
     calculateWidth(divChange) {
-      if(this.divs.Tradding && divChange == 'Tradding') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 21) + '%'
-      if(this.divs.OrderBook && divChange == 'OrderBook') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 17) + '%'
+      if(this.divs.Tradding && divChange == 'Tradding') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 24) + '%'
+      if(this.divs.OrderBook && divChange == 'OrderBook') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 15) + '%'
       if(this.divs.DeepPrice && divChange == 'DeepPrice') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) - 17) + '%'
 
       if(!this.divs.Tradding && divChange == 'Tradding') this.width.PriceHistory.width = '' + (parseInt(this.width.PriceHistory.width) + parseInt(this.width.Tradding.width.match(/\d+/)[0])) + '%'
@@ -122,15 +126,15 @@ export default {
     },
 
     toggleDivs(divChange) {
-      var preDivs = this.divs
-      Reac.commit('changeDivs', {
+      var preDivs = this.divs;
+      this.changeDivs({
         OrderBook: false,
         DeepPrice: false,
         PriceHistory: false,
         Tradding: false
       })
       setTimeout(() => {
-        Reac.commit('changeDivs', {
+        this.changeDivs({
           OrderBook: divChange == 'OrderBook' ? !preDivs.OrderBook : preDivs.OrderBook,
           DeepPrice: divChange == 'DeepPrice' ? !preDivs.DeepPrice : preDivs.DeepPrice,
           PriceHistory: divChange == 'PriceHistory' ? !preDivs.PriceHistory : preDivs.PriceHistory,
@@ -150,14 +154,20 @@ export default {
 // custom.scss
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
-@import url('https://fonts.googleapis.com/css?family=Exo+2|Hind&display=swap');
-@import './global.scss';
 
+@import url('https://fonts.googleapis.com/css?family=Exo+2|Hind&display=swap');
+@import 'src/assets/scss/global.scss';
+
+</style>
+
+<style lang="css" >
+@import '../node_modules/highcharts/css/annotations/popup.css';
+@import '../node_modules/highcharts/css/stocktools/gui.css';
 </style>
 
 <style lang="css" scoped>
 
-.contenedorItem {
+.itemContainer {
   display: inline-block;
   width: 80px;
   padding: 12px;
@@ -166,7 +176,7 @@ export default {
 
 }
 
-.contenedorItem:hover {
+.itemContainer:hover {
   color: white;
 }
 
@@ -177,7 +187,6 @@ export default {
 
 .navBar {
   width: 100%;
-  height: 60px;
   z-index: 2;  /* box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); */
 }
 
@@ -202,16 +211,18 @@ export default {
 }
 
 
-.transaciones {
-  /* -webkit-backdrop-filter: blur(10px); */
-  backdrop-filter: blur(30px);
-  background-color: #1715157a;
+.transactions {
+  /* -webkit-backdrop-filter: blur(30px);
+  backdrop-filter: blur(30px); */
+  /* background-color: #1715157a; */
   top: -30px;
   left: 10px;
-  padding: 30px;
-  height: 100%;
+  padding: 10px;
+  height: 95vh;
   color: white !important;
-  box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
+  overflow-y: auto;
+
+  /* box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75); */
 
 }
 
@@ -236,14 +247,23 @@ export default {
 
 }
 
-.contenedores {
+.styleTableTradding{
+
+padding: 0px !important;
+}
+
+.containers {
   position: absolute;
   z-index: 1;
   width: 100%;
-  background-image: linear-gradient(45deg, #262a38, #090e17);
+  background-image: linear-gradient(5deg, #181a1c, #090a0a);
   height: 100vh;
   overflow-y: auto;
 }
 
+.styleImgLogo {
+ position : absolute;
+ z-index : -1;
+}
 
 </style>
