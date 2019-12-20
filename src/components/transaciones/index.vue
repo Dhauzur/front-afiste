@@ -47,7 +47,7 @@
     <b-tabs  content-class="my-3 " justified >
       <b-tab title="Órdenes"  active>
 
-<table class=" table-border table-responsive tableTransacction ">
+<table class="  table-border table-responsive tableTransacction ">
 
 <tbody class="borderStyle">
 

@@ -86,27 +86,18 @@ export default {
 
 <style lang="scss" scoped>
 
-.highcharts-bindings-wrapper * {
-	/* box-sizing: content-box; */
-}
-
-.iconSuperior {
-  margin-top: 5px;
-  }
-
-
 .sideTools {
   width: 10% !important;
   float: right;
   padding: 15px;
   margin-top: 20px;
-  }
+}
 
 .graphCustom {
   width: 90% !important;
   min-height: calc(60vh - 30px) !important;
   float: left;
-  }
+}
 
 
 

@@ -8,8 +8,7 @@
 import Highcharts from "highcharts";
 import exportingInit from "highcharts/modules/exporting";
 import dataInit from "highcharts/modules/data";
-import FavoriteMerkats from './/favorite-merkats'
-
+import FavoriteMerkats from './favorite-merkats'
 import { mapGetters, mapMutations } from 'vuex';
 
 export default {

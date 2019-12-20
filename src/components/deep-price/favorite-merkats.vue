@@ -58,19 +58,17 @@ export default {
 
 <style lang="scss" scoped>
 
-
 .TittleStyle{
   border-bottom: 1px solid #1e2b375c;
 }
 
 .borderBottom {
   border-bottom: 1px solid #1e2b375c;
-  & > tr{
+  & > tr {
     border-bottom: 1px solid #1e2b375c;
   }
   & > tr > th > td {
     padding: 3px !important;
-
   }
 }
 
