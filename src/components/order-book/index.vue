@@ -18,7 +18,7 @@
         </tbody>
       </table>
     </div>
-    <div class="h6" style="text-align: center; vertical-align: middle; margin-top:5px; margin-right:20px;">19103 CLP</div>
+    <div class="h6 lastPrice"> 19103 CLP</div>
     <div class="tableOrder noScrollY mt-0" >
       <table class="table  table-hover">
         <tbody >
@@ -31,7 +31,7 @@
       </table>
     </div>
     <div >
-      <table class="table table-striped table-hover table-responsive" style="overflow: auto !important; max-height: 200px !important;">
+      <table class="table table-striped table-hover table-responsive tableHistoryPrice">
         <thead>
           <tr>
             <th></th>
@@ -73,7 +73,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 
 .noScrollY {
   overflow-y: hidden !important;
@@ -88,25 +88,41 @@ td {
 }
 
 .tableOrder {
+  & > table > tbody > tr, & > table > thead > tr {
+    border-bottom-color:  transparent !important;
+    text-align: right !important;
+    vertical-align: right !important;
+    border-top-color: transparent !important;
+  }
   max-height: calc(33vh - 30px) !important;
-  overflow-y: auto;
+  overflow-y:auto;
 }
 
 /* Track */
 ::-webkit-scrollbar-track {
-  background: transparent;
+  background: transparent !important;
 }
 
 /* Handle */
 ::-webkit-scrollbar-thumb {
-  background: transparent;
-
+  background: transparent !important;
 }
 
-table, th, td, tr {
-  border-bottom-color:  transparent !important;
+.tableHistoryPrice {
+  & > tbody > tr, & > thead > tr {
+    border-bottom-color:  transparent !important;
     text-align: right !important;
     vertical-align: right !important;
-      border-top-color: transparent !important;
+    border-top-color: transparent !important;
+  }
+  overflow: auto !important;
+  max-height: 200px !important;
+}
+
+.lastPrice {
+  text-align:center;
+  vertical-align:middle;
+  margin-top:5px;
+  margin-right:20px;
 }
 </style>
