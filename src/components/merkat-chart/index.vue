@@ -2,13 +2,13 @@
   <div class="">
     <div class="graphCustom mt-4" id="chartCandlestick"/>
     <!-- <highcharts id="2" ref="highcharts2"  :options="chartOptions"/> -->
-    <div class="herramientasLaterales">
-      <v-icon class="v-icon" name="trending-down"></v-icon>
-      <v-icon class="v-icon" name="plus"></v-icon>
-      <v-icon class="v-icon" name="sliders"></v-icon>
-      <v-icon class="v-icon" name="minimize-2"></v-icon>
-      <v-icon class="v-icon" name="minus-square"></v-icon>
-      <v-icon class="v-icon" name="git-merge"></v-icon>
+    <div class="sideTools vIcon">
+      <v-icon  name="trending-down"></v-icon>
+      <v-icon  name="plus"></v-icon>
+      <v-icon  name="sliders"></v-icon>
+      <v-icon  name="minimize-2"></v-icon>
+      <v-icon  name="minus-square"></v-icon>
+      <v-icon  name="git-merge"></v-icon>
     </div>
   </div>
 </template>
@@ -84,7 +84,7 @@ export default {
 }
 </script>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 
 .highcharts-bindings-wrapper * {
 	/* box-sizing: content-box; */
@@ -92,26 +92,23 @@ export default {
 
 .iconSuperior {
   margin-top: 5px;
+  }
 
-}
 
-
-.herramientaSuperiores {
-  height: 20px;
-  margin-bottom: 20px;
-}
-
-.herramientasLaterales {
+.sideTools {
   width: 10% !important;
   float: right;
   padding: 15px;
   margin-top: 20px;
-}
+  }
 
 .graphCustom {
   width: 90% !important;
   min-height: calc(60vh - 30px) !important;
   float: left;
-}
+  }
+
+
+
 
 </style>

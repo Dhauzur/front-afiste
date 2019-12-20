@@ -47,81 +47,51 @@
     <b-tabs  content-class="my-3 " justified >
       <b-tab title="Órdenes"  active>
 
-<table class="table table-border table-responsive tableTransacction  tableStyleNew">
-  <thead align="left">
-<tr class="StyleTR">
-   <b-row class="ColumnaTrading" >
+<table class=" table-border table-responsive tableTransacction ">
 
-    <b-col cols="1">Lado</b-col>
+<tbody class="borderStyle">
 
-    <b-col cols="3">Tipo</b-col>
-    <b-col cols="3">Cantidad</b-col>
-    <b-col cols="2">Precio</b-col>
-    <b-col>Cancelar</b-col>
-
-  </b-row>
-</tr>
-
-  </thead>
-  <tbody align="left">
-
-   <tr  class="StyleTR">
-
-       <b-row class="ColumnaTrading">
-
-
-      <b-col cols="2" class="color-verde">Comprar</b-col>
-
-      <b-col cols="2">Límite</b-col>
-
-      <b-col cols="3">48</b-col>
-      <b-col cols="2">6728</b-col>
-      <b-col>x</b-col>
-    </b-row>
-
-</tr>
-
-<tr class="StyleTR">
-
-      <b-row class="ColumnaTrading" >
-
-      <b-col cols="2" class="color-rojo">Vender</b-col>
-
-      <b-col cols="2">Límite</b-col>
-
-      <b-col cols="3">46</b-col>
-
-      <b-col cols="2">6528</b-col>
-
-      <b-col>x</b-col>
-
-    </b-row>
-</tr>
-
-
-<tr class="StyleTR">
-
-      <b-row class="ColumnaTrading" >
-      <b-col cols="2" class="color-rojo">Vender</b-col>
-     <b-col cols="2">Límite</b-col>
-      <b-col cols="3">98</b-col>
-      <b-col cols="2">5728</b-col>
-      <b-col>x</b-col>
-    </b-row>
+   <tr>
+        <td>Lado</td>
+        <td>Tipo</td>
+        <td>Cantidad<td>
+        <td>Precio</td>
+        <td>Cancelar</td>
   </tr>
 
+  <tr>
+      <td class="greenColor">Comprar</td>
+      <td>Límite</td>
+      <td>48</td>
+      <td>6728</td>
+      <td>x</td>
+  </tr>
 
-<tr class="StyleTR">
-      <b-row class="ColumnaTrading" >
-      <b-col cols="2" class="color-verde">Comprar</b-col>
-      <b-col cols="2">Límite</b-col>
-      <b-col cols="3">10</b-col>
-      <b-col cols="2">7728</b-col>
-      <b-col>x</b-col;>
-    </b-row>
+  <tr>
+      <td class="redColor">Vender</td>
+      <td>Límite</td>
+      <td>46</td>
+      <td>6528</td>
+      <td>x</td>
+  </tr>
 
-</tr>
-  </tbody>
+  <tr>
+      <td class="redColor">Vender</td>
+      <td>Límite</td>
+      <td>98</td>
+      <td>5728</td>
+      <td>x</td>
+  </tr>
+
+  <tr>
+      <td class="greenColor">Comprar</td>
+      <td>Límite</td>
+      <td>10</td>
+      <td>7728</td>
+      <td>x</td>
+  </tr>
+
+</tbody>
 </table>
 
       </b-tab>
@@ -216,34 +186,13 @@ li {
 
 }
 
-.ColumnaTrading {
-  font-size: 10px;
+.borderStyle {
   border-bottom: 1px solid #bdb8b8;
-
+  & > tr{
+    border-bottom: 1px solid #bdb8b8;
+    }
 }
 
-.StyleTR{
-
-  border-bottom: 1px solid black;
-
-}
-
-.tableStyleNew {
-border-collapse: collapse;
-
-}
-
-
-
-.tbody
-{
-
- border-width: 2px;
-  border-spacing: 0px 0px;
-  border: 1px solid #bdb8b8;
-  text-align: left;
-  justified: margin-left;
-}
 
 .nav-tabs {
     border-bottom: 0px solid transparent;

@@ -1,16 +1,21 @@
 <template lang="html">
   <div >
-    <div style="margin-top: 20px; background-color: transparent !important; height: 50vh; " id="thechart"/>
+    <div  id="thechart"/>
+    <FavoriteMerkats class="subContainer"/>
   </div>
 </template>
 <script>
 import Highcharts from "highcharts";
 import exportingInit from "highcharts/modules/exporting";
 import dataInit from "highcharts/modules/data";
+import FavoriteMerkats from './/favorite-merkats'
 
 import { mapGetters, mapMutations } from 'vuex';
 
 export default {
+  components: {
+    FavoriteMerkats
+  },
   created() {
     this.chartOptions = {
       chart: {
@@ -68,7 +73,7 @@ export default {
           }
       },
       tooltip: {
-          headerFormat: '<span style="font-size=10px;">Precio: {point.key}</span><br/>',
+          headerFormat: '<span class="spanStyle> Precio: {point.key}</span><br/>',
           valueDecimals: 2
       },
       series: [
@@ -265,10 +270,14 @@ export default {
 </script>
 
 <style lang="css" scoped>
-#container {
-	min-width: 310px;
-	max-width: 1040px;
-	max-height: 60vh;
-	margin: 0 auto;
+#thechart {
+  margin-top: 20px;
+  background-color: transparent !important;
+  height: 50vh;
 }
+
+.spanStyle {
+    font-size:10px;
+  }
+
 </style>
