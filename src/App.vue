@@ -43,7 +43,6 @@
           <v-icon name="minimize-2"/>
         </div>
         <DeepPrice />
-        <FavoriteMerkats class="subContainer"/>
       </div>
       <div v-if="divs.OrderBook" v-bind:style="width.OrderBook"  class="subContainer colorBackground">
         <div class="iconCollapse" @click="toggleDivs('OrderBook')">
@@ -74,7 +73,6 @@ import OrderBook from './components/order-book'
 import DeepPrice from './components/deep-price'
 import MerkatChart from './components/merkat-chart'
 import MerkatChart2 from './components/merkat-chart2'
-import FavoriteMerkats from './components/favorite-merkats'
 import Transaciones from './components/transaciones'
 import { mapGetters, mapMutations } from 'vuex';
 
@@ -85,7 +83,6 @@ export default {
     DeepPrice,
     MerkatChart,
     MerkatChart2,
-    FavoriteMerkats,
     Transaciones
   },
   data() {

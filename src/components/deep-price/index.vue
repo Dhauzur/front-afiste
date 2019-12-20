@@ -1,16 +1,21 @@
 <template lang="html">
   <div >
     <div  id="thechart"/>
+    <FavoriteMerkats class="subContainer"/>
   </div>
 </template>
 <script>
 import Highcharts from "highcharts";
 import exportingInit from "highcharts/modules/exporting";
 import dataInit from "highcharts/modules/data";
+import FavoriteMerkats from './/favorite-merkats'
 
 import { mapGetters, mapMutations } from 'vuex';
 
 export default {
+  components: {
+    FavoriteMerkats
+  },
   created() {
     this.chartOptions = {
       chart: {
