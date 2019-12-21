@@ -1,6 +1,6 @@
 <template lang="html">
 <div id="app" class="">
-  <img :src="`${publicPath}afiste-vnx-logo2.png`" class="styleImgLogo">
+  <img :src="`${publicPath}afiste-vnx-logo2.png`" class="ImgLogo">
 
   <div class="containers">
     <transition name="fade">
@@ -50,7 +50,7 @@
         </div>
         <OrderBook />
       </div>
-      <div  v-if="divs.Tradding" v-bind:style="width.Tradding"  class="styleTableTradding subContainer colorBackground">
+      <div  v-if="divs.Tradding" v-bind:style="width.Tradding"  class="TableTradding subContainer colorBackground">
         <div class="">
           <div class="transactions">
             <div class="iconCollapse" @click="toggleDivs('Tradding')">
@@ -165,7 +165,7 @@ export default {
 @import '../node_modules/highcharts/css/stocktools/gui.css';
 </style>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 
 .itemContainer {
   display: inline-block;
@@ -226,17 +226,6 @@ export default {
 
 }
 
-.subImagen {
-  background-image: url("./assets/noche.png");
-  /* background-repeat:no-repeat; */
-  /* background-position:center; */
-  /* background-attachment: fixed; */
-  /* background-size: cover; */
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  z-index: 3;
-}
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s;
@@ -247,7 +236,7 @@ export default {
 
 }
 
-.styleTableTradding{
+.TableTradding{
 
 padding: 0px !important;
 }
@@ -261,7 +250,7 @@ padding: 0px !important;
   overflow-y: auto;
 }
 
-.styleImgLogo {
+.ImgLogo {
  position : absolute;
  z-index : -1;
 }
