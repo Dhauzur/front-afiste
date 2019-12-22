@@ -98,12 +98,10 @@ td {
   overflow-y:auto;
 }
 
-/* Track */
 ::-webkit-scrollbar-track {
   background: transparent !important;
 }
 
-/* Handle */
 ::-webkit-scrollbar-thumb {
   background: transparent !important;
 }

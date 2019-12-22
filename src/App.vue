@@ -151,7 +151,6 @@ export default {
 
 
 <style lang="scss">
-// custom.scss
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
 
@@ -173,7 +172,6 @@ export default {
   padding: 12px;
   float: right;
   color: #848f9e;
-
 }
 
 .itemContainer:hover {
@@ -187,7 +185,7 @@ export default {
 
 .navBar {
   width: 100%;
-  z-index: 2;  /* box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); */
+  z-index: 2;
 }
 
 .itemsCollapse {
@@ -210,34 +208,25 @@ export default {
   color: #848f9e;
 }
 
-
 .transactions {
-  /* -webkit-backdrop-filter: blur(30px);
-  backdrop-filter: blur(30px); */
-  /* background-color: #1715157a; */
   top: -30px;
   left: 10px;
   padding: 10px;
   height: 95vh;
   color: white !important;
   overflow-y: auto;
-
-  /* box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75); */
-
 }
-
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to  {
   opacity: 0;
   transition: opacity 0.5s;
-
 }
 
 .TableTradding{
-
 padding: 0px !important;
 }
 
