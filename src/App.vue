@@ -1,6 +1,6 @@
 <template lang="html">
 <div id="app" class="">
-  <img :src="`${publicPath}afiste-vnx-logo2.png`" class="styleImgLogo">
+  <img :src="`${publicPath}afiste-vnx-logo2.png`" class="ImgLogo">
 
   <div class="containers">
     <transition name="fade">
@@ -50,7 +50,7 @@
         </div>
         <OrderBook />
       </div>
-      <div  v-if="divs.Tradding" v-bind:style="width.Tradding"  class="styleTableTradding subContainer colorBackground">
+      <div  v-if="divs.Tradding" v-bind:style="width.Tradding"  class="TableTradding subContainer colorBackground">
         <div class="">
           <div class="transactions">
             <div class="iconCollapse" @click="toggleDivs('Tradding')">
@@ -151,7 +151,6 @@ export default {
 
 
 <style lang="scss">
-// custom.scss
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import 'node_modules/bootstrap-vue/src/index.scss';
 
@@ -165,7 +164,7 @@ export default {
 @import '../node_modules/highcharts/css/stocktools/gui.css';
 </style>
 
-<style lang="css" scoped>
+<style lang="scss" scoped>
 
 .itemContainer {
   display: inline-block;
@@ -173,7 +172,6 @@ export default {
   padding: 12px;
   float: right;
   color: #848f9e;
-
 }
 
 .itemContainer:hover {
@@ -187,7 +185,7 @@ export default {
 
 .navBar {
   width: 100%;
-  z-index: 2;  /* box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75); */
+  z-index: 2;
 }
 
 .itemsCollapse {
@@ -210,45 +208,25 @@ export default {
   color: #848f9e;
 }
 
-
 .transactions {
-  /* -webkit-backdrop-filter: blur(30px);
-  backdrop-filter: blur(30px); */
-  /* background-color: #1715157a; */
   top: -30px;
   left: 10px;
   padding: 10px;
   height: 95vh;
   color: white !important;
   overflow-y: auto;
-
-  /* box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75); */
-
-}
-
-.subImagen {
-  background-image: url("./assets/noche.png");
-  /* background-repeat:no-repeat; */
-  /* background-position:center; */
-  /* background-attachment: fixed; */
-  /* background-size: cover; */
-  width: 100%;
-  height: 100%;
-  opacity: 1;
-  z-index: 3;
 }
 
 .fade-enter-active, .fade-leave-active {
   transition: opacity 0.5s;
 }
-.fade-enter, .fade-leave-to /* .fade-leave-active below version 2.1.8 */ {
+
+.fade-enter, .fade-leave-to  {
   opacity: 0;
   transition: opacity 0.5s;
-
 }
 
-.styleTableTradding{
-
+.TableTradding{
 padding: 0px !important;
 }
 
@@ -261,7 +239,7 @@ padding: 0px !important;
   overflow-y: auto;
 }
 
-.styleImgLogo {
+.ImgLogo {
  position : absolute;
  z-index : -1;
 }

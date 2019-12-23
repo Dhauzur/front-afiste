@@ -147,6 +147,7 @@ export default {
 .text-white {
   color: white;
 }
+
 .inputCustom {
   background-color: #e0dbdb36 !important;
   border: none !important;
@@ -161,9 +162,11 @@ a:hover {
   color: white !important;
   border-radius: 0px !important;
 }
+
 li {
   margin: 0px;
 }
+
 .nav-tabs .nav-link.active {
   background-color: transparent;
   border-color: transparent;
@@ -171,7 +174,6 @@ li {
   border-bottom: 1px solid white;
   margin: 0px ;
   border: 1px solid white ;
-
 }
 
 .nav-link {
@@ -192,7 +194,6 @@ li {
     border-bottom: 1px solid #bdb8b8;
     }
 }
-
 
 .nav-tabs {
     border-bottom: 0px solid transparent;

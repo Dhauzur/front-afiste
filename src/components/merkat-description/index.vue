@@ -1,6 +1,6 @@
 <template lang="html">
 <div class="textSuperior ">
-  <div class="logoAfiste">
+  <div class="iconAfiste">
     <img :src="`${publicPath}logoAfiste.png`"/>
   </div>
   <div> UBR/CLP 6635.10 <span class="redColor">-2.73%</span> </div>
@@ -24,7 +24,7 @@ export default {
 <style lang="scss" scoped>
 
 
-.logoAfiste {
+.iconAfiste {
   float: left;
   height: 30px;
 }

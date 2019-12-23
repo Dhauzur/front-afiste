@@ -1,33 +1,8 @@
 @import './table.scss';
+@import './color.scss';
+@import './buttons.scss';
+@import './fonts.scss';
 
-
-
-
-.vIcon {
-  & > svg  {
-    width: 34px;
-    transition: all ease-in-out 0.3s;
-    border: 1px solid #37404f;
-    padding: 7px;
-    color: #848f9e;
-    margin-bottom: 5px;
-    background-color: #25252759;
-    background-image: linear-gradient(45deg, #23273463, #25252759);
-  }
-
-  & > svg:hover {
-    background-image: linear-gradient(45deg, #181c27, #181c27);
-    background-color: #3a37379c;
-    color: white;
-    transition: all ease-in-out 0.3s;
-    border: 1px solid transparent;
-  }
-}
-
-
-.btn {
-  border-radius: 20px;
-}
 .custom-select, .custom-select:focus {
     background: #e0dbdb36 !important;
     border: none !important;
@@ -42,77 +17,35 @@
   border: none ;
   outline: none ;
   box-shadow:none;
-  // border-bottom: 1px solid white;
   background-color: #e0dbdb36;
   border-radius: 20px;
   color: white ;
 }
 
 #app {
-  // font-family: 'Noto Sans JP', sans-serif !important;
   color: #e0dbdb !important;
   font-size: 0.6rem;
 }
 
-.greenColor {
-  color:#70a800 !important;
+::-webkit-scrollbar {
+  width:4px;
 }
-.redColor {
-  color:#f7107a !important;
-}
+
 .highcharts-title {
   font-size: 0.7rem !important;
 }
 
-h1 {
-  font-size: 58px;
-}
-
-h2 {
-  font-size: 42px;
-}
-h3 {
-  font-size: 30px;
-}
-h4 {
-  font-size: 22px;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
-
-}
-h5 {
-  font-size: 11px;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
-
-}
-h6 {
-  font-size: 4px;
-  font-family: 'Avenir', Helvetica, Arial, sans-serif !important;
-
-}
-
-/* width */
 ::-webkit-scrollbar {
   width:4px;
 }
+
 ::-webkit-scrollbar {
   height: 2px;
 }
-/* Track */
-// ::-webkit-scrollbar-track {
-//   background: #8c878745;
-// }
-//
-// /* Handle */
-// ::-webkit-scrollbar-thumb {
-//   background: #8c8787;
-//
-// }
-//
-// /* Handle on hover */
-// ::-webkit-scrollbar-thumb:hover {
-//   background: #231704d9;
-// }
 
+.btn {
+  border-radius: 20px;
+}
 
 
 ul {
@@ -125,27 +58,14 @@ li {
   margin: 0 10px;
 }
 
-///////////////////
-//START CSS
 .titleSubContainer {
   text-align: center;
   font-size: 0.9rem;
 }
 
-.colorBackground {
-  // background-color: #20262b;
-}
 
 .subContainer {
   z-index: 2;
   padding: 5px;
   border: 1px solid rgba(30, 43, 55, 0.36);
-
-  // margin: 20px;
-  // margin-left: 30px;
-  // padding: 20px;
-  // box-shadow: 0px 0px 15px -3px rgba(0,0,0,0.75);
-  // border-radius: 15px;
-  // background-color: #20262b;
-
 }
