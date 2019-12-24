@@ -104,6 +104,8 @@
 </template>
 
 <script>
+import { mapMutations } from 'vuex';
+
 export default {
   data() {
     return {
@@ -130,6 +132,16 @@ export default {
     }
   },
   methods: {
+
+    createOrder() {
+      this.$store.dispatch("dom/createOrder", {
+        merkat: 'ingresar-valor-correspondiente',
+        number: 'ingresar-valor-correspondiente',
+        price: 'ingresar-valor-correspondiente',
+        money: 'ingresar-valor-correspondiente',
+        type: 'ingresar-valor-correspondiente'
+      })
+    },
     inputsDelet() {
       if(this.selectedMerkat && this.cantidad && this.precio) this.resetInputs()
     },

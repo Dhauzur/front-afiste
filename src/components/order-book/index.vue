@@ -51,12 +51,19 @@
 </template>
 
 <script>
+import { mapGetters } from 'vuex';
+
 import Axios from 'axios'
 export default {
   data() {
     return {
       orders: null
     }
+  },
+  computed: {
+    ...mapGetters({
+      ordersX: 'dom/orders',
+    })
   },
   created() {
     var preformat = require('./config-data.js')
