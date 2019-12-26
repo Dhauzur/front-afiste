@@ -59,6 +59,14 @@ export default {
     return {
       orders: null
     }
+
+    valoresPuto [
+      {
+        precio : '1',
+        valor : '2'
+     }
+    ]
+
   },
   computed: {
     ...mapGetters({
