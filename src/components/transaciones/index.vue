@@ -5,7 +5,7 @@
         <b-form-group>
           <b-form-radio-group
             id="btn-radios-2"
-            v-model="selected"
+            v-model="selectType"
             :options="options"
             buttons class="w-100 mt-2"
             button-variant="outline-primary"
@@ -18,17 +18,17 @@
     <b-row class="p-1">
       <b-col cols="3" >Mercado</b-col>
       <b-col cols= "12">
-        <b-form-select class="text-white" v-model="selectedMerkat" :options="optionsMerkats"></b-form-select>
+        <b-form-select class="text-white" v-model="selectMerkat" :options="optionsMerkats"></b-form-select>
       </b-col>
     </b-row>
     <b-row class="p-1 justify-content-center">
-      <b-col cols="8" >Cantidad </b-col>
+      <b-col cols="8" >number </b-col>
       <b-col cols= "8">
-        <b-form-input type="number" class="inputCustom text-white" v-model="cantidad" size="sm" placeholder=""></b-form-input>
+        <b-form-input type="number" class="inputCustom text-white" v-model="number" size="sm" placeholder=""></b-form-input>
       </b-col>
-      <b-col cols="8" >Precio </b-col>
+      <b-col cols="8" >price </b-col>
       <b-col cols= "8">
-        <b-form-input type="number" class="inputCustom text-white" v-model="precio" size="sm" placeholder=""></b-form-input>
+        <b-form-input type="number" class="inputCustom text-white" v-model="price" size="sm" placeholder=""></b-form-input>
       </b-col>
       <b-col cols= "8" class="mt-2">
         <span>TOTAL</span>
@@ -45,8 +45,8 @@
    <tr>
         <td>Tipo</td>
         <td>Mercado</td>
-        <td>Cantidad<td>
-        <td>Precio</td>
+        <td>number<td>
+        <td>price</td>
         <td>Total</td>
         <td>Cancelar</td>
   </tr>
@@ -71,8 +71,10 @@ import { mapMutations } from 'vuex';
 export default {
   data() {
     return {
-      cantidad: null,
-      precio: null,
+      number: null,
+      price: null,
+      selectMerkat: null,
+      selectType: null,
       options: [
         { text: 'Compra', value: 'COMPRA' },
         { text: 'Venta', value: 'VENTA' }
@@ -98,31 +100,31 @@ export default {
   },
   computed: {
     total() {
-      return this.cantidad * this.precio
+      return this.number * this.price
     },
   },
   methods: {
     createOrder()  {
-      if(this.selectedMerkat && this.cantidad && this.precio && this.selected){
+      if(this.selectMerkat && this.number && this.price && this.selectType){
         this.dataOrder.push({
-          type : this.selected,
-          merkat : this.selectedMerkat,
-          number : this.cantidad,
-          price : this.precio,
-          total : this.precio * this.cantidad
+          type: this.selectType,
+          merkat: this.selectMerkat,
+          number: this.number,
+          price: this.price,
+          total: this.price * this.number
         });
         this.$store.dispatch("dom/createOrder", {
+          type: this.selectType,
           merkat: this.selectMerkat,
-          number: this.cantidad,
-          price:  this.precio,
-          money:  'CLP',
-          type:   this.selected
+          number: this.number,
+          price: this.price,
+          money: 'CLP'
         })
       }
       this.selected = ''
-      this.selectedMerkat = ''
-      this.cantidad = ''
-      this.precio = ''
+      this.selectMerkat = ''
+      this.number = ''
+      this.price = ''
     },
     createOrderX() {
 
