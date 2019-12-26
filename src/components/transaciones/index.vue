@@ -40,32 +40,33 @@
     </b-row>
     <b-tabs  content-class="my-3 " justified >
       <b-tab title="Órdenes"  active>
-<table class="  table-border table-responsive tableTransacction ">
-<tbody class="borderStyle">
-   <tr>
-        <td>Tipo</td>
-        <td>Mercado</td>
-        <td>number<td>
-        <td>price</td>
-        <td>Total</td>
-        <td>Cancelar</td>
-  </tr>
-  <tr v-for = "(order, index) in dataOrder">
-      <td class="greenColor">{{order.type}}</td>
-      <td>{{order.merkat}}</td>
-      <td>{{order.number}}</td>
-      <td>{{order.price}}</td>
-      <td>{{order.total}}</td>
-      <button @click="removeOrder(index)">x</button>
-  </tr>
-</tbody>
-</table>
-    </b-tab>
+        <table class="  table-border table-responsive tableTransacction ">
+          <tbody class="borderStyle">
+            <tr>
+              <td>Tipo</td>
+              <td>Mercado</td>
+              <td>number<td>
+              <td>price</td>
+              <td>Total</td>
+              <td>Cancelar</td>
+            </tr>
+            <tr v-for = "(order, index) in dataOrder">
+              <td :class="{ greenColor: order.type == 'COMPRA', redColor: order.type == 'VENTA' }">{{order.type}}</td>
+              <td>{{order.merkat}}</td>
+              <td>{{order.number}}</td>
+              <td>{{order.price}}</td>
+              <td>{{order.total}}</td>
+              <button @click="removeOrder(index)">x</button>
+            </tr>
+          </tbody>
+        </table>
+      </b-tab>
       <b-tab title="Intercambios" ><p>I'm the first tab</p> </b-tab>
       <b-tab title="Posiciones"><p>I'm the first tab</p></b-tab>
     </b-tabs>
-</div>
+  </div>
 </template>
+
 <script>
 import { mapMutations } from 'vuex';
 export default {
