@@ -17,7 +17,7 @@
       </b-col>
     </b-row>
 
-    <b-row class="p-1">
+      <b-row class="p-1">
       <b-col cols="3" >Mercado</b-col>
       <b-col cols= "12">
         <b-form-select class="text-white" v-model="selectedMerkat" :options="optionsMerkats"></b-form-select>
@@ -42,7 +42,7 @@
 
 
     <b-row class="p-1 mb-2 mt-2">
-      <b-col cols="12" ><b-button block variant="outline-warning" @click="inputsDelet()" size="sm">Realizar orden</b-button></b-col>
+      <b-col cols="12" ><b-button block variant="outline-warning" @click="createOrder()" size="sm">Realizar orden</b-button></b-col>
     </b-row>
     <b-tabs  content-class="my-3 " justified >
       <b-tab title="Órdenes"  active>
@@ -51,51 +51,34 @@
 
 <tbody class="borderStyle">
 
-   <tr>
+   <tr >
         <td>Lado</td>
-        <td>Tipo</td>
+        <td>Mercado</td>
         <td>Cantidad<td>
         <td>Precio</td>
+        <td>Total</td>
         <td>Cancelar</td>
   </tr>
 
-  <tr>
-      <td class="greenColor">Comprar</td>
-      <td>Límite</td>
-      <td>48</td>
-      <td>6728</td>
-      <td>x</td>
+
+
+  <tr v-for = "(varComp, index) in dataOrder">
+
+      <td class="greenColor">{{varComp.Selected}}</td>
+      <td>{{varComp.SelectedMerkat}}</td>
+      <td>{{varComp.Cantidad}}</td>
+      <td>{{varComp.Precio}}</td>
+      <td>{{varComp.Total}}</td>
+      <button @click="removeOrder(index)">x</button>
   </tr>
 
-  <tr>
-      <td class="redColor">Vender</td>
-      <td>Límite</td>
-      <td>46</td>
-      <td>6528</td>
-      <td>x</td>
-  </tr>
 
-  <tr>
-      <td class="redColor">Vender</td>
-      <td>Límite</td>
-      <td>98</td>
-      <td>5728</td>
-      <td>x</td>
-  </tr>
-
-  <tr>
-      <td class="greenColor">Comprar</td>
-      <td>Límite</td>
-      <td>10</td>
-      <td>7728</td>
-      <td>x</td>
-  </tr>
 
 </tbody>
 </table>
 
       </b-tab>
-      <b-tab title="Intercambios" ><p>I'm the first tab</p></b-tab>
+      <b-tab title="Intercambios" ><p>I'm the first tab</p> </b-tab>
       <b-tab title="Posiciones"><p>I'm the first tab</p></b-tab>
     </b-tabs>
   </div>
@@ -107,7 +90,7 @@
 export default {
   data() {
     return {
-      selectedMerkat: null,
+
       cantidad: null,
       precio: null,
       options: [
@@ -115,28 +98,61 @@ export default {
         { text: 'Venta', value: 'VENTA' }
       ],
       optionsMerkats: [
-        { value: null, text: 'Selecione mercado'},
-        { value: 'UBR/CLP', text: 'UBR/CLP'},
+        { text: 'Selecione mercado',value: null},
+        { text: 'UBR/CLP', value: 'UBR/CLP' },
         { text: 'UBR/USD', value: 'UBR/USD' },
         { text: 'RPP/USD', value: 'RPP/USD' },
         { text: 'RPI/CLP', value: 'RPI/CLP' },
       ],
-      selectedMerkat: null,
+
+
+
+       dataOrder:
+       [
+
+          {
+            Selected :'VENTA',
+            SelectedMerkat :'UBR/CLP',
+            Cantidad :'100',
+            Precio :'200',
+            Total : '20000'
+          },
+
+
+
+       ]
     }
+
+
   },
   computed: {
     total() {
       return this.cantidad * this.precio
-    }
+    },
+
   },
   methods: {
-    inputsDelet() {
-      if(this.selectedMerkat && this.cantidad && this.precio) this.resetInputs()
+
+
+    createOrder: function()  {
+         this.dataOrder.push({
+         Selected : this.selected,
+         SelectedMerkat : this.selectedMerkat,
+         Cantidad : this.cantidad,
+         Precio : this.precio,
+         Total : this.total
+        });
+
+        this.selected = '',
+        this.selectedMerkat = '',
+        this.cantidad = '',
+        this.precio = '',
+        this.total = ''
+
     },
-    resetInputs() {
-      this.cantidad = null
-      this.precio = null
-      this.selectedMerkat = null
+    removeOrder: function(index) {
+        this.dataOrder.splice(index,1);
+
     }
   }
 }
