@@ -110,6 +110,9 @@ export default {
       divs: 'dom/divs',
     })
   },
+  mounted() {
+    this.$store.dispatch("dom/fetchOrders")
+  },
   methods: {
     ...mapMutations({
       changeDivs: 'dom/changeDivs',
