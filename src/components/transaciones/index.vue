@@ -22,11 +22,11 @@
       </b-col>
     </b-row>
     <b-row class="p-1 justify-content-center">
-      <b-col cols="8" >number </b-col>
+      <b-col cols="8" >Cantidad </b-col>
       <b-col cols= "8">
         <b-form-input type="number" class="inputCustom text-white" v-model="number" size="sm" placeholder=""></b-form-input>
       </b-col>
-      <b-col cols="8" >price </b-col>
+      <b-col cols="8" >Precio unitario </b-col>
       <b-col cols= "8">
         <b-form-input type="number" class="inputCustom text-white" v-model="price" size="sm" placeholder=""></b-form-input>
       </b-col>

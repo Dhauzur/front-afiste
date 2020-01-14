@@ -42,7 +42,7 @@
         <div class="iconCollapse" @click="toggleDivs('DeepPrice')">
           <v-icon name="minimize-2"/>
         </div>
-        <DeepPrice />
+        <DeepPrice v-if="reloadOrders"/>
       </div>
       <div v-if="divs.OrderBook" v-bind:style="width.OrderBook"  class="subContainer colorBackground">
         <div class="iconCollapse" @click="toggleDivs('OrderBook')">
@@ -108,6 +108,7 @@ export default {
   computed: {
     ...mapGetters({
       divs: 'dom/divs',
+      reloadOrders: 'dom/reloadOrders'
     })
   },
   mounted() {
