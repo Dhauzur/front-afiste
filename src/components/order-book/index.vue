@@ -14,8 +14,8 @@
         </thead>
         <tbody >
 
-          <tr v-for="(o, index) in ordersX" v-if="index > (ordersX.length/2) && index < (ordersX.length/2)+15"  >
-            <td class="greenColor">{{ orderPriceSell }}</td>
+          <tr v-for="(o, index) in orderPriceSell"   >
+            <td class="greenColor">{{ o }}</td>
             <td> {{ }} </td>
             <td> {{ }} </td>
 
