@@ -119,7 +119,8 @@ export default {
           merkat: this.selectMerkat,
           number: this.number,
           price: this.price,
-          money: 'CLP'
+          money: 'CLP',
+          total: this.price * this.number
         })
       }
       this.selected = ''

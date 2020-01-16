@@ -1,19 +1,24 @@
 <template lang="html">
   <div>
     <div class="tableOrder noScrollY mt-2">
+
       <table class="table  table-hover  mb-0">
+
         <thead>
           <tr>
             <th>Precio</th>
-            <th>Acciones</th>
-            <th></th>
+            <th>Volumen</th>
+            <th>Valor Total</th>
+
           </tr>
         </thead>
-        <tbody  >
-          <tr v-for="(o, index) in orders" v-if=" index <= (orders.length/2) && index < 15" :key="index">
-            <td class="greenColor">{{ o[0].toFixed(3) }}</td>
-            <td>{{ o[1].toFixed(3) }}</td>
-            <td>{{ o[1].toFixed(3) }}</td>
+        <tbody >
+
+          <tr v-for="(o, index) in ordersX" v-if="index > (ordersX.length/2) && index < (ordersX.length/2)+15"  >
+            <td class="greenColor">{{ orderPriceSell }}</td>
+            <td> {{ }} </td>
+            <td> {{ }} </td>
+
           </tr>
         </tbody>
       </table>
@@ -22,10 +27,12 @@
     <div class="tableOrder noScrollY mt-0" >
       <table class="table  table-hover">
         <tbody >
-          <tr v-for="(o, index) in orders" v-if="index > (orders.length/2) && index < (orders.length/2)+15">
-            <td class="redColor">{{ o[0].toFixed(3) }}</td>
-            <td>{{ o[0].toFixed(3) }}</td>
-            <td>{{ o[0].toFixed(3) }}</td>
+
+          <tr v-for="(o, index) in ordersX" v-if=" index > (ordersX.length/2) && index < (ordersX.length/2)+15"  >
+            <td class="redColor">{{ }}</td>
+            <td> {{ }} </td>
+            <td> {{ }} </td>
+
           </tr>
         </tbody>
       </table>
@@ -39,10 +46,11 @@
           </tr>
         </thead>
         <tbody >
-          <tr v-for="(o, index) in orders" v-if=" index < 15">
-            <td>{{ o[0].toFixed(3) }}</td>
-            <td>{{ o[1].toFixed(3) }}</td>
-            <td>{{ o[1].toFixed(3) }}</td>
+          <tr  v-for="(o, index) in ordersX" v-if="" >
+
+            <td>{{ }}</td>
+            <td>{{ }}</td>
+            <td>{{ }}</td>
           </tr>
         </tbody>
       </table>
@@ -60,18 +68,27 @@ export default {
       orders: null
     }
 
-    valoresPuto [
-      {
-        precio : '1',
-        valor : '2'
-     }
-    ]
+
+
 
   },
   computed: {
     ...mapGetters({
       ordersX: 'dom/orders',
-    })
+
+    }),
+
+    orderPriceSell()
+    {
+      var ordersSell = this.ordersX.filter((orders) => orders.type == 'VENTA');
+
+    {
+      return ordersSell.sort((ordersA, ordersB) => ordersA > ordersB);
+
+    }
+     console.log(orderPriceSell);
+}
+
   },
   created() {
     var preformat = require('./config-data.js')
@@ -79,11 +96,13 @@ export default {
     if(setInterval(() => {
       this.orders = this.orders.sort(() => Math.random() - 0.5);
     }, 9000) > 200) location.reload()
+
   },
   methods: {
     shuffle() {
+    },
 
-    }
+
   }
 }
 </script>

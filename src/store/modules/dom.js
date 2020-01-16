@@ -10,6 +10,7 @@ const state = {
     Tradding: true
   },
   orders: []
+
 };
 
 const getters = {
