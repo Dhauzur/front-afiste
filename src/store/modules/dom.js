@@ -3,6 +3,7 @@ import Axios from "axios"
 import { api } from "@/utils/config"
 
 const state = {
+  reloadOrders: false,
   divs: {
     OrderBook: true,
     DeepPrice: true,
@@ -14,17 +15,35 @@ const state = {
 };
 
 const getters = {
+  reloadOrders: state => state.reloadOrders,
   divs: state => state.divs,
   orders: state => state.orders,
+  ordersSell: state => {
+    var deepValues = []
+    state.orders.forEach((order) => {
+      if(order.type == 'VENTA') deepValues.push([order.price, order.number])
+    })
+    return deepValues
+  },
+  ordersBuy: state => {
+    var deepValues = []
+    state.orders.forEach((order) => {
+      if(order.type == 'COMPRA') deepValues.push([order.price, order.number])
+    })
+    return deepValues
+  },
 };
 
 const actions = {
   async fetchOrders({ commit }, value) {
+    commit('setReloadOrders', false)
     return Axios.get(api + "/orders")
     .then(response => {
       commit('setOrders', response.data.orders)
       console.log("Ordenes obtenidas: " + response.data.length);
       console.log(response.data.orders);
+      commit('setReloadOrders', true)
+
     })
     .catch(error => {
       commit('setOrders', [])
@@ -32,11 +51,12 @@ const actions = {
     })
   },
 
-  async createOrder({ commit }, value) {
+  async createOrder({ commit, dispatch }, value) {
     return Axios.post(api + "/order", value)
     .then(response => {
       console.log("Order creada (Sin validaciones)");
       console.log(response.data.orden);
+      dispatch('fetchOrders')
     })
     .catch(error => {
       console.log(error)
@@ -45,6 +65,9 @@ const actions = {
 };
 
 const mutations = {
+  setReloadOrders(state, val) {
+    state.reloadOrders = val
+  },
   changeDivs(state, val) {
     state.divs = val
   },
