@@ -14,10 +14,10 @@
         </thead>
         <tbody >
 
-          <tr v-for="(o, index) in orderPriceSell"   >
-            <td class="greenColor">{{ o }}</td>
-            <td> {{ }} </td>
-            <td> {{ }} </td>
+          <tr v-for="(o, index) in orderPriceSell" :key='index' >
+            <td class="greenColor">{{o.price}}</td>
+            <td> {{o.number}} </td>
+            <td> {{o.price * o.number }} </td>
 
           </tr>
         </tbody>
@@ -28,10 +28,10 @@
       <table class="table  table-hover">
         <tbody >
 
-          <tr v-for="(o, index) in ordersX" v-if=" index > (ordersX.length/2) && index < (ordersX.length/2)+15"  >
-            <td class="redColor">{{ }}</td>
-            <td> {{ }} </td>
-            <td> {{ }} </td>
+          <tr v-for="(o, index) in orderPriceBuy" :key ='index' >
+            <td class="redColor">{{o.price}}</td>
+            <td> {{o.number}} </td>
+            <td> {{o.price * o.number}} </td>
 
           </tr>
         </tbody>
@@ -46,11 +46,11 @@
           </tr>
         </thead>
         <tbody >
-          <tr  v-for="(o, index) in ordersX" v-if="" >
+          <tr  v-for="(o, index) in orderDateCreate" >
 
-            <td>{{ }}</td>
-            <td>{{ }}</td>
-            <td>{{ }}</td>
+            <td>{{o.price }}</td>
+            <td>{{o.number }}</td>
+            <td>{{o.dateCreate }}</td>
           </tr>
         </tbody>
       </table>
@@ -78,16 +78,20 @@ export default {
 
     }),
 
-    orderPriceSell()
-    {
-      var ordersSell = this.ordersX.filter((orders) => orders.type == 'VENTA');
+  orderPriceSell() {
+    var ordersSell = this.ordersX.filter((orders) => orders.type == 'VENTA')
+    return ordersSell.sort((A, B) => {console.log(A); return A.price - B.price});
+  },
 
-    {
-      return ordersSell.sort((ordersA, ordersB) => ordersA > ordersB);
+  orderPriceBuy() {
+    var ordersBuy = this.ordersX.filter((orders) => orders.type == 'COMPRA')
+    return ordersBuy.sort((A, B) => {console.log(A); return B.price - A.price});
+  },
 
-    }
-     console.log(orderPriceSell);
-}
+  orderDateCreate() {
+    var ordersDate = this.ordersX;
+    return ordersDate.sort((A, B) =>  B.dateCreate - A.dateCreate);
+  }
 
   },
   created() {
