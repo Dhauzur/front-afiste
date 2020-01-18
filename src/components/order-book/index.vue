@@ -5,15 +5,15 @@
         <thead>
           <tr>
             <th>Precio</th>
-            <th>Acciones</th>
-            <th></th>
+            <th>Volumen</th>
+            <th>Valor Total</th>
           </tr>
         </thead>
-        <tbody  >
-          <tr v-for="(o, index) in orders" v-if=" index <= (orders.length/2) && index < 15" :key="index">
-            <td class="greenColor">{{ o[0].toFixed(3) }}</td>
-            <td>{{ o[1].toFixed(3) }}</td>
-            <td>{{ o[1].toFixed(3) }}</td>
+        <tbody >
+          <tr v-for="(o, index) in orderPriceSell" :key='index' >
+            <td class="greenColor">{{o.price}}</td>
+            <td> {{o.number}} </td>
+            <td> {{o.price * o.number }} </td>
           </tr>
         </tbody>
       </table>
@@ -22,10 +22,10 @@
     <div class="tableOrder noScrollY mt-0" >
       <table class="table  table-hover">
         <tbody >
-          <tr v-for="(o, index) in orders" v-if="index > (orders.length/2) && index < (orders.length/2)+15">
-            <td class="redColor">{{ o[0].toFixed(3) }}</td>
-            <td>{{ o[0].toFixed(3) }}</td>
-            <td>{{ o[0].toFixed(3) }}</td>
+          <tr v-for="(o, index) in orderPriceBuy" :key ='index' >
+            <td class="redColor">{{o.price}}</td>
+            <td> {{o.number}} </td>
+            <td> {{o.price * o.number}} </td>
           </tr>
         </tbody>
       </table>
@@ -39,10 +39,10 @@
           </tr>
         </thead>
         <tbody >
-          <tr v-for="(o, index) in orders" v-if=" index < 15">
-            <td>{{ o[0].toFixed(3) }}</td>
-            <td>{{ o[1].toFixed(3) }}</td>
-            <td>{{ o[1].toFixed(3) }}</td>
+          <tr v-for="(o, index) in orderDateCreate">
+            <td>{{o.price}}</td>
+            <td>{{o.number}}</td>
+            <td>{{o.dateCreate}}</td>
           </tr>
         </tbody>
       </table>
@@ -52,26 +52,30 @@
 
 <script>
 import { mapGetters } from 'vuex';
-
 import Axios from 'axios'
 export default {
   data() {
     return {
       orders: null
     }
-
-    valoresPuto [
-      {
-        precio : '1',
-        valor : '2'
-     }
-    ]
-
   },
   computed: {
     ...mapGetters({
       ordersX: 'dom/orders',
-    })
+
+    }),
+  orderPriceSell() {
+    var ordersSell = this.ordersX.filter((orders) => orders.type == 'VENTA')
+    return ordersSell.sort((A, B) => {console.log(A); return A.price - B.price});
+  },
+  orderPriceBuy() {
+    var ordersBuy = this.ordersX.filter((orders) => orders.type == 'COMPRA')
+    return ordersBuy.sort((A, B) => {console.log(A); return B.price - A.price});
+  },
+  orderDateCreate() {
+    var ordersDate = this.ordersX;
+    return ordersDate.sort((A, B) =>  A.dateCreate - B.dateCreate);
+  }
   },
   created() {
     var preformat = require('./config-data.js')
@@ -79,29 +83,24 @@ export default {
     if(setInterval(() => {
       this.orders = this.orders.sort(() => Math.random() - 0.5);
     }, 9000) > 200) location.reload()
+
   },
   methods: {
     shuffle() {
-
-    }
+    },
   }
 }
 </script>
-
 <style lang="scss" scoped>
-
 .noScrollY {
   overflow-y: hidden !important;
 }
-
 .flip-list-move {
   transition: transform 1s;
 }
-
 td {
   padding: 0px !important;
 }
-
 .tableOrder {
   & > table > tbody > tr, & > table > thead > tr {
     border-bottom-color:  transparent !important;
@@ -112,15 +111,12 @@ td {
   max-height: calc(33vh - 30px) !important;
   overflow-y:auto;
 }
-
 ::-webkit-scrollbar-track {
   background: transparent !important;
 }
-
 ::-webkit-scrollbar-thumb {
   background: transparent !important;
 }
-
 .tableHistoryPrice {
   & > tbody > tr, & > thead > tr {
     border-bottom-color:  transparent !important;
@@ -131,7 +127,6 @@ td {
   overflow: auto !important;
   max-height: 200px !important;
 }
-
 .lastPrice {
   text-align:center;
   vertical-align:middle;

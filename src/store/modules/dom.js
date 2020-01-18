@@ -1,6 +1,7 @@
 // import { setupApiInstance, getApiInstance, setAccessToken } from 'utils/api';
 import Axios from "axios"
 import { api } from "@/utils/config"
+import moment from 'moment'
 
 const state = {
   reloadOrders: false,
@@ -11,12 +12,20 @@ const state = {
     Tradding: true
   },
   orders: []
+
 };
 
 const getters = {
   reloadOrders: state => state.reloadOrders,
   divs: state => state.divs,
-  orders: state => state.orders,
+  orders: state => {
+    console.log("ORDER");
+    if(state.orders) state.orders.forEach((o) => {
+      o.dateCreate = moment(o.dateCreate).format('YYYY-MM-DD hh:mm')
+    })
+    console.log(state.orders);
+    return state.orders
+  },
   ordersSell: state => {
     var deepValues = []
     state.orders.forEach((order) => {
